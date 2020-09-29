@@ -1,14 +1,11 @@
 import React from 'react';
-import {css} from 'emotion';
+import {FormComponent} from './components/FormComponent/FormComponent';
 
 export const App = () => {
     return (
-        <header className={header}>
-            <h3>Good luck in developing Dragons Investments app!</h3>
+        <header>
+            <h3>Dragons Investments app!</h3>
+            <FormComponent onSubmit={() => {}} />
         </header>
     );
 };
-
-const header = css({
-    color: '#1a1a1a',
-});
