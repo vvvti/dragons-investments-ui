@@ -21,7 +21,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
         >
             {({values, handleChange, handleBlur}) => (
                 <Form>
-                    <h3>How much do you have currently saved?</h3>
+                    <div>How much do you have currently saved?</div>
                     <DiscreteSlider />
                     <Field
                         name="initialValue"
