@@ -7,11 +7,9 @@ export const App = () => {
     return (
         <>
             <Navbar />
-            <main>
-                <Container title="Calculator">
-                    <FormComponent onSubmit={() => {}} />
-                </Container>
-            </main>
+            <Container title="Calculator">
+                <FormComponent onSubmit={() => {}} />
+            </Container>
         </>
     );
 };
