@@ -2,14 +2,9 @@ import React from 'react';
 import {StyledContainer} from './Container.styled';
 
 interface ContainerProps {
-    title: string;
+    title?: string;
 }
 
-export const Container: React.FC<ContainerProps> = ({children, title}) => {
-    return (
-        <StyledContainer>
-            <h1>{title}</h1>
-            {children}
-        </StyledContainer>
-    );
+export const Container: React.FC<ContainerProps> = ({children}) => {
+    return <StyledContainer>{children}</StyledContainer>;
 };
