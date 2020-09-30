@@ -1,6 +1,7 @@
-import {Field, Form, Formik} from 'formik';
+import {Field, Formik} from 'formik';
 import React from 'react';
 import {FieldElement} from './fieldElement/FieldElement';
+import {StyledForm} from './Form.styled';
 import DiscreteSlider from './slider/Slider';
 
 interface Values {
@@ -20,7 +21,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
             }}
         >
             {({values, handleChange, handleBlur}) => (
-                <Form>
+                <StyledForm>
                     <div>How much do you have currently saved?</div>
                     <DiscreteSlider />
                     <Field
@@ -31,7 +32,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                         component={FieldElement}
                     />
                     <pre>{JSON.stringify(values, null, 2)}</pre>
-                </Form>
+                </StyledForm>
             )}
         </Formik>
     );

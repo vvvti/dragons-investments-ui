@@ -1,17 +1,11 @@
 import React from 'react';
+import {LoginButton, Logo, StyledNavbar} from './Navbar.styled';
 
 export const Navbar = () => {
     return (
-        <nav>
-            <div>
-                <span>
-                    Dragons Investments
-                    <span role={'img'} aria-label={'emoji'}>
-                        💻
-                    </span>
-                </span>
-            </div>
-            <button>Login</button>
-        </nav>
+        <StyledNavbar>
+            <Logo>Dragons Investments</Logo>
+            <LoginButton>Login</LoginButton>
+        </StyledNavbar>
     );
 };
