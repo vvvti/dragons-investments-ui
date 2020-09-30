@@ -1,11 +1,13 @@
 import React from 'react';
-import {FormComponent} from './components/Form/Form';
+import {Container} from './components/container/Container';
+import {FormComponent} from './components/form/Form';
 
 export const App = () => {
     return (
         <header>
-            <h3>Dragons Investments</h3>
-            <FormComponent onSubmit={() => {}} />
+            <Container title="Calculator">
+                <FormComponent onSubmit={() => {}} />
+            </Container>
         </header>
     );
 };
