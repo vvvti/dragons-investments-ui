@@ -1,8 +1,8 @@
 import {Field, Formik} from 'formik';
 import React from 'react';
-import {FieldElement} from './fieldElement/FieldElement';
+import {FieldElement} from './FieldElement/FieldElement';
 import {StyledForm} from './Form.styled';
-import DiscreteSlider from './slider/Slider';
+import DiscreteSlider from './Slider/Slider';
 
 interface Values {
     initialValue: number;
