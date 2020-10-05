@@ -1,8 +1,17 @@
-import {TextField} from '@material-ui/core';
 import {FieldProps} from 'formik';
 import {TextFieldProps} from 'material-ui';
 import React from 'react';
+import {StyledInput} from './FieldElement.styled';
 
-export const FieldElement: React.FC<FieldProps & TextFieldProps> = ({field}) => {
-    return <TextField id="outlined-basic" label="USD" variant="outlined" {...field} />;
+interface LabelProps {
+    label: string;
+}
+
+export const FieldElement: React.FC<FieldProps & TextFieldProps & LabelProps> = ({field, label}) => {
+    return (
+        <div>
+            <StyledInput {...field} />
+            {label}
+        </div>
+    );
 };
