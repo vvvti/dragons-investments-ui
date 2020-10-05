@@ -12,6 +12,7 @@ export const StyledNavbar = styled.nav`
 export const Logo = styled.div`
     text-transform: uppercase;
     margin: 0 30px;
+    font-size: 30px;
 `;
 
 export const LoginButton = styled.button`
