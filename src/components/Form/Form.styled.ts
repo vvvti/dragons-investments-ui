@@ -2,11 +2,11 @@ import {Form} from 'formik';
 import styled from 'styled-components';
 
 export const StyledForm = styled(Form)`
-    flex-basis: 90%;
     display: flex;
-    flex-direction: column;
+    margin: 50px auto;
+    padding: 50px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 90%;
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 0%);
