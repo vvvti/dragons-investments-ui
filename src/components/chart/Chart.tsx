@@ -1,39 +1,26 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
 import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
-
-interface IProps {
-    // data: {
-    //     name: string;
-    //     uv: number;
-    //     pv: number;
-    //     amt: number;
-    // }[];
-}
-
-interface Props {
-    initialValue: number;
-    monthlySaving: number;
-    savingPeriod: number;
-    annualProfit: number;
-}
+import {Values} from '../form/Form.types';
 
 export const Chart = () => {
-    const formik = useFormikContext<Props>();
-    const dataFormik = formik.values;
-    console.log(dataFormik.initialValue, dataFormik.monthlySaving, dataFormik.savingPeriod, dataFormik.annualProfit);
+    const formik = useFormikContext<Values>();
+    const initialValueChart = formik.values.initialValue;
+    const monthlySavingChart = formik.values.monthlySaving;
+    const savingPeriodChart = formik.values.savingPeriod;
+    const annualProfitChart = formik.values.annualProfit;
 
-    //Random formulas for calculating uv and pv
+    //Random formulas for calculating start and end value
     const data = [
         {
-            name: 'estimated profit',
-            iv: dataFormik.initialValue,
-            ep: dataFormik.initialValue,
+            name: 'start value',
+            iv: initialValueChart,
+            ep: initialValueChart,
         },
         {
-            name: 'investment value',
-            iv: dataFormik.savingPeriod * dataFormik.initialValue,
-            ep: dataFormik.savingPeriod * dataFormik.initialValue * dataFormik.annualProfit,
+            name: 'end value',
+            iv: initialValueChart * annualProfitChart,
+            ep: monthlySavingChart * savingPeriodChart,
         },
     ];
     return (
@@ -49,7 +36,7 @@ export const Chart = () => {
             }}
         >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey={dataFormik.savingPeriod} />
+            <XAxis dataKey={savingPeriodChart} />
             <YAxis />
             <Tooltip />
             <Legend />
