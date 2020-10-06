@@ -1,17 +1,16 @@
 import {FieldProps} from 'formik';
-import {TextFieldProps} from 'material-ui';
 import React from 'react';
 import {StyledInput} from './FieldElement.styled';
 
-interface LabelProps {
-    label: string;
+interface IProps extends FieldProps {
+    unit: string;
 }
 
-export const FieldElement: React.FC<FieldProps & TextFieldProps & LabelProps> = ({field, label}) => {
+export const FieldElement: React.FC<IProps> = ({field, unit}) => {
     return (
-        <div>
-            <StyledInput {...field} />
-            {label}
-        </div>
+        <label htmlFor="styledInput">
+            <StyledInput id="styledInput" {...field} />
+            {unit}
+        </label>
     );
 };
