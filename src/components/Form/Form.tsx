@@ -2,14 +2,8 @@ import {Field, Formik} from 'formik';
 import React from 'react';
 import {FieldElement} from './fieldElement/FieldElement';
 import {FormContainer, StyledForm, StyledInputWrapper} from './Form.styled';
+import {Values} from './Form.types';
 import Slider from './slider/Slider';
-
-interface Values {
-    initialValue: number;
-    monthlySaving: number;
-    savingPeriod: number;
-    annualProfit: number;
-}
 
 interface FormProps {
     onSubmit: (values: Values) => void;
