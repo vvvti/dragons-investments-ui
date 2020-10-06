@@ -3,14 +3,8 @@ import React from 'react';
 import {Chart} from '../chart/Chart';
 import {FieldElement} from './fieldElement/FieldElement';
 import {FormContainer, StyledForm, StyledInput} from './Form.styled';
+import {Values} from './Form.types';
 import Slider from './slider/Slider';
-
-interface Values {
-    initialValue: number;
-    monthlySaving: number;
-    savingPeriod: number;
-    annualProfit: number;
-}
 
 interface FormProps {
     onSubmit: (values: Values) => void;
