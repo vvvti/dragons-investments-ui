@@ -47,7 +47,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                             </StyledInput>
                         </FormContainer>
                         <FormContainer>
-                            <h2>What is your expected annual profil?</h2>
+                            <h2>What is your expected annual profit?</h2>
                             <StyledInput>
                                 <Slider />
                                 <Field name="annualProfit" value={values.annualProfit} component={FieldElement} label="%" />

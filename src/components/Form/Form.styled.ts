@@ -5,9 +5,8 @@ export const StyledForm = styled(Form)`
     display: flex;
     margin: 50px auto;
     padding: 50px;
-    /* flex-direction: column; */
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 90%;
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 0%);

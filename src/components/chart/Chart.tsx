@@ -1,6 +1,6 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
-import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
+import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
 import {Values} from '../form/Form.types';
 
 export const Chart = () => {
@@ -11,16 +11,17 @@ export const Chart = () => {
     const annualProfitChart = formik.values.annualProfit;
 
     //Random formulas for calculating start and end value
+
     const data = [
         {
-            name: 'start value',
-            iv: initialValueChart,
-            ep: initialValueChart,
+            name: 'Start',
+            initialResult: initialValueChart,
+            endResult: initialValueChart,
         },
         {
-            name: 'end value',
-            iv: initialValueChart * annualProfitChart,
-            ep: monthlySavingChart * savingPeriodChart,
+            name: 'Final Result',
+            initialResult: initialValueChart * annualProfitChart,
+            endResult: monthlySavingChart * savingPeriodChart,
         },
     ];
     return (
@@ -36,12 +37,11 @@ export const Chart = () => {
             }}
         >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey={savingPeriodChart} />
+            <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="iv" stroke="#8884d8" activeDot={{r: 8}} />
-            <Line type="monotone" dataKey="ep" stroke="#82ca9d" />
+            <Line type="monotone" dataKey="initialResult" stroke="#8884d8" activeDot={{r: 8}} />
+            <Line type="monotone" dataKey="endResult" stroke="#82ca9d" />
         </LineChart>
     );
 };
