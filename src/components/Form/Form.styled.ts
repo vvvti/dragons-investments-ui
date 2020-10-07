@@ -6,8 +6,10 @@ export const StyledForm = styled(Form)`
     margin: 50px auto;
     padding: 50px;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
+    justify-content: space-around;
+    flex-shrink: 0;
+    max-width: 80%;
+    min-width: 1000px;
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 0%);
     border: 2px solid hsl(0, 0%, 100%);
@@ -31,4 +33,9 @@ export const FormContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     min-width: 500px;
+`;
+
+export const StyledResults = styled.div`
+    text-align: center;
+    padding: 20px;
 `;
