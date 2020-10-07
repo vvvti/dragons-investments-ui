@@ -1,11 +1,12 @@
 import {Field, Formik} from 'formik';
 import React from 'react';
 import {Chart} from '../Chart/Chart';
+import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults} from './Form.styled';
 import {Values} from './Form.types';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
-import Slider from './Slider/Slider';
+import {DiscreteSlider} from './Slider/Slider';
 
 interface FormProps {
     onSubmit: (values: Values) => void;
@@ -22,35 +23,35 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
             {({values}) => (
                 <StyledForm>
                     <StyledResults>
-                        <pre>{JSON.stringify(values, null, 2)}</pre>
+                        <Results />
                         <Chart />
                     </StyledResults>
                     <div>
                         <FormContainer>
                             <h2>How much do you have currently saved?</h2>
                             <StyledInputWrapper>
-                                <Slider />
+                                <DiscreteSlider />
                                 <Field name="initialValue" value={values.initialValue} component={FieldElement} unit="USD" />
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
-                            <h2>How much do you want to save?</h2>
+                            <h2>How much do you want to save monthly?</h2>
                             <StyledInputWrapper>
-                                <Slider />
+                                <DiscreteSlider />
                                 <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit="USD" />
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
                             <h2>How long do you plan to invest?</h2>
                             <StyledInputWrapper>
-                                <Slider />
+                                <DiscreteSlider />
                                 <Field name="savingPeriod" value={values.savingPeriod} component={FieldElement} unit="Years" />
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
                             <h2>What is your expected annual profit?</h2>
                             <StyledInputWrapper>
-                                <Slider />
+                                <DiscreteSlider />
                                 <Field name="annualProfit" value={values.annualProfit} component={FieldElement} unit="%" />
                             </StyledInputWrapper>
                         </FormContainer>
