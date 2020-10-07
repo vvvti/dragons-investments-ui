@@ -1,11 +1,12 @@
 import React from 'react';
-import {LoginButton, Logo, StyledNavbar} from './Navbar.styled';
+import dragonImage from '../../assets/dragon-eye.png';
+import {Logo, StyledNavbar, StyledTitle} from './Navbar.styled';
 
 export const Navbar = () => {
     return (
         <StyledNavbar>
-            <Logo>Dragons Investments</Logo>
-            <LoginButton>Login</LoginButton>
+            <StyledTitle>Dragons Investments</StyledTitle>
+            <Logo src={dragonImage} alt="Logo" />
         </StyledNavbar>
     );
 };

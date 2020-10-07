@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormComponent} from './components/Form/Form';
+import {StyledFormComponent} from './App.styles';
 import {Navbar} from './components/Navbar/Navbar';
 import {GlobalStyle} from './styles/GlobalStyles';
 
@@ -8,7 +8,7 @@ export const App = () => {
         <>
             <GlobalStyle />
             <Navbar />
-            <FormComponent onSubmit={() => {}} />
+            <StyledFormComponent onSubmit={() => {}} />
         </>
     );
 };

@@ -2,7 +2,7 @@ import {Field, Formik} from 'formik';
 import React from 'react';
 import {Chart} from '../Chart/Chart';
 import {FieldElement} from './FieldElement/FieldElement';
-import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper} from './Form.styled';
+import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults} from './Form.styled';
 import {Values} from './Form.types';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 import Slider from './Slider/Slider';
@@ -21,10 +21,10 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
         >
             {({values}) => (
                 <StyledForm>
-                    <div>
+                    <StyledResults>
                         <pre>{JSON.stringify(values, null, 2)}</pre>
                         <Chart />
-                    </div>
+                    </StyledResults>
                     <div>
                         <FormContainer>
                             <h2>How much do you have currently saved?</h2>
@@ -34,7 +34,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
-                            <h2>How much do you want to save monthly?</h2>
+                            <h2>How much do you want to save?</h2>
                             <StyledInputWrapper>
                                 <Slider />
                                 <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit="USD" />
