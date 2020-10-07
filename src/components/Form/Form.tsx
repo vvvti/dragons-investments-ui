@@ -2,8 +2,9 @@ import {Field, Formik} from 'formik';
 import React from 'react';
 import {Chart} from '../chart/Chart';
 import {FieldElement} from './fieldElement/FieldElement';
-import {FormContainer, StyledForm, StyledInputWrapper} from './Form.styled';
+import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper} from './Form.styled';
 import {Values} from './Form.types';
+import {FrequencyRadio} from './radio/FrequencyRadio';
 import Slider from './slider/Slider';
 
 interface FormProps {
@@ -13,7 +14,7 @@ interface FormProps {
 export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
     return (
         <Formik
-            initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7}}
+            initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: ''}}
             onSubmit={values => {
                 onSubmit(values);
             }}
@@ -51,6 +52,17 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                             <StyledInputWrapper>
                                 <Slider />
                                 <Field name="annualProfit" value={values.annualProfit} component={FieldElement} unit="%" />
+                            </StyledInputWrapper>
+                        </FormContainer>
+                        <FormContainer>
+                            <h2>Frequency Payment:</h2>
+                            <StyledInputWrapper>
+                                <RadioGroup>
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="1" label="month" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="3" label="quater" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="6" label="half-year" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="12" label="year" />
+                                </RadioGroup>
                             </StyledInputWrapper>
                         </FormContainer>
                     </div>
