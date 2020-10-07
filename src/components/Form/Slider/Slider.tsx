@@ -36,7 +36,7 @@ function valuetext(value: number) {
     return `${value}$`;
 }
 
-export default function DiscreteSlider() {
+export const DiscreteSlider = () => {
     const classes = useStyles();
 
     return (
@@ -51,4 +51,4 @@ export default function DiscreteSlider() {
             />
         </div>
     );
-}
+};
