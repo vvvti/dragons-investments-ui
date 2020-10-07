@@ -1,7 +1,7 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
 import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
-import {Values} from '../form/Form.types';
+import {Values} from '../Form/Form.types';
 
 export const Chart = () => {
     const formik = useFormikContext<Values>();
