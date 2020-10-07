@@ -3,21 +3,21 @@ import React from 'react';
 import {Values} from '../Form/Form.types';
 
 export const Results = () => {
-    const formik = useFormikContext<Values>();
-    const values = formik.values;
+    const formik = useFormikContext<Values>().values;
+
     return (
         <div>
             <div>
                 <h2>Final value of the investment</h2>
-                <p>{values.initialValue} USD</p>
+                <p>{formik.initialValue} USD</p>
             </div>
             <div>
                 <h2>Estimated profit</h2>
-                <p>{values.monthlySaving} USD</p>
+                <p>{formik.monthlySaving} USD</p>
             </div>
             <div>
                 <h2>Deposit value</h2>
-                <p>{values.initialValue * values.annualProfit} USD</p>
+                <p>{formik.initialValue * formik.annualProfit} USD</p>
             </div>
         </div>
     );
