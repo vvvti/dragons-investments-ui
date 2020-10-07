@@ -1,6 +1,6 @@
 import React from 'react';
-import {FormComponent} from './components/form/Form';
-import {Navbar} from './components/navbar/Navbar';
+import {FormComponent} from './components/Form/Form';
+import {Navbar} from './components/Navbar/Navbar';
 import {GlobalStyle} from './styles/GlobalStyles';
 
 export const App = () => {

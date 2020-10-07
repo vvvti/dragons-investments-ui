@@ -1,11 +1,11 @@
 import {Field, Formik} from 'formik';
 import React from 'react';
-import {Chart} from '../chart/Chart';
-import {FieldElement} from './fieldElement/FieldElement';
+import {Chart} from '../Chart/Chart';
+import {FieldElement} from './FieldElement/FieldElement';
 import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper} from './Form.styled';
 import {Values} from './Form.types';
-import {FrequencyRadio} from './radio/FrequencyRadio';
-import Slider from './slider/Slider';
+import {FrequencyRadio} from './Radio/FrequencyRadio';
+import Slider from './Slider/Slider';
 
 interface FormProps {
     onSubmit: (values: Values) => void;
