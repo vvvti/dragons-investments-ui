@@ -1,24 +1,25 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
 import {Values} from '../Form/Form.types';
+import {MainResult, ResultWrapper, StyledResult, StyledTitle} from './Result.styled';
 
 export const Results = () => {
     const formik = useFormikContext<Values>().values;
 
     return (
-        <div>
+        <ResultWrapper>
             <div>
-                <h2>Final value of the investment</h2>
-                <p>{formik.initialValue} USD</p>
+                <StyledTitle>Final value of the investment</StyledTitle>
+                <MainResult>{formik.initialValue} USD</MainResult>
             </div>
             <div>
-                <h2>Estimated profit</h2>
-                <p>{formik.monthlySaving} USD</p>
+                <StyledTitle>Estimated profit</StyledTitle>
+                <StyledResult>{formik.monthlySaving} USD</StyledResult>
             </div>
             <div>
-                <h2>Deposit value</h2>
-                <p>{formik.initialValue * formik.annualProfit} USD</p>
+                <StyledTitle>Deposit value</StyledTitle>
+                <StyledResult>{formik.initialValue * formik.annualProfit} USD</StyledResult>
             </div>
-        </div>
+        </ResultWrapper>
     );
 };
