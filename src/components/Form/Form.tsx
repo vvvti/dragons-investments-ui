@@ -9,6 +9,7 @@ import {FrequencyRadio} from './Radio/FrequencyRadio';
 import {DiscreteSlider} from './Slider/Slider';
 import InitialSlider from './Slider/InitialSlider';
 import MonthlySlider from './Slider/MonthlySlider';
+import DurationSlider from './Slider/DurationSlider';
 
 interface FormProps {
     onSubmit: (values: Values) => void;
@@ -46,7 +47,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                         <FormContainer>
                             <h2>How long do you plan to invest?</h2>
                             <StyledInputWrapper>
-                                <DiscreteSlider />
+                                <DurationSlider />
                                 <Field name="savingPeriod" value={values.savingPeriod} component={FieldElement} unit="Years" />
                             </StyledInputWrapper>
                         </FormContainer>
