@@ -6,10 +6,10 @@ import {FieldElement} from './FieldElement/FieldElement';
 import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults} from './Form.styled';
 import {Values} from './Form.types';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
-import {DiscreteSlider} from './Slider/Slider';
 import InitialSlider from './Slider/InitialSlider';
 import MonthlySlider from './Slider/MonthlySlider';
 import DurationSlider from './Slider/DurationSlider';
+import RateSlider from './Slider/RateSlider';
 
 interface FormProps {
     onSubmit: (values: Values) => void;
@@ -54,7 +54,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                         <FormContainer>
                             <h2>What is your expected annual profit?</h2>
                             <StyledInputWrapper>
-                                <DiscreteSlider />
+                                <RateSlider />
                                 <Field name="annualProfit" value={values.annualProfit} component={FieldElement} unit="%" />
                             </StyledInputWrapper>
                         </FormContainer>
