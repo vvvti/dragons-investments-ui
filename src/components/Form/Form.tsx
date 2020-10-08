@@ -7,6 +7,7 @@ import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults
 import {Values} from './Form.types';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 import {DiscreteSlider} from './Slider/Slider';
+import InitialSlider from './Slider/InitialSlider';
 
 interface FormProps {
     onSubmit: (values: Values) => void;
@@ -30,7 +31,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                         <FormContainer>
                             <h2>How much do you have currently saved?</h2>
                             <StyledInputWrapper>
-                                <DiscreteSlider />
+                                <InitialSlider />
                                 <Field name="initialValue" value={values.initialValue} component={FieldElement} unit="USD" />
                             </StyledInputWrapper>
                         </FormContainer>
