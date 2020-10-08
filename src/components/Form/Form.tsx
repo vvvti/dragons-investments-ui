@@ -8,6 +8,7 @@ import {Values} from './Form.types';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 import {DiscreteSlider} from './Slider/Slider';
 import InitialSlider from './Slider/InitialSlider';
+import MonthlySlider from './Slider/MonthlySlider';
 
 interface FormProps {
     onSubmit: (values: Values) => void;
@@ -38,7 +39,7 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                         <FormContainer>
                             <h2>How much do you want to save monthly?</h2>
                             <StyledInputWrapper>
-                                <DiscreteSlider />
+                                <MonthlySlider />
                                 <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit="USD" />
                             </StyledInputWrapper>
                         </FormContainer>
