@@ -2,6 +2,8 @@ import Slider from '@material-ui/core/Slider';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import React from 'react';
 
+import {valueText} from './Slider.helpers';
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -44,18 +46,14 @@ const marks = [
     },
 ];
 
-function valuetext(value: number) {
-    return `${value}$`;
-}
-
-export default function RateSlider() {
+export const RateSlider: React.FC = () => {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             <Slider
                 defaultValue={70}
-                getAriaValueText={valuetext}
+                getAriaValueText={valueText}
                 aria-labelledby="discrete-slider-custom"
                 step={1}
                 valueLabelDisplay="auto"
@@ -63,4 +61,5 @@ export default function RateSlider() {
             />
         </div>
     );
-}
+};
+export default RateSlider;

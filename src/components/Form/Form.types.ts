@@ -4,3 +4,6 @@ export interface Values {
     savingPeriod: number;
     annualProfit: number;
 }
+export interface FormProps {
+    onSubmit: (values: Values) => void;
+}
