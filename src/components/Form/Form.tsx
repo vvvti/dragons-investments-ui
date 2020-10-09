@@ -4,24 +4,24 @@ import {Chart} from '../Chart/Chart';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults} from './Form.styled';
-import {Values} from './Form.types';
+// import {Values} from './Form.types';
+import {FormProps} from './Form.types';
+// components import
 import {FrequencyRadio} from './Radio/FrequencyRadio';
-import InitialSlider from './Slider/InitialSlider';
-import MonthlySlider from './Slider/MonthlySlider';
-import DurationSlider from './Slider/DurationSlider';
-import RateSlider from './Slider/RateSlider';
-
-interface FormProps {
-    onSubmit: (values: Values) => void;
-}
+import {InitialSlider} from './Slider/InitialSlider';
+import {MonthlySlider} from './Slider/MonthlySlider';
+import {DurationSlider} from './Slider/DurationSlider';
+import {RateSlider} from './Slider/RateSlider';
+// variables imports
+import {CURRENCY} from '../../helpers/constants';
 
 export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
     return (
         <Formik
             initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: ''}}
-            onSubmit={values => {
-                onSubmit(values);
-            }}
+            onSubmit={onSubmit}
+            as
+            values
         >
             {({values}) => (
                 <StyledForm>
@@ -34,14 +34,14 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                             <h2>How much do you have currently saved?</h2>
                             <StyledInputWrapper>
                                 <InitialSlider />
-                                <Field name="initialValue" value={values.initialValue} component={FieldElement} unit="USD" />
+                                <Field name="initialValue" value={values.initialValue} component={FieldElement} unit={CURRENCY} />
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
                             <h2>How much do you want to save monthly?</h2>
                             <StyledInputWrapper>
                                 <MonthlySlider />
-                                <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit="USD" />
+                                <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit={CURRENCY} />
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
