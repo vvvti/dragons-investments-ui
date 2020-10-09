@@ -34,7 +34,7 @@ export const FormComponent = () => {
                     <StyledResults>
                         <Results />
                         <Chart />
-                        <Button variant="contained" type="submit">
+                        <Button variant="contained" type="submit" color="primary">
                             Submit
                         </Button>
                         <Button onClick={getData}>Get</Button>
