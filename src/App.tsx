@@ -8,7 +8,7 @@ export const App = () => {
         <>
             <GlobalStyle />
             <Navbar />
-            <StyledFormComponent onSubmit={() => {}} />
+            <StyledFormComponent />
         </>
     );
 };

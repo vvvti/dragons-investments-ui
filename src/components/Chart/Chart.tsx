@@ -4,24 +4,22 @@ import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
 import {Values} from '../Form/Form.types';
 
 export const Chart = () => {
-    const formik = useFormikContext<Values>();
-    const initialValueChart = formik.values.initialValue;
-    const monthlySavingChart = formik.values.monthlySaving;
-    const savingPeriodChart = formik.values.savingPeriod;
-    const annualProfitChart = formik.values.annualProfit;
+    const {
+        values: {initialValue, monthlySaving, savingPeriod, annualProfit, paymentFrequency},
+    } = useFormikContext<Values>();
 
     //Random formulas for calculating start and end value
 
     const data = [
         {
             name: 'Start',
-            initialResult: initialValueChart,
-            endResult: initialValueChart,
+            initialResult: initialValue,
+            endResult: initialValue,
         },
         {
             name: 'Final Result',
-            initialResult: initialValueChart * annualProfitChart,
-            endResult: monthlySavingChart * savingPeriodChart,
+            initialResult: initialValue * annualProfit * paymentFrequency,
+            endResult: monthlySaving * savingPeriod,
         },
     ];
     return (
