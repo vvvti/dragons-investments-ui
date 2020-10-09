@@ -3,7 +3,5 @@ export interface Values {
     monthlySaving: number;
     savingPeriod: number;
     annualProfit: number;
-}
-export interface FormProps {
-    onSubmit: (values: Values) => void;
+    paymentFrequency: number;
 }

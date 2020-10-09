@@ -1,33 +1,42 @@
+import {Button} from '@material-ui/core';
+import axios from 'axios';
 import {Field, Formik} from 'formik';
 import React from 'react';
+// variables imports
+import {CURRENCY} from '../../helpers/constants';
 import {Chart} from '../Chart/Chart';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults} from './Form.styled';
-// import {Values} from './Form.types';
-import {FormProps} from './Form.types';
+import {Values} from './Form.types';
 // components import
 import {FrequencyRadio} from './Radio/FrequencyRadio';
+import {DurationSlider} from './Slider/DurationSlider';
 import {InitialSlider} from './Slider/InitialSlider';
 import {MonthlySlider} from './Slider/MonthlySlider';
-import {DurationSlider} from './Slider/DurationSlider';
 import {RateSlider} from './Slider/RateSlider';
-// variables imports
-import {CURRENCY} from '../../helpers/constants';
 
-export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
+export const FormComponent = () => {
     return (
         <Formik
-            initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: ''}}
-            onSubmit={onSubmit}
-            as
-            values
+            initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: 1}}
+            onSubmit={async (values: Values) => {
+                try {
+                    await axios.post(`/calculator`, {values});
+                    // alert(JSON.stringify(values, null, 2));
+                } catch {
+                    console.log('Check your code');
+                }
+            }}
         >
             {({values}) => (
                 <StyledForm>
                     <StyledResults>
                         <Results />
                         <Chart />
+                        <Button variant="contained" type="submit">
+                            Submit
+                        </Button>
                     </StyledResults>
                     <div>
                         <FormContainer>
@@ -62,10 +71,10 @@ export const FormComponent: React.FC<FormProps> = ({onSubmit}) => {
                             <h2>Frequency Payment:</h2>
                             <StyledInputWrapper>
                                 <RadioGroup>
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="1" label="month" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="3" label="quater" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="6" label="half-year" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="12" label="year" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value={1} label="month" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value={3} label="quarter" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value={6} label="half-year" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value={12} label="year" />
                                 </RadioGroup>
                             </StyledInputWrapper>
                         </FormContainer>
