@@ -73,10 +73,10 @@ export const FormComponent: React.FC = () => {
                             <h2>Frequency Payment:</h2>
                             <StyledInputWrapper>
                                 <RadioGroup>
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value={1} label="month" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value={3} label="quarter" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value={6} label="half-year" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value={12} label="year" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="1" label="month" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="3" label="quarter" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="6" label="half-year" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="12" label="year" />
                                 </RadioGroup>
                             </StyledInputWrapper>
                         </FormContainer>
