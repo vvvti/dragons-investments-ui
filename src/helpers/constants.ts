@@ -1,1 +1,1 @@
-export const CURRENCY: string = '$';
+export const CURRENCY: string = '£';
