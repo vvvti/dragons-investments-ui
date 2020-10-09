@@ -8,7 +8,7 @@ export const StyledForm = styled(Form)`
     align-items: center;
     justify-content: space-around;
     flex-shrink: 0;
-    max-width: 80%;
+    max-width: 90%;
     min-width: 1000px;
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 0%);
@@ -37,5 +37,6 @@ export const FormContainer = styled.div`
 
 export const StyledResults = styled.div`
     text-align: center;
-    padding: 20px;
+    /* padding: 20px; */
+    margin: 0 50px;
 `;
