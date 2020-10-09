@@ -25,7 +25,7 @@ export const FormComponent = () => {
                     await axios.post(`/calculator`, {values});
                     // alert(JSON.stringify(values, null, 2));
                 } catch {
-                    console.log('Check your code');
+                    console.log('Ckeck you code');
                 }
             }}
         >

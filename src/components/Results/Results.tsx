@@ -1,25 +1,45 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
+import {CURRENCY} from '../../helpers/constants';
 import {Values} from '../Form/Form.types';
-import {MainResult, ResultWrapper, StyledResult, StyledTitle} from './Result.styled';
+import {MainTitle, ResultWrapper, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
 
 export const Results = () => {
-    const formik = useFormikContext<Values>().values;
+    const {
+        values: {initialValue, monthlySaving, savingPeriod, annualProfit, paymentFrequency},
+    } = useFormikContext<Values>();
 
     return (
         <ResultWrapper>
             <div>
-                <StyledTitle>Final value of the investment</StyledTitle>
-                <MainResult>{formik.initialValue} USD</MainResult>
+                <MainTitle>Value of the investment</MainTitle>
+                <StyledNumberFormat
+                    value={monthlySaving * annualProfit * 100}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    prefix={CURRENCY}
+                />
             </div>
-            <div>
-                <StyledTitle>Estimated profit</StyledTitle>
-                <StyledResult>{formik.monthlySaving} USD</StyledResult>
-            </div>
-            <div>
-                <StyledTitle>Deposit value</StyledTitle>
-                <StyledResult>{formik.initialValue * formik.annualProfit} USD</StyledResult>
-            </div>
+            <ValuesWrapper>
+                <div>
+                    <StyledTitle>Estimated profit</StyledTitle>
+                    <StyledNumberFormat
+                        value={initialValue * paymentFrequency}
+                        displayType={'text'}
+                        thousandSeparator={true}
+                        prefix={'£'}
+                    />
+                </div>
+                <div>
+                    <StyledTitle>Deposit value</StyledTitle>
+                    <StyledNumberFormat
+                        value={initialValue * savingPeriod}
+                        displayType={'text'}
+                        thousandSeparator={true}
+                        prefix={CURRENCY}
+                    />
+                </div>
+            </ValuesWrapper>
         </ResultWrapper>
     );
 };

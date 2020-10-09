@@ -2,6 +2,7 @@
     "name": "dragons-investments",
     "version": "0.1.0",
     "private": true,
+    "proxy": "https://dragons-investments-ui.ersa-team.sit.fintechchallenge.pl/",
     "dependencies": {
         "@material-ui/core": "^4.11.0",
         "@testing-library/jest-dom": "^5.11.0",
@@ -26,6 +27,7 @@
         "pretty-quick": "^1.0.3",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-number-format": "^4.4.1",
         "react-scripts": "3.4.0",
         "recharts": "^1.8.5",
         "styled-components": "^5.2.0",
