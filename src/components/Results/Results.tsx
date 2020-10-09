@@ -4,7 +4,7 @@ import {CURRENCY} from '../../helpers/constants';
 import {Values} from '../Form/Form.types';
 import {MainTitle, ResultWrapper, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
 
-export const Results = () => {
+export const Results: React.FC = () => {
     const {
         values: {initialValue, monthlySaving, savingPeriod, annualProfit, paymentFrequency},
     } = useFormikContext<Values>();
@@ -27,7 +27,7 @@ export const Results = () => {
                         value={initialValue * paymentFrequency}
                         displayType={'text'}
                         thousandSeparator={true}
-                        prefix={'£'}
+                        prefix={CURRENCY}
                     />
                 </div>
                 <div>

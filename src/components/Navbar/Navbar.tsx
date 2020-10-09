@@ -10,3 +10,4 @@ export const Navbar = () => {
         </StyledNavbar>
     );
 };
+export default Navbar;
