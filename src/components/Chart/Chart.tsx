@@ -3,7 +3,7 @@ import React from 'react';
 import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
 import {Values} from '../Form/Form.types';
 
-export const Chart = () => {
+export const Chart: React.FC = () => {
     const {
         values: {initialValue, monthlySaving, savingPeriod, annualProfit, paymentFrequency},
     } = useFormikContext<Values>();

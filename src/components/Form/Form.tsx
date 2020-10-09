@@ -2,6 +2,7 @@ import {Button} from '@material-ui/core';
 import axios from 'axios';
 import {Field, Formik} from 'formik';
 import React from 'react';
+
 // variables imports
 import {CURRENCY} from '../../helpers/constants';
 import {getData} from '../api/calculateValues';
@@ -17,7 +18,7 @@ import {InitialSlider} from './Slider/InitialSlider';
 import {MonthlySlider} from './Slider/MonthlySlider';
 import {RateSlider} from './Slider/RateSlider';
 
-export const FormComponent = () => {
+export const FormComponent: React.FC = () => {
     return (
         <Formik
             initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: 1}}

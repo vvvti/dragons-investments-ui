@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {StyledFormComponent} from './App.styles';
-import {Navbar} from './components/Navbar/Navbar';
 import {GlobalStyle} from './styles/GlobalStyles';
 
 export const App = () => {
     return (
-        <>
+        <Fragment>
             <GlobalStyle />
-            <Navbar />
             <StyledFormComponent />
-        </>
+        </Fragment>
     );
 };
+export default App;
