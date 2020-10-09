@@ -4,6 +4,7 @@ import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
 import {CURRENCY} from '../../helpers/constants';
+import {getData} from '../api/calculateValues';
 import {Chart} from '../Chart/Chart';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
@@ -23,9 +24,8 @@ export const FormComponent = () => {
             onSubmit={async (values: Values) => {
                 try {
                     await axios.post(`/calculator`, {values});
-                    // alert(JSON.stringify(values, null, 2));
-                } catch {
-                    console.log('Ckeck you code');
+                } catch (error) {
+                    console.error(error);
                 }
             }}
         >
@@ -37,6 +37,7 @@ export const FormComponent = () => {
                         <Button variant="contained" type="submit">
                             Submit
                         </Button>
+                        <Button onClick={getData}>Get</Button>
                     </StyledResults>
                     <div>
                         <FormContainer>
