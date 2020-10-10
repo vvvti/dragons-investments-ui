@@ -1,25 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {StyledNavigationItems, StyledLink} from './NavigationItems.styled';
+import {StyledLink, StyledNavigationItems} from './NavigationItems.styled';
 
 const NavigationItems: React.FC = () => {
     return (
         <StyledNavigationItems>
-            <StyledLink>
-                <Link to="/">Home</Link>
+            <StyledLink exact to="/">
+                Home
             </StyledLink>
-            <StyledLink>
-                <Link to="/About">About</Link>
-            </StyledLink>
-            <StyledLink>
-                <Link to="/Faq">FAQ</Link>
-            </StyledLink>
-            <StyledLink>
-                <Link to="/Contact">Contact</Link>
-            </StyledLink>
-            <StyledLink>
-                <Link to="/Cart">Cart</Link>
-            </StyledLink>
+            <StyledLink to="/About">About</StyledLink>
+            <StyledLink to="/Faq">FAQ</StyledLink>
+            <StyledLink to="/Contact">Contact</StyledLink>
+            <StyledLink to="/Cart">Cart</StyledLink>
         </StyledNavigationItems>
     );
 };

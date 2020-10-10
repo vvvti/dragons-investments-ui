@@ -20,7 +20,7 @@ export const StyledNumberFormat = styled(NumberFormat)`
 `;
 
 export const ResultWrapper = styled.div`
-    /* text-align: left; */
+    text-align: center;
 `;
 
 export const ValuesWrapper = styled.div`
