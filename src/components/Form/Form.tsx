@@ -1,16 +1,14 @@
 import {Button} from '@material-ui/core';
-import axios from 'axios';
 import {Field, Formik} from 'formik';
 import React from 'react';
-
 // variables imports
 import {CURRENCY} from '../../helpers/constants';
-import {getData} from '../api/calculateValues';
+import {getData, postData} from '../api/calculateValues';
 import {Chart} from '../Chart/Chart';
+import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults} from './Form.styled';
-import {Values} from './Form.types';
 // components import
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 import {DurationSlider} from './Slider/DurationSlider';
@@ -22,20 +20,16 @@ export const FormComponent: React.FC = () => {
     return (
         <Formik
             initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: 1}}
-            onSubmit={async (values: Values) => {
-                try {
-                    await axios.post(`/calculator`, {values});
-                } catch (error) {
-                    console.error(error);
-                }
+            onSubmit={(values: Values) => {
+                postData(values);
             }}
         >
-            {({values}) => (
+            {({values, isSubmitting}) => (
                 <StyledForm>
                     <StyledResults>
                         <Results />
                         <Chart />
-                        <Button variant="contained" type="submit" color="primary">
+                        <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
                             Submit
                         </Button>
                         <Button onClick={getData}>Get</Button>
