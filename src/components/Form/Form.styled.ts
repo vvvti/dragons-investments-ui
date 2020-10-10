@@ -1,5 +1,6 @@
 import {Form} from 'formik';
 import styled from 'styled-components';
+import {colors} from '../../styles/theme';
 
 export const StyledForm = styled(Form)`
     display: flex;
@@ -10,11 +11,10 @@ export const StyledForm = styled(Form)`
     flex-shrink: 0;
     max-width: 90%;
     min-width: 1000px;
-    background-color: hsl(0, 0%, 100%);
-    color: hsl(0, 0%, 0%);
-    border: 2px solid hsl(0, 0%, 100%);
+    background-color: ${colors.backgroundContainer};
+    color: ${colors.fontColor};
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 1px hsla(0, 0%, 100%, 0.75);
+    box-shadow: 0px 0px 10px 1px ${colors.boxShadow};
 `;
 
 export const RadioGroup = styled.div`
@@ -37,6 +37,5 @@ export const FormContainer = styled.div`
 
 export const StyledResults = styled.div`
     text-align: center;
-    /* padding: 20px; */
     margin: 0 50px;
 `;
