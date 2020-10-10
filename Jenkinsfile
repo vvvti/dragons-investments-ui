@@ -1,5 +1,10 @@
 pipeline {
-    agent none
+    agent {
+        docker {
+            image 'ubuntu'
+            args '--network host -e DOCKER_HOST=tcp://localhost:2375 -v /usr/local/bin/docker:/usr/local/bin/docker'
+        }
+    }
 
     environment {
         CI = 'true'
