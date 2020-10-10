@@ -43,7 +43,7 @@ export const FormComponent: React.FC = () => {
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
-                            <h2>How much do you want to save monthly?</h2>
+                            <h2>How much do you want to save?</h2>
                             <StyledInputWrapper>
                                 <MonthlySlider />
                                 <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit={CURRENCY} />
