@@ -32,7 +32,7 @@ export const FormComponent: React.FC = () => {
                         <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
                             Submit
                         </Button>
-                        {/* <Button onClick={getData}>Get</Button> */}
+                        <Button onClick={getData}>Get</Button>
                     </StyledResults>
                     <div>
                         <FormContainer>
