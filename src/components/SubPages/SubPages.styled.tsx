@@ -27,3 +27,11 @@ export const StyledText = styled.p`
     font-style: italic;
     text-align: center;
 `;
+
+export const StyledCalculator = styled.img`
+    max-height: 500px;
+`;
+
+export const StyledMan = styled.img`
+    max-height: 700px;
+`;

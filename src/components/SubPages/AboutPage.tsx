@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyledContainer, StyledTitle, StyledText} from './SubPages.styled';
+import {StyledCalculator, StyledContainer, StyledText, StyledTitle} from './SubPages.styled';
+import calculator from '../../assets/calculator.png';
 
 const AboutPage: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const AboutPage: React.FC = () => {
                 calculators are completely free applications that are updated regularly. This way you will get reliable results, enabling
                 you to choose the optimal product.
             </StyledText>
+            <StyledCalculator src={calculator} alt="Calculator" />
         </StyledContainer>
     );
 };
