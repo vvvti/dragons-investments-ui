@@ -1,10 +1,11 @@
 import React from 'react';
+import {StyledContainer, StyledTitle} from './SubPages.styled';
 
 const CartPage: React.FC = () => {
     return (
-        <div>
-            <h1>Investments cart</h1>
-        </div>
+        <StyledContainer>
+            <StyledTitle>Investments cart</StyledTitle>
+        </StyledContainer>
     );
 };
 

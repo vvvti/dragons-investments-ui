@@ -7,7 +7,9 @@ const NavigationItems: React.FC = () => {
             <StyledLink exact to="/">
                 Home
             </StyledLink>
+
             <StyledLink to="/About">About</StyledLink>
+
             <StyledLink to="/Faq">FAQ</StyledLink>
             <StyledLink to="/Contact">Contact</StyledLink>
             <StyledLink to="/Cart">Cart</StyledLink>

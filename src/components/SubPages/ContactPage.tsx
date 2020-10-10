@@ -1,10 +1,11 @@
 import React from 'react';
+import {StyledContainer, StyledTitle} from './SubPages.styled';
 
 const ContactPage: React.FC = () => {
     return (
-        <div>
-            <h1>Contact Details</h1>
-        </div>
+        <StyledContainer>
+            <StyledTitle>Contact Details</StyledTitle>
+        </StyledContainer>
     );
 };
 

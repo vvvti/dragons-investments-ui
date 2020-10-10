@@ -7,6 +7,7 @@ export const StyledNavbar = styled.nav`
     justify-content: space-around;
     height: 10vh;
     background-color: ${colors.backgroundNavbar};
+    font-family: 'Lato', sans-serif;
 `;
 
 export const StyledTitle = styled.div`
