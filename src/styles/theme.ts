@@ -6,4 +6,6 @@ export const colors = {
     fontColor: ' hsl(0, 0%, 0%)',
     boxShadow: 'hsla(0, 0%, 100%, 0.75)',
     link: 'hsl(0, 0%, 100%)',
+    backgroundColor: 'hsl(220, 82%, 16%)',
+    whiteContainer: 'hsl(0, 0%, 100%)',
 };

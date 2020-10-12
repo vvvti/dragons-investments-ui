@@ -10,21 +10,17 @@ import ContactPage from './components/SubPages/ContactPage';
 
 export const App = () => {
     return (
-        <>
-            <Router>
-                <div>
-                    <Navbar />
-                    <GlobalStyle />
-                    <Switch>
-                        <Route exact path="/" component={StyledFormComponent} />
-                        <Route exact path="/about" component={AboutPage} />
-                        <Route exact path="/faq" component={FaqPage} />
-                        <Route exact path="/contact" component={ContactPage} />
-                        <Route exact path="/cart" component={CartPage} />
-                    </Switch>
-                </div>
-            </Router>
-        </>
+        <Router>
+            <Navbar />
+            <GlobalStyle />
+            <Switch>
+                <Route exact path="/" component={StyledFormComponent} />
+                <Route exact path="/about" component={AboutPage} />
+                <Route exact path="/faq" component={FaqPage} />
+                <Route exact path="/contact" component={ContactPage} />
+                <Route exact path="/cart" component={CartPage} />
+            </Switch>
+        </Router>
     );
 };
 
