@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components';
+import {colors} from './theme';
 
 export const GlobalStyle = createGlobalStyle`
 html {
@@ -12,7 +13,7 @@ html {
 body {
   display: grid;
   grid-template-rows: 80px 1fr;
-  background-color:hsl(220, 82%, 16%);
-  color:hsl(0, 0%, 100%);
+  background-color: ${colors.backgroundColor};
+  color: ${colors.whiteContainer};
 }
 `;

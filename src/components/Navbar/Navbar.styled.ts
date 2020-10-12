@@ -1,3 +1,4 @@
+import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 import {colors} from '../../styles/theme';
 
@@ -10,13 +11,14 @@ export const StyledNavbar = styled.nav`
     font-family: 'Lato', sans-serif;
 `;
 
-export const StyledTitle = styled.div`
+export const Logo = styled.img`
+    max-height: 100%;
+`;
+
+export const StyledTitleLink = styled(NavLink)`
+    text-decoration: none;
     text-transform: uppercase;
     font-size: 50px;
     font-weight: 900;
     color: ${colors.mainTitle};
-`;
-
-export const Logo = styled.img`
-    max-height: 100%;
 `;
