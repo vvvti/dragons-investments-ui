@@ -4,12 +4,13 @@ import React from 'react';
 import {getData, postData} from '../../api/calculator';
 // variables imports
 import {CURRENCY} from '../../helpers/constants';
+import {INITIAL_AMOUNT, INITIAL_MONTHLY, INITIAL_PERIOD, INITIAL_ANNUAL, INITIAL_FREQUENCY} from '../../helpers/constants';
+// components import
 import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults} from './Form.styled';
-// components import
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 import {DurationSlider} from './Slider/DurationSlider';
 import {InitialSlider} from './Slider/InitialSlider';
@@ -22,7 +23,13 @@ export const FormComponent: React.FC = () => {
 
     return (
         <Formik
-            initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: 1}}
+            initialValues={{
+                initialValue: INITIAL_AMOUNT,
+                monthlySaving: INITIAL_MONTHLY,
+                savingPeriod: INITIAL_PERIOD,
+                annualProfit: INITIAL_ANNUAL,
+                paymentFrequency: INITIAL_FREQUENCY,
+            }}
             onSubmit={async (values: Values) => {
                 await sleep(5000);
                 postData(values);
@@ -41,10 +48,7 @@ export const FormComponent: React.FC = () => {
                     <div>
                         <FormContainer>
                             <h2>How much do you have currently saved?</h2>
-                            <StyledInputWrapper>
-                                <InitialSlider />
-                                <Field name="initialValue" value={values.initialValue} component={FieldElement} unit={CURRENCY} />
-                            </StyledInputWrapper>
+                            <InitialSlider />
                         </FormContainer>
                         <FormContainer>
                             <h2>How much do you want to save?</h2>
