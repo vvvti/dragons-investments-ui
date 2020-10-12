@@ -12,7 +12,7 @@ export const getData = async () => {
 
 export const postData = async (values: Values) => {
     try {
-        const response = await axios.post(`/calculator`, {values});
+        const response = await axios.get(`/calculator`, {params: {values}});
         console.log(response);
     } catch (error) {
         console.error(error);
