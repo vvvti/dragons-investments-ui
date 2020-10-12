@@ -39,6 +39,10 @@ export const StyledMan = styled.img`
 
 export const ContactItem = styled.div`
     position: absolute;
-    top: 65vh;
-    left: 35vw;
+    left: 50px;
+    top: 400px;
+`;
+
+export const ContactWrapper = styled.div`
+    position: relative;
 `;
