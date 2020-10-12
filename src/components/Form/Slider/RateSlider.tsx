@@ -59,6 +59,7 @@ export const RateSlider: React.FC = () => {
                 step={0.1}
                 valueLabelDisplay="auto"
                 marks={marks}
+                max={10}
             />
         </div>
     );
