@@ -1,7 +1,8 @@
 import Slider from '@material-ui/core/Slider';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
-import React from 'react';
+import React, {useState} from 'react';
 import {valueText} from './Slider.helpers';
+import {INITIAL_PERIOD} from '../../../helpers/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -20,39 +21,46 @@ const marks = [
         label: '0Y',
     },
     {
-        value: 20,
+        value: 2,
         label: '2Y',
     },
     {
-        value: 40,
+        value: 4,
         label: '4Y',
     },
     {
-        value: 60,
+        value: 6,
         label: '6Y',
     },
     {
-        value: 80,
+        value: 8,
         label: '8Y',
     },
     {
-        value: 100,
+        value: 10,
         label: '10Y',
     },
 ];
 
 export const DurationSlider: React.FC = () => {
     const classes = useStyles();
+    const [value, setValue] = useState<number | string | Array<number | string>>(INITIAL_PERIOD);
+
+    const handleSliderChange = (event: any, newValue: number | number[]) => {
+        setValue(newValue);
+    };
 
     return (
         <div className={classes.root}>
             <Slider
-                defaultValue={20}
+                defaultValue={INITIAL_PERIOD}
                 getAriaValueText={valueText}
                 aria-labelledby="discrete-slider-custom"
-                step={10}
+                step={1}
                 valueLabelDisplay="auto"
                 marks={marks}
+                onChange={handleSliderChange}
+                max={10}
             />
         </div>
     );

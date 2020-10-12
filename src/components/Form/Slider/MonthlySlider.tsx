@@ -1,8 +1,8 @@
 import Slider from '@material-ui/core/Slider';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
-import React from 'react';
+import React, {useState} from 'react';
 import {valueText} from './Slider.helpers';
-import {CURRENCY} from '../../../helpers/constants';
+import {CURRENCY, INITIAL_MONTHLY} from '../../../helpers/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,39 +21,46 @@ const marks = [
         label: `0 ${CURRENCY}`,
     },
     {
-        value: 11,
+        value: 25,
         label: `25 ${CURRENCY}`,
     },
     {
-        value: 33,
+        value: 75,
         label: `75 ${CURRENCY}`,
     },
     {
-        value: 56,
+        value: 125,
         label: `125 ${CURRENCY}`,
     },
     {
-        value: 78,
+        value: 175,
         label: `175 ${CURRENCY}`,
     },
     {
-        value: 100,
+        value: 225,
         label: `225 ${CURRENCY}`,
     },
 ];
 
 export const MonthlySlider: React.FC = () => {
     const classes = useStyles();
+    const [value, setValue] = useState<number | string | Array<number | string>>(INITIAL_MONTHLY);
+
+    const handleSliderChange = (event: any, newValue: number | number[]) => {
+        setValue(newValue);
+    };
 
     return (
         <div className={classes.root}>
             <Slider
-                defaultValue={33}
+                defaultValue={INITIAL_MONTHLY}
                 getAriaValueText={valueText}
                 aria-labelledby="discrete-slider-custom"
                 step={1}
                 valueLabelDisplay="auto"
                 marks={marks}
+                onChange={handleSliderChange}
+                max={225}
             />
         </div>
     );
