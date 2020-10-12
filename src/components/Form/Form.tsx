@@ -3,7 +3,7 @@ import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
 import {CURRENCY} from '../../helpers/constants';
-import {getData, postData} from '../api/calculateValues';
+import {getData, postData} from '../../api/calculator';
 import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
@@ -20,7 +20,7 @@ export const FormComponent: React.FC = () => {
     return (
         <Formik
             initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: 1}}
-            onSubmit={(values: Values) => {
+            onSubmit={async (values: Values) => {
                 postData(values);
             }}
         >

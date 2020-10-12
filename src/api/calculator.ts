@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {Values} from '../Form/Form.types';
+import {Values} from '../components/Form/Form.types';
 
 export const getData = async () => {
     try {

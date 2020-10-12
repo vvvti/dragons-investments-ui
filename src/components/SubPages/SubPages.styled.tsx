@@ -36,3 +36,9 @@ export const StyledCalculator = styled.img`
 export const StyledMan = styled.img`
     max-height: 700px;
 `;
+
+export const ContactItem = styled.div`
+    position: absolute;
+    top: 65vh;
+    left: 35vw;
+`;
