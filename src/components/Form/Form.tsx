@@ -1,9 +1,9 @@
 import {Button} from '@material-ui/core';
 import {Field, Formik} from 'formik';
 import React from 'react';
+import {getData, postData} from '../../api/calculator';
 // variables imports
 import {CURRENCY} from '../../helpers/constants';
-import {getData, postData} from '../../api/calculator';
 import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
@@ -17,10 +17,14 @@ import {MonthlySlider} from './Slider/MonthlySlider';
 import {RateSlider} from './Slider/RateSlider';
 
 export const FormComponent: React.FC = () => {
+    // implemented to test communication with API
+    const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
     return (
         <Formik
             initialValues={{initialValue: 1000, monthlySaving: 100, savingPeriod: 2, annualProfit: 7, paymentFrequency: 1}}
             onSubmit={async (values: Values) => {
+                await sleep(5000);
                 postData(values);
             }}
         >
@@ -30,7 +34,7 @@ export const FormComponent: React.FC = () => {
                         <Results />
                         <Chart />
                         <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
-                            Submit
+                            {isSubmitting ? 'Loading...' : 'Submit'}
                         </Button>
                         <Button onClick={getData}>Get</Button>
                     </StyledResults>
