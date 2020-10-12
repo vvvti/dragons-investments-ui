@@ -14,6 +14,12 @@ export const MainTitle = styled.p`
 `;
 
 export const StyledNumberFormat = styled(NumberFormat)`
+    font-size: 28px;
+    margin: 10px 0;
+    letter-spacing: 2px;
+`;
+
+export const StyledMainNumber = styled(NumberFormat)`
     font-size: 48px;
     margin: 10px 0;
     letter-spacing: 2px;

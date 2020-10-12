@@ -2,7 +2,7 @@ import {useFormikContext} from 'formik';
 import React from 'react';
 import {CURRENCY} from '../../helpers/constants';
 import {Values} from '../Form/Form.types';
-import {MainTitle, ResultWrapper, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
+import {MainTitle, ResultWrapper, StyledMainNumber, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
 
 export const Results: React.FC = () => {
     const {
@@ -13,7 +13,7 @@ export const Results: React.FC = () => {
         <ResultWrapper>
             <div>
                 <MainTitle>Value of the investment</MainTitle>
-                <StyledNumberFormat
+                <StyledMainNumber
                     value={monthlySaving * annualProfit * 100}
                     displayType={'text'}
                     thousandSeparator={true}
