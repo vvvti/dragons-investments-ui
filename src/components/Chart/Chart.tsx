@@ -29,8 +29,6 @@ export const Chart: React.FC = () => {
 
     const data = createArray(values);
 
-    console.log(data);
-
     return (
         <ChartContainer>
             <LineChart

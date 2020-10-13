@@ -11,7 +11,10 @@ import {
     INITIAL_FREQUENCY,
     INITIAL_MONTHLY,
     INITIAL_PERIOD,
+    MARKSDURATION,
     MARKSMONTHLY,
+    MARKSINITIAL,
+    MARKSPROFIT,
 } from '../../helpers/constants';
 // components import
 import {Chart} from '../Chart/Chart';
@@ -20,9 +23,6 @@ import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults, StyledSlider} from './Form.styled';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
-import {DurationSlider} from './Slider/DurationSlider';
-import {InitialSlider} from './Slider/InitialSlider';
-import {RateSlider} from './Slider/RateSlider';
 
 export const FormComponent: React.FC = () => {
     // implemented to test communication with API
@@ -55,7 +55,21 @@ export const FormComponent: React.FC = () => {
                     <div>
                         <FormContainer>
                             <h2>How much do you have currently saved?</h2>
-                            <InitialSlider />
+                            <StyledInputWrapper>
+                                <StyledSlider>
+                                    <Slider
+                                        name="slider"
+                                        min={0}
+                                        max={2500}
+                                        step={25}
+                                        valueLabelDisplay="auto"
+                                        marks={MARKSINITIAL}
+                                        value={values.initialValue}
+                                        onChange={(event, value) => setFieldValue('initialValue', value)}
+                                    />
+                                </StyledSlider>
+                                <Field name="initialValue" value={values.initialValue} component={FieldElement} unit={CURRENCY} />
+                            </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
                             <h2>How much do you want to save?</h2>
@@ -64,7 +78,7 @@ export const FormComponent: React.FC = () => {
                                     <Slider
                                         name="slider"
                                         min={0}
-                                        max={300}
+                                        max={600}
                                         step={25}
                                         valueLabelDisplay="auto"
                                         marks={MARKSMONTHLY}
@@ -78,14 +92,36 @@ export const FormComponent: React.FC = () => {
                         <FormContainer>
                             <h2>How long do you plan to invest?</h2>
                             <StyledInputWrapper>
-                                <DurationSlider />
+                                <StyledSlider>
+                                    <Slider
+                                        name="slider"
+                                        min={0}
+                                        max={12}
+                                        step={1}
+                                        valueLabelDisplay="auto"
+                                        marks={MARKSDURATION}
+                                        value={values.savingPeriod}
+                                        onChange={(event, value) => setFieldValue('savingPeriod', value)}
+                                    />
+                                </StyledSlider>
                                 <Field name="savingPeriod" value={values.savingPeriod} component={FieldElement} unit="Years" />
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
                             <h2>What is your expected annual profit?</h2>
                             <StyledInputWrapper>
-                                <RateSlider />
+                                <StyledSlider>
+                                    <Slider
+                                        name="slider"
+                                        min={0}
+                                        max={10}
+                                        step={1}
+                                        valueLabelDisplay="auto"
+                                        marks={MARKSPROFIT}
+                                        value={values.annualProfit}
+                                        onChange={(event, value) => setFieldValue('annualProfit', value)}
+                                    />
+                                </StyledSlider>
                                 <Field name="annualProfit" value={values.annualProfit} component={FieldElement} unit="%" />
                             </StyledInputWrapper>
                         </FormContainer>
