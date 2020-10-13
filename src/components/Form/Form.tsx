@@ -1,20 +1,27 @@
 import {Button} from '@material-ui/core';
+import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
 import {getData, postData} from '../../api/calculator';
 // variables imports
-import {CURRENCY} from '../../helpers/constants';
-import {INITIAL_AMOUNT, INITIAL_MONTHLY, INITIAL_PERIOD, INITIAL_ANNUAL, INITIAL_FREQUENCY} from '../../helpers/constants';
+import {
+    CURRENCY,
+    INITIAL_AMOUNT,
+    INITIAL_ANNUAL,
+    INITIAL_FREQUENCY,
+    INITIAL_MONTHLY,
+    INITIAL_PERIOD,
+    MARKSMONTHLY,
+} from '../../helpers/constants';
 // components import
 import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
-import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults} from './Form.styled';
+import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults, StyledSlider} from './Form.styled';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 import {DurationSlider} from './Slider/DurationSlider';
 import {InitialSlider} from './Slider/InitialSlider';
-import {MonthlySlider} from './Slider/MonthlySlider';
 import {RateSlider} from './Slider/RateSlider';
 
 export const FormComponent: React.FC = () => {
@@ -35,7 +42,7 @@ export const FormComponent: React.FC = () => {
                 postData(values);
             }}
         >
-            {({values, isSubmitting}) => (
+            {({values, isSubmitting, setFieldValue}) => (
                 <StyledForm>
                     <StyledResults>
                         <Results />
@@ -53,7 +60,18 @@ export const FormComponent: React.FC = () => {
                         <FormContainer>
                             <h2>How much do you want to save?</h2>
                             <StyledInputWrapper>
-                                <MonthlySlider />
+                                <StyledSlider>
+                                    <Slider
+                                        name="slider"
+                                        min={0}
+                                        max={300}
+                                        step={25}
+                                        valueLabelDisplay="auto"
+                                        marks={MARKSMONTHLY}
+                                        value={values.monthlySaving}
+                                        onChange={(event, value) => setFieldValue('monthlySaving', value)}
+                                    />
+                                </StyledSlider>
                                 <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit={CURRENCY} />
                             </StyledInputWrapper>
                         </FormContainer>

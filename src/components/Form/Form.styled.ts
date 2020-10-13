@@ -40,3 +40,7 @@ export const StyledResults = styled.div`
     text-align: center;
     margin: 0 50px;
 `;
+
+export const StyledSlider = styled.div`
+    width: 300px;
+`;
