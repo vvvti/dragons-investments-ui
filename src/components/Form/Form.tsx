@@ -61,7 +61,7 @@ export const FormComponent: React.FC = () => {
                                         name="slider"
                                         min={0}
                                         max={2500}
-                                        step={25}
+                                        step={500}
                                         valueLabelDisplay="auto"
                                         marks={MARKSINITIAL}
                                         value={values.initialValue}
@@ -79,7 +79,7 @@ export const FormComponent: React.FC = () => {
                                         name="slider"
                                         min={0}
                                         max={600}
-                                        step={25}
+                                        step={100}
                                         valueLabelDisplay="auto"
                                         marks={MARKSMONTHLY}
                                         value={values.monthlySaving}
