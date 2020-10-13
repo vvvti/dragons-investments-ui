@@ -3,8 +3,8 @@ import {Values} from '../components/Form/Form.types';
 
 export const getData = async () => {
     try {
-        const response = await axios.get(`/calculator`);
-        console.log(response);
+        const response = await axios.get(`/`);
+        console.log(response.data);
     } catch (error) {
         console.error(error);
     }
@@ -12,8 +12,8 @@ export const getData = async () => {
 
 export const postData = async (values: Values) => {
     try {
-        const response = await axios.get(`/calculator`, {params: {values}});
-        console.log(response);
+        await axios.get(`/`, {params: {values}});
+        console.log(values);
     } catch (error) {
         console.error(error);
     }
