@@ -14,12 +14,12 @@ export const Chart: React.FC = () => {
     // label={{value: 'index', position: 'insideLeft', dy: 10}}
 
     const createArray = (values: Values) => {
-        var data = [];
-        var len = values.savingPeriod;
-        for (var i = 0; i < len; i++) {
+        let data = [];
+        let len = +values.savingPeriod + 1;
+        for (let i = 0; i < len; i++) {
             data.push({
-                key: i,
-                deposit: values.monthlySaving * i * 10,
+                key: `${i}Y`,
+                deposit: values.monthlySaving * i * 10 * 1.1,
                 profit: values.paymentFrequency * monthlySaving * i,
                 investmentValue: values.initialValue * i,
             });
