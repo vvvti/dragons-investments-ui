@@ -5,11 +5,11 @@ import {colors} from '../../styles/theme';
 export const StyledForm = styled(Form)`
     display: flex;
     margin: 50px auto;
-    padding: 50px;
+    padding: 50px 100px;
     align-items: center;
     justify-content: space-around;
     flex-shrink: 0;
-    max-width: 90%;
+    max-width: 85%;
     min-width: 1000px;
     background-color: ${colors.backgroundContainer};
     color: ${colors.fontColor};
@@ -25,7 +25,8 @@ export const RadioGroup = styled.div`
 export const StyledInputWrapper = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: 40px;
+    grid-template-rows: 40px 15px;
+    /* grid-gap: 40px; */
     align-items: center;
 `;
 
@@ -45,8 +46,6 @@ export const StyledSlider = styled.div`
     width: 300px;
 `;
 
-export const ErrorWrapper = styled.div`
-    width: 400px;
-    min-height: 50px;
+export const ErrorMessage = styled.div`
     color: red;
 `;
