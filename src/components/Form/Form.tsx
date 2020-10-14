@@ -2,7 +2,7 @@ import {Button} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
-import * as yup from 'yup';
+import {validationSchema} from './Form.helpers';
 import {getData, postData} from '../../api/calculator';
 // variables imports
 import {
@@ -25,25 +25,25 @@ import {FieldElement} from './FieldElement/FieldElement';
 import {ErrorMessage, FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults, StyledSlider} from './Form.styled';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 
-const validationSchema = yup.object({
-    initialValue: yup
-        .number()
-        .typeError('Value must be a number')
-        .required('Field is required'),
-    monthlySaving: yup
-        .number()
-        .typeError('Value must be a number')
-        .required('Field is required'),
-    savingPeriod: yup
-        .number()
-        .typeError('Value must be a number')
-        .max(50, 'You can select max 50 years')
-        .required('Field is required'),
-    annualProfit: yup
-        .number()
-        .typeError('Value must be a number')
-        .required('Field is required'),
-});
+// const validationSchema = yup.object({
+//     initialValue: yup
+//         .number()
+//         .typeError('Value must be a number')
+//         .required('Field is required'),
+//     monthlySaving: yup
+//         .number()
+//         .typeError('Value must be a number')
+//         .required('Field is required'),
+//     savingPeriod: yup
+//         .number()
+//         .typeError('Value must be a number')
+//         .max(50, 'You can select max 50 years')
+//         .required('Field is required'),
+//     annualProfit: yup
+//         .number()
+//         .typeError('Value must be a number')
+//         .required('Field is required'),
+// });
 
 export const FormComponent: React.FC = () => {
     // implemented to test communication with API
