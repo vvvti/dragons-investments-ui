@@ -1,12 +1,11 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
-import {CURRENCY} from '../../helpers/constants';
 import {Values} from '../Form/Form.types';
 import {MainTitle, ResultWrapper, StyledMainNumber, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
 
 export const Results: React.FC = () => {
     const {
-        values: {initialValue, monthlySaving, savingPeriod, annualProfit, paymentFrequency},
+        values: {initialValue, monthlySaving, savingPeriod, annualProfit, paymentFrequency, currencyValue},
     } = useFormikContext<Values>();
 
     return (
@@ -17,7 +16,7 @@ export const Results: React.FC = () => {
                     value={monthlySaving * annualProfit * 100}
                     displayType={'text'}
                     thousandSeparator={true}
-                    prefix={CURRENCY}
+                    prefix={currencyValue}
                 />
             </div>
             <ValuesWrapper>
@@ -27,7 +26,7 @@ export const Results: React.FC = () => {
                         value={initialValue * +paymentFrequency}
                         displayType={'text'}
                         thousandSeparator={true}
-                        prefix={CURRENCY}
+                        prefix={currencyValue}
                     />
                 </div>
                 <div>
@@ -36,7 +35,7 @@ export const Results: React.FC = () => {
                         value={initialValue * savingPeriod}
                         displayType={'text'}
                         thousandSeparator={true}
-                        prefix={CURRENCY}
+                        prefix={currencyValue}
                     />
                 </div>
             </ValuesWrapper>
