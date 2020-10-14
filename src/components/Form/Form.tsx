@@ -22,14 +22,27 @@ import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
-import {ErrorWrapper, FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults, StyledSlider} from './Form.styled';
+import {ErrorMessage, FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults, StyledSlider} from './Form.styled';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 
 const validationSchema = yup.object({
-    initialValue: yup.number().required(),
-    monthlySaving: yup.number().required(),
-    savingPeriod: yup.number().required(),
-    annualProfit: yup.number().required(),
+    initialValue: yup
+        .number()
+        .typeError('Value must be a number')
+        .required('Field is required'),
+    monthlySaving: yup
+        .number()
+        .typeError('Value must be a number')
+        .required('Field is required'),
+    savingPeriod: yup
+        .number()
+        .typeError('Value must be a number')
+        .max(50, 'You can select max 50 years')
+        .required('Field is required'),
+    annualProfit: yup
+        .number()
+        .typeError('Value must be a number')
+        .required('Field is required'),
 });
 
 export const FormComponent: React.FC = () => {
@@ -51,12 +64,12 @@ export const FormComponent: React.FC = () => {
                 postData(values);
             }}
         >
-            {({values, isSubmitting, setFieldValue, errors}) => (
+            {({values, isSubmitting, setFieldValue, errors, isValid}) => (
                 <StyledForm>
                     <StyledResults>
                         <Results />
                         <Chart />
-                        <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
+                        <Button variant="contained" type="submit" color="primary" disabled={!isValid}>
                             {isSubmitting ? 'Loading...' : 'Submit'}
                         </Button>
                         <Button onClick={getData}>Get</Button>
@@ -79,6 +92,7 @@ export const FormComponent: React.FC = () => {
                                     />
                                 </StyledSlider>
                                 <Field name="initialValue" value={values.initialValue} component={FieldElement} unit={CURRENCY} />
+                                <ErrorMessage>{errors.initialValue}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
@@ -97,6 +111,7 @@ export const FormComponent: React.FC = () => {
                                     />
                                 </StyledSlider>
                                 <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit={CURRENCY} />
+                                <ErrorMessage>{errors.monthlySaving}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
@@ -115,6 +130,7 @@ export const FormComponent: React.FC = () => {
                                     />
                                 </StyledSlider>
                                 <Field name="savingPeriod" value={values.savingPeriod} component={FieldElement} unit="Years" />
+                                <ErrorMessage>{errors.savingPeriod}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
@@ -133,6 +149,7 @@ export const FormComponent: React.FC = () => {
                                     />
                                 </StyledSlider>
                                 <Field name="annualProfit" value={values.annualProfit} component={FieldElement} unit="%" />
+                                <ErrorMessage>{errors.annualProfit}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
@@ -146,11 +163,6 @@ export const FormComponent: React.FC = () => {
                                 </RadioGroup>
                             </StyledInputWrapper>
                         </FormContainer>
-                        <ErrorWrapper>
-                            {errors.initialValue || errors.monthlySaving || errors.savingPeriod || errors.annualProfit
-                                ? 'Check your input before sumitting'
-                                : ''}
-                        </ErrorWrapper>
                     </div>
                 </StyledForm>
             )}
