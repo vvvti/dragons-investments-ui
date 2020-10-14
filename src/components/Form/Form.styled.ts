@@ -49,3 +49,12 @@ export const StyledSlider = styled.div`
 export const ErrorMessage = styled.div`
     color: red;
 `;
+
+export const CurrencyContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const CurrencyTitle = styled.h2`
+    margin: 0 10px 0 0;
+`;

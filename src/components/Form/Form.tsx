@@ -1,4 +1,4 @@
-import {Button} from '@material-ui/core';
+import {Button, MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
@@ -6,9 +6,9 @@ import {validationSchema} from './Form.helpers';
 import {getData, postData} from '../../api/calculator';
 // variables imports
 import {
-    CURRENCY,
     INITIAL_AMOUNT,
     INITIAL_ANNUAL,
+    INITIAL_CURRENCY,
     INITIAL_FREQUENCY,
     INITIAL_MONTHLY,
     INITIAL_PERIOD,
@@ -22,7 +22,17 @@ import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
-import {ErrorMessage, FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults, StyledSlider} from './Form.styled';
+import {
+    CurrencyContainer,
+    CurrencyTitle,
+    ErrorMessage,
+    FormContainer,
+    RadioGroup,
+    StyledForm,
+    StyledInputWrapper,
+    StyledResults,
+    StyledSlider,
+} from './Form.styled';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 
 // const validationSchema = yup.object({
@@ -57,6 +67,7 @@ export const FormComponent: React.FC = () => {
                 savingPeriod: INITIAL_PERIOD,
                 annualProfit: INITIAL_ANNUAL,
                 paymentFrequency: INITIAL_FREQUENCY,
+                currencyValue: INITIAL_CURRENCY,
             }}
             validationSchema={validationSchema}
             onSubmit={async (values: Values) => {
@@ -91,7 +102,12 @@ export const FormComponent: React.FC = () => {
                                         onChange={(event, value) => setFieldValue('initialValue', value)}
                                     />
                                 </StyledSlider>
-                                <Field name="initialValue" value={values.initialValue} component={FieldElement} unit={CURRENCY} />
+                                <Field
+                                    name="initialValue"
+                                    value={values.initialValue}
+                                    component={FieldElement}
+                                    unit={values.currencyValue}
+                                />
                                 <ErrorMessage>{errors.initialValue}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
@@ -110,7 +126,12 @@ export const FormComponent: React.FC = () => {
                                         onChange={(event, value) => setFieldValue('monthlySaving', value)}
                                     />
                                 </StyledSlider>
-                                <Field name="monthlySaving" value={values.monthlySaving} component={FieldElement} unit={CURRENCY} />
+                                <Field
+                                    name="monthlySaving"
+                                    value={values.monthlySaving}
+                                    component={FieldElement}
+                                    unit={values.currencyValue}
+                                />
                                 <ErrorMessage>{errors.monthlySaving}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
@@ -163,6 +184,14 @@ export const FormComponent: React.FC = () => {
                                 </RadioGroup>
                             </StyledInputWrapper>
                         </FormContainer>
+                        <CurrencyContainer>
+                            <CurrencyTitle>Currency:</CurrencyTitle>
+                            <Field name="currencyValue" type="select" as={Select}>
+                                <MenuItem value="$">USD</MenuItem>
+                                <MenuItem value="£">GBP</MenuItem>
+                                <MenuItem value="€">EUR</MenuItem>
+                            </Field>
+                        </CurrencyContainer>
                     </div>
                 </StyledForm>
             )}

@@ -1,4 +1,4 @@
-export const CURRENCY: string = '£';
+export const INITIAL_CURRENCY: string = '£';
 export const INITIAL_AMOUNT: number = 500;
 export const INITIAL_MONTHLY: number = 300;
 export const INITIAL_PERIOD: number = 8;
@@ -8,23 +8,23 @@ export const INITIAL_FREQUENCY: string = '12';
 export const MARKSMONTHLY = [
     {
         value: 100,
-        label: `100 ${CURRENCY}`,
+        label: 100,
     },
     {
         value: 200,
-        label: `200 ${CURRENCY}`,
+        label: 200,
     },
     {
         value: 300,
-        label: `300 ${CURRENCY}`,
+        label: 300,
     },
     {
         value: 400,
-        label: `400 ${CURRENCY}`,
+        label: 400,
     },
     {
         value: 500,
-        label: `500 ${CURRENCY}`,
+        label: 500,
     },
 ];
 
@@ -54,19 +54,19 @@ export const MARKSDURATION = [
 export const MARKSINITIAL = [
     {
         value: 500,
-        label: `500 ${CURRENCY}`,
+        label: 500,
     },
     {
         value: 1000,
-        label: `1000 ${CURRENCY}`,
+        label: 1000,
     },
     {
         value: 1500,
-        label: `1500 ${CURRENCY}`,
+        label: 1500,
     },
     {
         value: 2000,
-        label: `2000 ${CURRENCY}`,
+        label: 2000,
     },
 ];
 
