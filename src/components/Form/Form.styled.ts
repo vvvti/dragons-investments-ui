@@ -44,3 +44,9 @@ export const StyledResults = styled.div`
 export const StyledSlider = styled.div`
     width: 300px;
 `;
+
+export const ErrorWrapper = styled.div`
+    width: 400px;
+    min-height: 50px;
+    color: red;
+`;

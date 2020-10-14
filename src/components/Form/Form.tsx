@@ -2,6 +2,7 @@ import {Button} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
+import * as yup from 'yup';
 import {getData, postData} from '../../api/calculator';
 // variables imports
 import {
@@ -12,8 +13,8 @@ import {
     INITIAL_MONTHLY,
     INITIAL_PERIOD,
     MARKSDURATION,
-    MARKSMONTHLY,
     MARKSINITIAL,
+    MARKSMONTHLY,
     MARKSPROFIT,
 } from '../../helpers/constants';
 // components import
@@ -21,8 +22,15 @@ import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
-import {FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults, StyledSlider} from './Form.styled';
+import {ErrorWrapper, FormContainer, RadioGroup, StyledForm, StyledInputWrapper, StyledResults, StyledSlider} from './Form.styled';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
+
+const validationSchema = yup.object({
+    initialValue: yup.number().required(),
+    monthlySaving: yup.number().required(),
+    savingPeriod: yup.number().required(),
+    annualProfit: yup.number().required(),
+});
 
 export const FormComponent: React.FC = () => {
     // implemented to test communication with API
@@ -37,12 +45,13 @@ export const FormComponent: React.FC = () => {
                 annualProfit: INITIAL_ANNUAL,
                 paymentFrequency: INITIAL_FREQUENCY,
             }}
+            validationSchema={validationSchema}
             onSubmit={async (values: Values) => {
                 await sleep(5000);
                 postData(values);
             }}
         >
-            {({values, isSubmitting, setFieldValue}) => (
+            {({values, isSubmitting, setFieldValue, errors}) => (
                 <StyledForm>
                     <StyledResults>
                         <Results />
@@ -52,6 +61,7 @@ export const FormComponent: React.FC = () => {
                         </Button>
                         <Button onClick={getData}>Get</Button>
                     </StyledResults>
+
                     <div>
                         <FormContainer>
                             <h2>How much do you have currently saved?</h2>
@@ -136,6 +146,11 @@ export const FormComponent: React.FC = () => {
                                 </RadioGroup>
                             </StyledInputWrapper>
                         </FormContainer>
+                        <ErrorWrapper>
+                            {errors.initialValue || errors.monthlySaving || errors.savingPeriod || errors.annualProfit
+                                ? 'Check your input before sumitting'
+                                : ''}
+                        </ErrorWrapper>
                     </div>
                 </StyledForm>
             )}
