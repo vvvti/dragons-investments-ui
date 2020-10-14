@@ -4,4 +4,5 @@ export interface Values {
     savingPeriod: number;
     annualProfit: number;
     paymentFrequency: string;
+    currencyValue: string;
 }
