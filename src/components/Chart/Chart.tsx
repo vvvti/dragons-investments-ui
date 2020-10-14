@@ -20,7 +20,7 @@ export const Chart: React.FC = () => {
             data.push({
                 key: `${i}Y`,
                 deposit: values.monthlySaving * i * 10 * 1.1,
-                profit: values.paymentFrequency * monthlySaving * i,
+                profit: +values.paymentFrequency * monthlySaving * i,
                 investmentValue: values.initialValue * i,
             });
         }

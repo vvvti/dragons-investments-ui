@@ -24,7 +24,7 @@ export const Results: React.FC = () => {
                 <div>
                     <StyledTitle>Estimated profit</StyledTitle>
                     <StyledNumberFormat
-                        value={initialValue * paymentFrequency}
+                        value={initialValue * +paymentFrequency}
                         displayType={'text'}
                         thousandSeparator={true}
                         prefix={CURRENCY}
