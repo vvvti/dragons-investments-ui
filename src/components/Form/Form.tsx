@@ -3,18 +3,7 @@ import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
-import {
-    INITIAL_AMOUNT,
-    INITIAL_ANNUAL,
-    INITIAL_CURRENCY,
-    INITIAL_FREQUENCY,
-    INITIAL_MONTHLY,
-    INITIAL_PERIOD,
-    MARKSDURATION,
-    MARKSINITIAL,
-    MARKSMONTHLY,
-    MARKSPROFIT,
-} from '../../helpers/constants';
+import {INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {validationSchema} from './Form.helpers';
@@ -35,20 +24,13 @@ import {FrequencyRadio} from './Radio/FrequencyRadio';
 export const FormComponent: React.FC = () => {
     return (
         <Formik
-            initialValues={{
-                initialValue: INITIAL_AMOUNT,
-                monthlySaving: INITIAL_MONTHLY,
-                savingPeriod: INITIAL_PERIOD,
-                annualProfit: INITIAL_ANNUAL,
-                paymentFrequency: INITIAL_FREQUENCY,
-                currencyValue: INITIAL_CURRENCY,
-            }}
+            initialValues={INITIAL_FORM_VALUES}
             validationSchema={validationSchema}
             onSubmit={async (values: Values) => {
                 console.log(values);
             }}
         >
-            {({values, isSubmitting, setFieldValue, errors, isValid}) => (
+            {({values, setFieldValue, errors}) => (
                 <StyledForm>
                     <StyledResults>
                         <Results />
@@ -103,6 +85,17 @@ export const FormComponent: React.FC = () => {
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
+                            <h2>Frequency Payment:</h2>
+                            <StyledInputWrapper>
+                                <RadioGroup>
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="12" label="month" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="4" label="quarter" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="2" label="half-year" />
+                                    <FrequencyRadio name="paymentFrequency" type="radio" value="1" label="year" />
+                                </RadioGroup>
+                            </StyledInputWrapper>
+                        </FormContainer>
+                        <FormContainer>
                             <h2>How long do you plan to invest?</h2>
                             <StyledInputWrapper>
                                 <StyledSlider>
@@ -138,17 +131,6 @@ export const FormComponent: React.FC = () => {
                                 </StyledSlider>
                                 <Field name="annualProfit" value={values.annualProfit} component={FieldElement} unit="%" />
                                 <ErrorMessage>{errors.annualProfit}</ErrorMessage>
-                            </StyledInputWrapper>
-                        </FormContainer>
-                        <FormContainer>
-                            <h2>Frequency Payment:</h2>
-                            <StyledInputWrapper>
-                                <RadioGroup>
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="12" label="month" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="4" label="quarter" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="2" label="half-year" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="1" label="year" />
-                                </RadioGroup>
                             </StyledInputWrapper>
                         </FormContainer>
                         <CurrencyContainer>
