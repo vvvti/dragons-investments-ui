@@ -15,8 +15,6 @@ import {
     MARKSMONTHLY,
     MARKSPROFIT,
 } from '../../helpers/constants';
-// components import
-import {Chart} from '../Chart/Chart';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {validationSchema} from './Form.helpers';
@@ -31,8 +29,8 @@ import {
     StyledResults,
     StyledSlider,
 } from './Form.styled';
-import {FrequencyRadio} from './Radio/FrequencyRadio';
 import {Values} from './Form.types';
+import {FrequencyRadio} from './Radio/FrequencyRadio';
 
 export const FormComponent: React.FC = () => {
     return (
@@ -54,13 +52,7 @@ export const FormComponent: React.FC = () => {
                 <StyledForm>
                     <StyledResults>
                         <Results />
-                        <Chart />
-
-                        {/* <Button variant="contained" type="submit" color="primary" disabled={!isValid}>
-                            {isSubmitting ? 'Loading...' : 'Submit'}
-                        </Button> */}
                     </StyledResults>
-
                     <div>
                         <FormContainer>
                             <h2>How much do you have currently saved?</h2>
