@@ -3,6 +3,6 @@ export interface Values {
     monthlySaving: number;
     savingPeriod: number;
     annualProfit: number;
-    paymentFrequency: string;
+    paymentFrequency: number;
     currencyValue: string;
 }

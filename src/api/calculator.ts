@@ -1,19 +1,11 @@
 import axios from 'axios';
 import {Values} from '../components/Form/Form.types';
 
-export const getData = async () => {
-    try {
-        const response = await axios.get(`/`);
-        console.log(response.data);
-    } catch (error) {
-        console.error(error);
-    }
-};
-
 export const postData = async (values: Values) => {
+    console.log(values);
     try {
-        await axios.get(`/`, {params: {values}});
-        console.log(values);
+        const response = await axios.get(`/api/calculator`, {params: values});
+        console.log(response.data);
     } catch (error) {
         console.error(error);
     }
