@@ -1,8 +1,7 @@
-import {Button, MenuItem, Select} from '@material-ui/core';
+import {MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
-import {postData} from '../../api/calculator';
 // variables imports
 import {
     INITIAL_AMOUNT,
@@ -18,7 +17,6 @@ import {
 } from '../../helpers/constants';
 // components import
 import {Chart} from '../Chart/Chart';
-import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {validationSchema} from './Form.helpers';
@@ -34,6 +32,7 @@ import {
     StyledSlider,
 } from './Form.styled';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
+import {Values} from './Form.types';
 
 export const FormComponent: React.FC = () => {
     return (
@@ -48,7 +47,7 @@ export const FormComponent: React.FC = () => {
             }}
             validationSchema={validationSchema}
             onSubmit={async (values: Values) => {
-                postData(values);
+                console.log(values);
             }}
         >
             {({values, isSubmitting, setFieldValue, errors, isValid}) => (
@@ -56,9 +55,10 @@ export const FormComponent: React.FC = () => {
                     <StyledResults>
                         <Results />
                         <Chart />
-                        <Button variant="contained" type="submit" color="primary" disabled={!isValid}>
+
+                        {/* <Button variant="contained" type="submit" color="primary" disabled={!isValid}>
                             {isSubmitting ? 'Loading...' : 'Submit'}
-                        </Button>
+                        </Button> */}
                     </StyledResults>
 
                     <div>
