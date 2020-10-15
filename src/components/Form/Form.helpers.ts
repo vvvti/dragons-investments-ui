@@ -5,6 +5,7 @@ export const validationSchema = yup.object({
         .number()
         .typeError('Value must be a number')
         .required('Field is required')
+        .moreThan(-1, 'Amount must be 0 or higher')
         .integer('Amount must be an integer'),
     monthlySaving: yup
         .number()
