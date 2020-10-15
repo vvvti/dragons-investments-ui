@@ -8,7 +8,7 @@ export interface Values {
 }
 
 export interface ResultsValue {
-    depositValue: number;
-    estimatedProfit: number;
-    finalValue: number;
+    depositValue?: number;
+    estimatedProfit?: number;
+    finalValue?: number;
 }
