@@ -122,7 +122,7 @@ export const FormComponent: React.FC = () => {
                                         name="slider"
                                         min={0}
                                         max={10}
-                                        step={1}
+                                        step={0.1}
                                         valueLabelDisplay="auto"
                                         marks={MARKSPROFIT}
                                         value={values.annualProfit}
