@@ -6,3 +6,9 @@ export interface Values {
     paymentFrequency: number;
     currencyValue: string;
 }
+
+export interface ResultsValue {
+    depositValue: number;
+    estimatedProfit: number;
+    finalValue: number;
+}

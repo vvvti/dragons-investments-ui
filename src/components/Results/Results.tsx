@@ -1,29 +1,32 @@
 import {useFormikContext} from 'formik';
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useResults} from '../../hooks/useResults';
 import {Values} from '../Form/Form.types';
 import {MainTitle, ResultWrapper, StyledMainNumber, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
 
 export const Results: React.FC = () => {
     const {
-        values: {initialValue, monthlySaving, savingPeriod, annualProfit, paymentFrequency, currencyValue},
+        values,
+        values: {currencyValue},
     } = useFormikContext<Values>();
+
+    const {results, fetchResults} = useResults();
+
+    useEffect(() => {
+        fetchResults(values);
+    }, [fetchResults, values]);
 
     return (
         <ResultWrapper>
             <div>
                 <MainTitle>Value of the investment</MainTitle>
-                <StyledMainNumber
-                    value={monthlySaving * annualProfit * 100}
-                    displayType={'text'}
-                    thousandSeparator={true}
-                    prefix={currencyValue}
-                />
+                <StyledMainNumber value={results?.finalValue} displayType={'text'} thousandSeparator={true} prefix={currencyValue} />
             </div>
             <ValuesWrapper>
                 <div>
                     <StyledTitle>Estimated profit</StyledTitle>
                     <StyledNumberFormat
-                        value={initialValue * +paymentFrequency}
+                        value={results?.estimatedProfit}
                         displayType={'text'}
                         thousandSeparator={true}
                         prefix={currencyValue}
@@ -32,7 +35,7 @@ export const Results: React.FC = () => {
                 <div>
                     <StyledTitle>Deposit value</StyledTitle>
                     <StyledNumberFormat
-                        value={initialValue * savingPeriod}
+                        value={results?.depositValue}
                         displayType={'text'}
                         thousandSeparator={true}
                         prefix={currencyValue}
