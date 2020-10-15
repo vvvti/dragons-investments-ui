@@ -5,6 +5,8 @@ export const INITIAL_PERIOD: number = 3;
 export const INITIAL_ANNUAL: number = 3;
 export const INITIAL_FREQUENCY: number = 1;
 
+export const DISCLAIMER = '*The presented results are a simulation taking into account the indicated parameters';
+
 export const MARKSMONTHLY = [
     {
         value: 100,

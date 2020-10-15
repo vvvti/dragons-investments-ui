@@ -35,3 +35,8 @@ export const ValuesWrapper = styled.div`
     font-size: 12px;
     margin: 10px 0;
 `;
+
+export const Disclaimer = styled.div`
+    font-style: italic;
+    font-size: 12px;
+`;
