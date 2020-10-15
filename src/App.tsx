@@ -2,7 +2,7 @@ import React from 'react';
 import {StyledFormComponent} from './App.styles';
 import {GlobalStyle} from './styles/GlobalStyles';
 import Navbar from './components/Navbar/Navbar';
-import {Route, HashRouter as Router, Switch} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import AboutPage from './components/SubPages/AboutPage';
 import FaqPage from './components/SubPages/FaqPage';
 import CartPage from './components/SubPages/CartPage';
