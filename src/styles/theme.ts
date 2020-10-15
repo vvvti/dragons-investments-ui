@@ -8,4 +8,6 @@ export const colors = {
     link: 'hsl(0, 0%, 100%)',
     backgroundColor: 'hsl(220, 82%, 16%)',
     whiteContainer: 'hsl(0, 0%, 100%)',
+    hltechBlue: '#000044',
+    sliderBlue: '#3f51b5',
 };

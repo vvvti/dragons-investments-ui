@@ -20,6 +20,15 @@ import {
 } from './Form.styled';
 import {Values} from './Form.types';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import {colors} from '../../styles/theme';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {main: colors.hltechBlue},
+        secondary: {main: colors.sliderBlue},
+    },
+});
 
 export const FormComponent: React.FC = () => {
     return (
@@ -88,10 +97,12 @@ export const FormComponent: React.FC = () => {
                             <h2>Frequency Payment:</h2>
                             <StyledInputWrapper>
                                 <RadioGroup>
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="12" label="month" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="4" label="quarter" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="2" label="half-year" />
-                                    <FrequencyRadio name="paymentFrequency" type="radio" value="1" label="year" />
+                                    <MuiThemeProvider theme={theme}>
+                                        <FrequencyRadio name="paymentFrequency" type="radio" value="12" label="month" />
+                                        <FrequencyRadio name="paymentFrequency" type="radio" value="4" label="quarter" />
+                                        <FrequencyRadio name="paymentFrequency" type="radio" value="2" label="half-year" />
+                                        <FrequencyRadio name="paymentFrequency" type="radio" value="1" label="year" />
+                                    </MuiThemeProvider>
                                 </RadioGroup>
                             </StyledInputWrapper>
                         </FormContainer>
