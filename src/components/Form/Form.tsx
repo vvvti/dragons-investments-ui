@@ -2,9 +2,6 @@ import {Button, MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
-import * as yup from 'yup';
-
-import {validationSchema} from './Form.helpers';
 import {postData} from '../../api/calculator';
 // variables imports
 import {
@@ -24,6 +21,7 @@ import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
+import {validationSchema} from './Form.helpers';
 import {
     CurrencyContainer,
     CurrencyTitle,
