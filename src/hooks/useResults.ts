@@ -2,16 +2,6 @@ import axios from 'axios';
 import {useCallback, useState} from 'react';
 import {ResultsValue, Values} from '../components/Form/Form.types';
 
-// export const postData = async (values: Values) => {
-//     try {
-//         const response = await axios.get(`/api/calculator`, {params: values});
-//         return(response.data)
-//     } catch (error) {
-//         console.error(error);
-//     }
-
-// };
-
 export const useResults = () => {
     const [isFetching, setIsFetching] = useState<boolean>(false);
     const [isError, setIsError] = useState<boolean>(false);

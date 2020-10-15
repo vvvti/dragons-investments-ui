@@ -1,27 +1,21 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
 import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
-import {Values} from '../Form/Form.types';
+import {ResultsValue, Values} from '../Form/Form.types';
 import {ChartContainer} from './Chart.styled';
 
-export const Chart: React.FC = () => {
-    const {
-        values,
-        values: {monthlySaving},
-    } = useFormikContext<Values>();
+export const Chart: React.FC<ResultsValue> = ({...results}) => {
+    const {values} = useFormikContext<Values>();
 
-    //Random formulas for calculating start and end value
-    // label={{value: 'index', position: 'insideLeft', dy: 10}}
-
-    const createArray = (values: Values) => {
+    const createArray = ({savingPeriod}: Values) => {
         let data = [];
-        let len = +values.savingPeriod + 1;
+        let len = savingPeriod + 1;
         for (let i = 0; i < len; i++) {
             data.push({
                 key: `${i}Y`,
-                deposit: values.monthlySaving * i * 10 * 1.1,
-                profit: +values.paymentFrequency * monthlySaving * i,
-                investmentValue: values.initialValue * i,
+                deposit: savingPeriod * i,
+                profit: savingPeriod * i,
+                investmentValue: savingPeriod * i,
             });
         }
         return data;
