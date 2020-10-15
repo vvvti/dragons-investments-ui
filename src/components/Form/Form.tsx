@@ -3,7 +3,7 @@ import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
 import * as yup from 'yup';
-import {getData, postData} from '../../api/calculator';
+import {postData} from '../../api/calculator';
 // variables imports
 import {
     INITIAL_AMOUNT,
@@ -56,9 +56,6 @@ const validationSchema = yup.object({
 });
 
 export const FormComponent: React.FC = () => {
-    // implemented to test communication with API
-    const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
-
     return (
         <Formik
             initialValues={{
@@ -71,7 +68,6 @@ export const FormComponent: React.FC = () => {
             }}
             validationSchema={validationSchema}
             onSubmit={async (values: Values) => {
-                await sleep(5000);
                 postData(values);
             }}
         >
@@ -83,7 +79,6 @@ export const FormComponent: React.FC = () => {
                         <Button variant="contained" type="submit" color="primary" disabled={!isValid}>
                             {isSubmitting ? 'Loading...' : 'Submit'}
                         </Button>
-                        <Button onClick={getData}>Get</Button>
                     </StyledResults>
 
                     <div>

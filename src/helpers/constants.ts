@@ -1,9 +1,9 @@
 export const INITIAL_CURRENCY: string = '£';
-export const INITIAL_AMOUNT: number = 500;
-export const INITIAL_MONTHLY: number = 300;
-export const INITIAL_PERIOD: number = 8;
-export const INITIAL_ANNUAL: number = 5;
-export const INITIAL_FREQUENCY: string = '12';
+export const INITIAL_AMOUNT: number = 10000;
+export const INITIAL_MONTHLY: number = 10;
+export const INITIAL_PERIOD: number = 2;
+export const INITIAL_ANNUAL: number = 1;
+export const INITIAL_FREQUENCY: number = 1;
 
 export const MARKSMONTHLY = [
     {
