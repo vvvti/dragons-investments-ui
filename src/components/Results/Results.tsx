@@ -4,7 +4,7 @@ import {DISCLAIMER} from '../../helpers/constants';
 import {useResults} from '../../hooks/useResults';
 import {Chart} from '../Chart/Chart';
 import {Values} from '../Form/Form.types';
-import {MainTitle, ResultWrapper, StyledMainNumber, StyledNumberFormat, StyledTitle, ValuesWrapper, Disclaimer} from './Result.styled';
+import {Disclaimer, MainTitle, ResultWrapper, StyledMainNumber, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
 
 export const Results: React.FC = () => {
     const {

@@ -1,9 +1,13 @@
-export const INITIAL_CURRENCY: string = '£';
-export const INITIAL_AMOUNT: number = 10000;
-export const INITIAL_MONTHLY: number = 10;
-export const INITIAL_PERIOD: number = 2;
-export const INITIAL_ANNUAL: number = 1;
-export const INITIAL_FREQUENCY: number = 1;
+import {Values} from '../components/Form/Form.types';
+
+export const INITIAL_FORM_VALUES: Values = {
+    initialValue: 1000,
+    monthlySaving: 300,
+    savingPeriod: 6,
+    annualProfit: 3,
+    paymentFrequency: '1',
+    currencyValue: '£',
+};
 
 export const DISCLAIMER = '*The presented results are a simulation taking into account the indicated parameters';
 
