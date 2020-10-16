@@ -11,18 +11,18 @@ export const validationSchema = yup.object({
         .number()
         .typeError('Value must be a number')
         .required('Field is required')
-        .moreThan(0, 'Amount must be higher than 0')
+        .moreThan(-1, 'Amount must be higher than 0')
         .integer('Amount must be an integer'),
     savingPeriod: yup
         .number()
         .typeError('Value must be a number')
         .max(50, 'You can select max 50 years')
         .required('Field is required')
-        .positive('Must be a positive number')
+        .positive('Must be higher than 0')
         .integer('Amount must be an integer'),
     annualProfit: yup
         .number()
         .typeError('Value must be a number')
         .required('Field is required')
-        .positive('Must be a positive number'),
+        .moreThan(-1, 'Amount must be higher than 0'),
 });
