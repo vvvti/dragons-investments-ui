@@ -9,7 +9,7 @@ export const Chart: React.FC<ResultsValue> = ({...results}) => {
 
     const createArray = ({savingPeriod}: Values, results: ResultsValue) => {
         let data = [];
-        let len = savingPeriod + 1;
+        let len = +savingPeriod + 1;
         for (let i = 0; i < len; i++) {
             data.push({
                 key: `${i}Y`,
