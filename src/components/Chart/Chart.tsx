@@ -7,21 +7,21 @@ import {ChartContainer} from './Chart.styled';
 export const Chart: React.FC<ResultsValue> = ({...results}) => {
     const {values} = useFormikContext<Values>();
 
-    const createArray = ({savingPeriod, monthlySaving, annualProfit, paymentFrequency, initialValue}: Values) => {
+    const createArray = ({savingPeriod}: Values, results: ResultsValue) => {
         let data = [];
         let len = savingPeriod + 1;
         for (let i = 0; i < len; i++) {
             data.push({
                 key: `${i}Y`,
-                deposit: savingPeriod * monthlySaving * i,
-                profit: savingPeriod * annualProfit * +paymentFrequency * savingPeriod * 10 * i,
-                investmentValue: savingPeriod * initialValue * i,
+                deposit: results.depositValue! * i,
+                profit: results.estimatedProfit! * i,
+                investmentValue: results.finalValue! * i,
             });
         }
         return data;
     };
 
-    const data = createArray(values);
+    const data = createArray(values, results);
 
     return (
         <ChartContainer>
