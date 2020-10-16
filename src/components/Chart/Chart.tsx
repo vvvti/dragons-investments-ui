@@ -13,9 +13,9 @@ export const Chart: React.FC<ResultsValue> = ({...results}) => {
         for (let i = 0; i < len; i++) {
             data.push({
                 key: `${i}Y`,
-                deposit: results.depositValue! * i,
-                profit: results.estimatedProfit! * i,
-                investmentValue: results.finalValue! * i,
+                deposit: Math.round(results.depositValue! * i),
+                profit: Math.round(results.estimatedProfit! * i),
+                investmentValue: Math.round(results.finalValue! * i),
             });
         }
         return data;
