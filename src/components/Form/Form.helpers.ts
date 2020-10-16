@@ -11,7 +11,7 @@ export const validationSchema = yup.object({
         .number()
         .typeError('Value must be a number')
         .required('Field is required')
-        .positive('Must be a positive number')
+        .moreThan(0, 'Amount must be higher than 0')
         .integer('Amount must be an integer'),
     savingPeriod: yup
         .number()

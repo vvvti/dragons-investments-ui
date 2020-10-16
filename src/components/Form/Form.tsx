@@ -70,12 +70,12 @@ export const FormComponent: React.FC = () => {
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
-                            <h2>How much do you want to save?</h2>
+                            <h2>How much do you want to pay systematically?</h2>
                             <StyledInputWrapper>
                                 <StyledSlider>
                                     <Slider
                                         name="slider"
-                                        min={0}
+                                        min={1}
                                         max={600}
                                         step={100}
                                         valueLabelDisplay="auto"
@@ -94,7 +94,7 @@ export const FormComponent: React.FC = () => {
                             </StyledInputWrapper>
                         </FormContainer>
                         <FormContainer>
-                            <h2>Frequency Payment:</h2>
+                            <h2>Payment frequency:</h2>
                             <StyledInputWrapper>
                                 <RadioGroup>
                                     <MuiThemeProvider theme={theme}>

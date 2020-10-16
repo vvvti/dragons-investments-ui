@@ -11,6 +11,7 @@ export const useResults = () => {
         setIsFetching(true);
         try {
             const response = await axios.get(`/api/calculator`, {params: values});
+            console.log(response);
             setResults(response.data);
         } catch {
             setIsError(true);
