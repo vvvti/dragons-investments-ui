@@ -1,9 +1,11 @@
 import {MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
+import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
 import {INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
+import {colors} from '../../styles/theme';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
 import {validationSchema} from './Form.helpers';
@@ -20,8 +22,6 @@ import {
 } from './Form.styled';
 import {Values} from './Form.types';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
-import {colors} from '../../styles/theme';
 
 const theme = createMuiTheme({
     palette: {
@@ -75,7 +75,7 @@ export const FormComponent: React.FC = () => {
                                 <StyledSlider>
                                     <Slider
                                         name="slider"
-                                        min={1}
+                                        min={0}
                                         max={600}
                                         step={100}
                                         valueLabelDisplay="auto"
