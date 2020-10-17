@@ -1,6 +1,7 @@
 import {Form} from 'formik';
 import styled from 'styled-components';
 import {colors} from '../../styles/theme';
+import {defaultBorderRadius} from '../../styles/theme';
 
 export const StyledForm = styled(Form)`
     display: flex;
@@ -13,7 +14,7 @@ export const StyledForm = styled(Form)`
     min-width: 1000px;
     background-color: ${colors.backgroundContainer};
     color: ${colors.fontColor};
-    border-radius: 5px;
+    border-radius: ${defaultBorderRadius};
     box-shadow: 0px 0px 10px 1px ${colors.boxShadow};
     font-family: 'Lato', sans-serif;
 `;
@@ -26,7 +27,6 @@ export const StyledInputWrapper = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 40px 15px;
-    /* grid-gap: 40px; */
     align-items: center;
 `;
 

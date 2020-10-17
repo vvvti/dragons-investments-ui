@@ -1,13 +1,13 @@
 import {useFormikContext} from 'formik';
 import React from 'react';
 import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
-import {ResultsValue, Values} from '../Form/Form.types';
+import {ResultsValue, FormValues} from '../../helpers/types';
 import {ChartContainer} from './Chart.styled';
 
 export const Chart: React.FC<ResultsValue> = ({...results}) => {
-    const {values} = useFormikContext<Values>();
+    const {values} = useFormikContext<FormValues>();
 
-    const createArray = ({savingPeriod}: Values, results: ResultsValue) => {
+    const createArray = ({savingPeriod}: FormValues, results: ResultsValue) => {
         let data = [];
         let len = +savingPeriod + 1;
         for (let i = 0; i < len; i++) {

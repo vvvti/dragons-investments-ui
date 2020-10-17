@@ -3,14 +3,14 @@ import React, {useEffect} from 'react';
 import {DISCLAIMER} from '../../helpers/constants';
 import {useResults} from '../../hooks/useResults';
 import {Chart} from '../Chart/Chart';
-import {Values} from '../Form/Form.types';
+import {FormValues} from '../../helpers/types';
 import {Disclaimer, MainTitle, ResultWrapper, StyledMainNumber, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
 
 export const Results: React.FC = () => {
     const {
         values,
         values: {currencyValue},
-    } = useFormikContext<Values>();
+    } = useFormikContext<FormValues>();
 
     const {results, fetchResults} = useResults();
 
