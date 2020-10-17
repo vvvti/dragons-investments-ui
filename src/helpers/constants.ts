@@ -1,12 +1,18 @@
-import {Values} from '../components/Form/Form.types';
+import {FormValues, Currencies} from './types';
 
-export const INITIAL_FORM_VALUES: Values = {
+export const currencyValue: Currencies = {
+    EURO: '€',
+    BRITISH_POUND: '£',
+    DOLLAR: '$',
+};
+
+export const INITIAL_FORM_VALUES: FormValues = {
     initialValue: 1000,
     monthlySaving: 300,
     savingPeriod: 6,
     annualProfit: 3,
     paymentFrequency: '1',
-    currencyValue: '£',
+    currencyValue: currencyValue.BRITISH_POUND,
 };
 
 export const DISCLAIMER = '*The presented results are a simulation taking into account the indicated parameters';

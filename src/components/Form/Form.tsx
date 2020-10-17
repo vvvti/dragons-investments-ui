@@ -4,7 +4,8 @@ import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
-import {INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
+import {currencyValue, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
+import {FormValues} from '../../helpers/types';
 import {colors} from '../../styles/theme';
 import {Results} from '../Results/Results';
 import {FieldElement} from './FieldElement/FieldElement';
@@ -20,7 +21,6 @@ import {
     StyledResults,
     StyledSlider,
 } from './Form.styled';
-import {Values} from './Form.types';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 
 const theme = createMuiTheme({
@@ -35,7 +35,7 @@ export const FormComponent: React.FC = () => {
         <Formik
             initialValues={INITIAL_FORM_VALUES}
             validationSchema={validationSchema}
-            onSubmit={async (values: Values) => {
+            onSubmit={async (values: FormValues) => {
                 console.log(values);
             }}
         >
@@ -147,9 +147,9 @@ export const FormComponent: React.FC = () => {
                         <CurrencyContainer>
                             <CurrencyTitle>Currency:</CurrencyTitle>
                             <Field name="currencyValue" type="select" as={Select}>
-                                <MenuItem value="$">USD</MenuItem>
-                                <MenuItem value="£">GBP</MenuItem>
-                                <MenuItem value="€">EUR</MenuItem>
+                                <MenuItem value={currencyValue.DOLLAR}>USD</MenuItem>
+                                <MenuItem value={currencyValue.BRITISH_POUND}>GBP</MenuItem>
+                                <MenuItem value={currencyValue.EURO}>EUR</MenuItem>
                             </Field>
                         </CurrencyContainer>
                     </div>

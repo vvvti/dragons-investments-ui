@@ -11,3 +11,9 @@ export const colors = {
     hltechBlue: '#000044',
     sliderBlue: '#3f51b5',
 };
+
+export const defaultBorderRadius = '5px';
+export const defaultVerticalDistance = '10px';
+export const defaultHorizontalDistance = '0';
+export const defaultMargin = '${defaultVerticalDistance} ${defaultHorizontalDistance}';
+export const defaultBoxShadow = '0px 0px 10px 1px ${colors.boxShadow}';
