@@ -39,10 +39,10 @@ export const FormComponent: React.FC = () => {
                 console.log(values);
             }}
         >
-            {({values, setFieldValue, errors}) => (
+            {({values, setFieldValue, errors, isValid}) => (
                 <StyledForm>
                     <StyledResults>
-                        <Results />
+                        <Results isValid={isValid} />
                     </StyledResults>
                     <div>
                         <FormContainer>
