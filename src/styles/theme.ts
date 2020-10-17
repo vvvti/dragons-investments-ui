@@ -15,5 +15,4 @@ export const colors = {
 export const defaultBorderRadius = '5px';
 export const defaultVerticalDistance = '10px';
 export const defaultHorizontalDistance = '0';
-export const defaultMargin = '${defaultVerticalDistance} ${defaultHorizontalDistance}';
-export const defaultBoxShadow = '0px 0px 10px 1px ${colors.boxShadow}';
+export const defaultBoxShadow = '0px 0px 10px 1px hsla(0, 0%, 100%, 0.75)';
