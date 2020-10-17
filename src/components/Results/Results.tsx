@@ -20,7 +20,7 @@ export const Results: React.FC<IProps> = ({isValid}) => {
 
     useEffect(() => {
         fetchResults(values, isValid);
-    }, [fetchResults, values]);
+    }, [fetchResults, values, isValid]);
 
     return (
         <>
