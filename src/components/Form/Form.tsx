@@ -4,7 +4,7 @@ import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
-import {currencyValue, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
+import {currencyBasket, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
 import {colors} from '../../styles/theme';
 import {Results} from '../Results/Results';
@@ -147,9 +147,9 @@ export const FormComponent: React.FC = () => {
                         <CurrencyContainer>
                             <CurrencyTitle>Currency:</CurrencyTitle>
                             <Field name="currencyValue" type="select" as={Select}>
-                                <MenuItem value={currencyValue.DOLLAR}>USD</MenuItem>
-                                <MenuItem value={currencyValue.BRITISH_POUND}>GBP</MenuItem>
-                                <MenuItem value={currencyValue.EURO}>EUR</MenuItem>
+                                <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
+                                <MenuItem value={currencyBasket.BRITISH_POUND}>GBP</MenuItem>
+                                <MenuItem value={currencyBasket.EURO}>EUR</MenuItem>
                             </Field>
                         </CurrencyContainer>
                     </div>
