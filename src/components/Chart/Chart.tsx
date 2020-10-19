@@ -5,7 +5,11 @@ import {FormValues, ResultsValue} from '../../helpers/types';
 import {ChartContainer} from './Chart.styled';
 
 export const Chart: React.FC<ResultsValue> = ({...results}) => {
-    const {values, isValid} = useFormikContext<FormValues>();
+    const {
+        values,
+        isValid,
+        values: {currencyValue},
+    } = useFormikContext<FormValues>();
 
     const createArray = ({savingPeriod}: FormValues, results: ResultsValue, isValid: boolean) => {
         let data = [];
@@ -42,7 +46,7 @@ export const Chart: React.FC<ResultsValue> = ({...results}) => {
                 <XAxis dataKey="key" />
                 <YAxis />
                 <Legend />
-                <Tooltip />
+                <Tooltip formatter={label => `${label.toLocaleString('en-IN')} ${currencyValue}`} />
                 <Line type="monotone" dataKey="deposit" stroke="#00e0b4" activeDot={{r: 8}} />
                 <Line type="monotone" dataKey="profit" stroke="#071e4a" />
                 <Line type="monotone" dataKey="investmentValue" stroke="#ff0000" />
