@@ -4,6 +4,7 @@ import {Moderate} from './RiskDetails/Moderate';
 import {VeryConservative} from './RiskDetails/VeryConservative';
 import {Aggressive} from './RiskDetails/Aggressive';
 import {VeryAggressive} from './RiskDetails/VeryAggressive';
+import {RiskContainer} from './RiskComponent.styled';
 
 export interface RiskProps {
     riskValue: number;
@@ -31,5 +32,5 @@ export const RiskDetails: React.FC<RiskProps> = ({riskValue}) => {
         default:
             component = <Moderate />;
     }
-    return <div>{component}</div>;
+    return <RiskContainer>{component}</RiskContainer>;
 };

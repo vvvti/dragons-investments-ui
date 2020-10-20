@@ -18,6 +18,7 @@ import {
     StyledSlider,
 } from './Basket.styled';
 import {BasketFieldElement} from './BasketFieldElement/BasketFieldElement';
+import {PieChartComponent} from './PieChart/PieChart';
 import {RiskDetails} from './RiskComponent/RiskComponent';
 
 export const BasketComponent: React.FC = () => {
@@ -41,7 +42,8 @@ export const BasketComponent: React.FC = () => {
                             />
                             <h2>Value of the investment</h2>
                         </div>
-                        <pre>{JSON.stringify(values, null, 2)}</pre>
+                        {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
+                        <PieChartComponent />
                     </StyledResults>
                     <div>
                         <InputContainer>

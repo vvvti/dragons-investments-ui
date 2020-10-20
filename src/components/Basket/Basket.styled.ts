@@ -20,9 +20,8 @@ export const StyledForm = styled(Form)`
 `;
 
 export const StyledInputWrapper = styled.div`
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 40px 15px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 `;
 
@@ -38,6 +37,7 @@ export const StyledResults = styled.div`
 `;
 
 export const StyledSlider = styled.div`
+    align-self: flex-end;
     width: 500px;
 `;
 
