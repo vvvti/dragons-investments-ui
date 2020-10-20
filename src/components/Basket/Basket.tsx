@@ -18,6 +18,7 @@ import {
     StyledSlider,
 } from './Basket.styled';
 import {BasketFieldElement} from './BasketFieldElement/BasketFieldElement';
+import {RiskDetails} from './RiskComponent/RiskComponent';
 
 export const BasketComponent: React.FC = () => {
     return (
@@ -70,6 +71,9 @@ export const BasketComponent: React.FC = () => {
                                     />
                                 </StyledSlider>
                             </StyledInputWrapper>
+                        </FormContainer>
+                        <FormContainer>
+                            <RiskDetails riskValue={values.riskValue} />
                         </FormContainer>
                     </div>
                 </StyledForm>
