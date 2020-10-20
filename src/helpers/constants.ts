@@ -12,10 +12,9 @@ export const INITIAL_FORM_VALUES: FormValues = {
     savingPeriod: 6,
     annualProfit: 3,
     paymentFrequency: '1',
-    currencyValue: currencyBasket.BRITISH_POUND,
     basketValue: 1000,
     riskValue: 1,
-    currencyBasketValue: currencyBasket.BRITISH_POUND,
+    currencyValue: currencyBasket.BRITISH_POUND,
 };
 
 export const DISCLAIMER = '*The presented results are a simulation taking into account the indicated parameters';

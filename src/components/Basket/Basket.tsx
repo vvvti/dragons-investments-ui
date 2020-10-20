@@ -5,8 +5,6 @@ import React from 'react';
 // variables imports
 import {currencyBasket, INITIAL_FORM_VALUES, MARKSBASKET} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
-import {FieldElement} from '../FieldElement/FieldElement';
-import {Results} from '../Results/Results';
 import {validationSchema} from './Baket.helpers';
 import {
     CurrencyContainer,
@@ -15,9 +13,11 @@ import {
     InputContainer,
     StyledForm,
     StyledInputWrapper,
+    StyledMainResult,
     StyledResults,
     StyledSlider,
 } from './Basket.styled';
+import {BasketFieldElement} from './BasketFieldElement/BasketFieldElement';
 
 export const BasketComponent: React.FC = () => {
     return (
@@ -28,14 +28,24 @@ export const BasketComponent: React.FC = () => {
                 console.log(values);
             }}
         >
-            {({values, setFieldValue, errors, isValid}) => (
+            {({values, setFieldValue, errors}) => (
                 <StyledForm>
                     <StyledResults>
-                        <Results isValid={isValid} />
+                        <div>
+                            <StyledMainResult
+                                value={values.basketValue}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                prefix={values.currencyValue}
+                            />
+                            <h2>Value of the investment</h2>
+                        </div>
+                        <pre>{JSON.stringify(values, null, 2)}</pre>
                     </StyledResults>
                     <div>
                         <InputContainer>
-                            <Field name="initialValue" value={values.basketValue} component={FieldElement} unit="" />
+                            <h2>Invest Value</h2>
+                            <Field name="basketValue" value={values.basketValue} component={BasketFieldElement} unit="" />
                             <ErrorMessage>{errors.initialValue}</ErrorMessage>
                             <CurrencyContainer>
                                 <Field name="currencyValue" type="select" as={Select}>
@@ -54,7 +64,6 @@ export const BasketComponent: React.FC = () => {
                                         min={0}
                                         max={4}
                                         step={1}
-                                        // valueLabelDisplay="auto"
                                         marks={MARKSBASKET}
                                         value={values.riskValue}
                                         onChange={(event, value) => setFieldValue('riskValue', value)}

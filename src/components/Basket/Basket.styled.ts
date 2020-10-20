@@ -1,4 +1,5 @@
 import {Form} from 'formik';
+import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
 import {colors, defaultBorderRadius} from '../../styles/theme';
 
@@ -18,10 +19,6 @@ export const StyledForm = styled(Form)`
     font-family: 'Lato', sans-serif;
 `;
 
-export const RadioGroup = styled.div`
-    display: flex;
-`;
-
 export const StyledInputWrapper = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
@@ -37,7 +34,6 @@ export const FormContainer = styled.div`
 `;
 
 export const StyledResults = styled.div`
-    text-align: center;
     margin: 0 50px;
 `;
 
@@ -61,4 +57,10 @@ export const CurrencyTitle = styled.h2`
 export const InputContainer = styled.div`
     display: flex;
     align-items: center;
+`;
+
+export const StyledMainResult = styled(NumberFormat)`
+    font-size: 48px;
+    margin: 10px 0;
+    letter-spacing: 2px;
 `;

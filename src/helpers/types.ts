@@ -7,7 +7,6 @@ export interface FormValues {
     currencyValue: string;
     basketValue: number;
     riskValue: number;
-    currencyBasketValue: string;
 }
 
 export interface ResultsValue {
