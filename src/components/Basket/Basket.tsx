@@ -3,16 +3,16 @@ import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
-import {currencyBasket, INITIAL_FORM_VALUES, MARKSINITIAL} from '../../helpers/constants';
+import {currencyBasket, INITIAL_FORM_VALUES, MARKSBASKET} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
 import {FieldElement} from '../FieldElement/FieldElement';
 import {Results} from '../Results/Results';
 import {validationSchema} from './Baket.helpers';
 import {
     CurrencyContainer,
-    CurrencyTitle,
     ErrorMessage,
     FormContainer,
+    InputContainer,
     StyledForm,
     StyledInputWrapper,
     StyledResults,
@@ -34,6 +34,17 @@ export const BasketComponent: React.FC = () => {
                         <Results isValid={isValid} />
                     </StyledResults>
                     <div>
+                        <InputContainer>
+                            <Field name="initialValue" value={values.basketValue} component={FieldElement} unit="" />
+                            <ErrorMessage>{errors.initialValue}</ErrorMessage>
+                            <CurrencyContainer>
+                                <Field name="currencyValue" type="select" as={Select}>
+                                    <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
+                                    <MenuItem value={currencyBasket.BRITISH_POUND}>GBP</MenuItem>
+                                    <MenuItem value={currencyBasket.EURO}>EUR</MenuItem>
+                                </Field>
+                            </CurrencyContainer>
+                        </InputContainer>
                         <FormContainer>
                             <h2>What is you risk capacity?</h2>
                             <StyledInputWrapper>
@@ -41,31 +52,16 @@ export const BasketComponent: React.FC = () => {
                                     <Slider
                                         name="slider"
                                         min={0}
-                                        max={2500}
-                                        step={500}
-                                        valueLabelDisplay="auto"
-                                        marks={MARKSINITIAL}
-                                        value={values.initialValue}
-                                        onChange={(event, value) => setFieldValue('initialValue', value)}
+                                        max={4}
+                                        step={1}
+                                        // valueLabelDisplay="auto"
+                                        marks={MARKSBASKET}
+                                        value={values.riskValue}
+                                        onChange={(event, value) => setFieldValue('riskValue', value)}
                                     />
                                 </StyledSlider>
-                                <Field
-                                    name="initialValue"
-                                    value={values.initialValue}
-                                    component={FieldElement}
-                                    unit={values.currencyValue}
-                                />
-                                <ErrorMessage>{errors.initialValue}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
-                        <CurrencyContainer>
-                            <CurrencyTitle>Currency:</CurrencyTitle>
-                            <Field name="currencyValue" type="select" as={Select}>
-                                <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
-                                <MenuItem value={currencyBasket.BRITISH_POUND}>GBP</MenuItem>
-                                <MenuItem value={currencyBasket.EURO}>EUR</MenuItem>
-                            </Field>
-                        </CurrencyContainer>
                     </div>
                 </StyledForm>
             )}
