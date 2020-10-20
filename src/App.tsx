@@ -7,6 +7,8 @@ import AboutPage from './components/SubPages/AboutPage';
 import FaqPage from './components/SubPages/FaqPage';
 import BasketPage from './components/SubPages/BasketPage';
 import ContactPage from './components/SubPages/ContactPage';
+import NotFoundPage from './components/SubPages/NotFoundPage';
+import {ROUTES} from './helpers/routes';
 
 export const App = () => {
     return (
@@ -14,11 +16,14 @@ export const App = () => {
             <Navbar />
             <GlobalStyle />
             <Switch>
-                <Route exact path="/" component={StyledFormComponent} />
-                <Route exact path="/about" component={AboutPage} />
-                <Route exact path="/faq" component={FaqPage} />
-                <Route exact path="/contact" component={ContactPage} />
-                <Route exact path="/cart" component={BasketPage} />
+                <Route exact path={ROUTES.HOME} component={StyledFormComponent} />
+                <Route exact path={ROUTES.ABOUT} component={AboutPage} />
+                <Route exact path={ROUTES.FAQ} component={FaqPage} />
+                <Route exact path={ROUTES.CONTACT} component={ContactPage} />
+                <Route exact path={ROUTES.BASKET} component={BasketPage} />
+                <Route>
+                    <NotFoundPage />
+                </Route>
             </Switch>
         </Router>
     );
