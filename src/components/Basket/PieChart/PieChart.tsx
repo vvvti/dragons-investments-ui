@@ -13,17 +13,7 @@ export const PieChartComponent: React.FC = () => {
     return (
         <ChartContainer>
             <PieChart width={500} height={500}>
-                <Pie
-                    data={data}
-                    cx={250}
-                    cy={250}
-                    innerRadius={60}
-                    outerRadius={180}
-                    fill="#8884d8"
-                    paddingAngle={5}
-                    dataKey="value"
-                    label={true}
-                >
+                <Pie data={data} cx={250} cy={250} innerRadius={60} outerRadius={180} fill="#8884d8" paddingAngle={5} dataKey="value">
                     {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
