@@ -10,6 +10,7 @@ const NavigationItems: React.FC = () => {
             <StyledLink to="/about">About</StyledLink>
             <StyledLink to="/faq">FAQ</StyledLink>
             <StyledLink to="/contact">Contact</StyledLink>
+            <StyledLink to="/cart">Basket</StyledLink>
         </StyledNavigationItems>
     );
 };

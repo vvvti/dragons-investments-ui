@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import AboutPage from './components/SubPages/AboutPage';
 import FaqPage from './components/SubPages/FaqPage';
-import CartPage from './components/SubPages/CartPage';
+import BasketPage from './components/SubPages/BasketPage';
 import ContactPage from './components/SubPages/ContactPage';
 
 export const App = () => {
@@ -18,7 +18,7 @@ export const App = () => {
                 <Route exact path="/about" component={AboutPage} />
                 <Route exact path="/faq" component={FaqPage} />
                 <Route exact path="/contact" component={ContactPage} />
-                <Route exact path="/cart" component={CartPage} />
+                <Route exact path="/cart" component={BasketPage} />
             </Switch>
         </Router>
     );

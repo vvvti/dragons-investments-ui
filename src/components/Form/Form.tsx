@@ -8,7 +8,7 @@ import {currencyBasket, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSM
 import {FormValues} from '../../helpers/types';
 import {colors} from '../../styles/theme';
 import {Results} from '../Results/Results';
-import {FieldElement} from './FieldElement/FieldElement';
+import {FieldElement} from '../FieldElement/FieldElement';
 import {validationSchema} from './Form.helpers';
 import {
     CurrencyContainer,
