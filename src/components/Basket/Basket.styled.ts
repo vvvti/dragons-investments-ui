@@ -1,7 +1,6 @@
 import {Form} from 'formik';
 import styled from 'styled-components';
-import {colors} from '../../styles/theme';
-import {defaultBorderRadius} from '../../styles/theme';
+import {colors, defaultBorderRadius} from '../../styles/theme';
 
 export const StyledForm = styled(Form)`
     display: flex;
@@ -43,7 +42,7 @@ export const StyledResults = styled.div`
 `;
 
 export const StyledSlider = styled.div`
-    width: 300px;
+    width: 500px;
 `;
 
 export const ErrorMessage = styled.div`
@@ -57,4 +56,9 @@ export const CurrencyContainer = styled.div`
 
 export const CurrencyTitle = styled.h2`
     margin: 0 10px 0 0;
+`;
+
+export const InputContainer = styled.div`
+    display: flex;
+    align-items: center;
 `;
