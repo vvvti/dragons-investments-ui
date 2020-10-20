@@ -7,6 +7,11 @@ export interface FormValues {
     currencyValue: string;
 }
 
+export interface BasketValues {
+    basketValue: number;
+    currencyBasketValue: string;
+}
+
 export interface ResultsValue {
     depositValue?: number;
     estimatedProfit?: number;
