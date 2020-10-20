@@ -1,4 +1,4 @@
-import {FormValues, Currencies} from './types';
+import {Currencies, FormValues, BasketValues} from './types';
 
 export const currencyBasket: Currencies = {
     EURO: '€',
@@ -13,6 +13,11 @@ export const INITIAL_FORM_VALUES: FormValues = {
     annualProfit: 3,
     paymentFrequency: '1',
     currencyValue: currencyBasket.BRITISH_POUND,
+};
+
+export const INITIAL_BASKET_VALUES: BasketValues = {
+    basketValue: 1000,
+    currencyBasketValue: currencyBasket.BRITISH_POUND,
 };
 
 export const DISCLAIMER = '*The presented results are a simulation taking into account the indicated parameters';

@@ -3,8 +3,9 @@ import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
-import {currencyBasket, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
+import {currencyBasket, INITIAL_FORM_VALUES, MARKSINITIAL} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
+import {FieldElement} from '../FieldElement/FieldElement';
 import {Results} from '../Results/Results';
 import {validationSchema} from './Baket.helpers';
 import {
@@ -17,7 +18,6 @@ import {
     StyledResults,
     StyledSlider,
 } from './Basket.styled';
-import {FieldElement} from '../FieldElement/FieldElement';
 
 export const BasketComponent: React.FC = () => {
     return (
@@ -35,7 +35,7 @@ export const BasketComponent: React.FC = () => {
                     </StyledResults>
                     <div>
                         <FormContainer>
-                            <h2>How much do you have currently saved?</h2>
+                            <h2>What is you risk capacity?</h2>
                             <StyledInputWrapper>
                                 <StyledSlider>
                                     <Slider
