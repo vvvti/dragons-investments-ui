@@ -6,6 +6,14 @@ export const currencyBasket: Currencies = {
     DOLLAR: '$',
 };
 
+export enum riskBasket {
+    VERY_CONSERVATIVE,
+    CONSERVATIVE,
+    MODERATE,
+    AGGRESSIVE,
+    VERY_AGGRESIVE,
+}
+
 export const INITIAL_FORM_VALUES: FormValues = {
     initialValue: 1000,
     monthlySaving: 300,

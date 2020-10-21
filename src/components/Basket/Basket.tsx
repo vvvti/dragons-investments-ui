@@ -48,7 +48,7 @@ export const BasketComponent: React.FC = () => {
                     <div>
                         <InputContainer>
                             <h2>Invest Value</h2>
-                            <Field name="basketValue" value={values.basketValue} component={BasketFieldElement} unit="" />
+                            <Field name="basketValue" value={values.basketValue} component={BasketFieldElement} />
                             <ErrorMessage>{errors.initialValue}</ErrorMessage>
                             <CurrencyContainer>
                                 <Field name="currencyValue" type="select" as={Select}>

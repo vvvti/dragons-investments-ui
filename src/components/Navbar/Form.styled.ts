@@ -15,7 +15,7 @@ export const StyledForm = styled(Form)`
     color: ${colors.fontColor};
     border-radius: ${defaultBorderRadius};
     box-shadow: ${defaultBoxShadow};
-    font-family: 'Lato', sadefaultBoxShadowns-serif;
+    font-family: 'Lato', sans-serif;
 `;
 
 export const RadioGroup = styled.div`

@@ -7,8 +7,8 @@ import React from 'react';
 import {currencyBasket, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
 import {colors} from '../../styles/theme';
-import {Results} from '../Results/Results';
 import {FieldElement} from '../FieldElement/FieldElement';
+import {Results} from '../Results/Results';
 import {validationSchema} from './Form.helpers';
 import {
     CurrencyContainer,
@@ -39,10 +39,10 @@ export const FormComponent: React.FC = () => {
                 console.log(values);
             }}
         >
-            {({values, setFieldValue, errors, isValid}) => (
+            {({values, setFieldValue, errors}) => (
                 <StyledForm>
                     <StyledResults>
-                        <Results isValid={isValid} />
+                        <Results />
                     </StyledResults>
                     <div>
                         <FormContainer>
