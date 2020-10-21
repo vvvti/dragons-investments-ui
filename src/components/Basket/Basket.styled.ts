@@ -23,8 +23,8 @@ export const StyledHeader = styled.header`
     display: flex;
     width: 100%;
     justify-content: space-between;
-    border-bottom: 2px solid grey;
     margin-bottom: 20px;
+    border-bottom: 2px solid grey;
 `;
 
 export const StyledMain = styled.main`
