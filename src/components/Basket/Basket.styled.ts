@@ -3,10 +3,10 @@ import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
 import {colors, defaultBorderRadius} from '../../styles/theme';
 
-export const StyledForm = styled(Form)`
+export const StyledBasketForm = styled(Form)`
     display: flex;
-    margin: 50px auto;
-    padding: 50px 100px;
+    flex-direction: column;
+    margin: 20px 50px;
     align-items: center;
     justify-content: space-around;
     flex-shrink: 0;
@@ -19,6 +19,19 @@ export const StyledForm = styled(Form)`
     font-family: 'Lato', sans-serif;
 `;
 
+export const StyledHeader = styled.header`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 2px solid grey;
+    margin-bottom: 20px;
+`;
+
+export const StyledMain = styled.main`
+    display: flex;
+    justify-content: space-space-between;
+`;
+
 export const StyledInputWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -29,16 +42,12 @@ export const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 500px;
-`;
-
-export const StyledResults = styled.div`
-    margin: 0 50px;
+    width: 600px;
 `;
 
 export const StyledSlider = styled.div`
-    align-self: flex-end;
-    width: 500px;
+    align-self: center;
+    width: 450px;
 `;
 
 export const ErrorMessage = styled.div`
