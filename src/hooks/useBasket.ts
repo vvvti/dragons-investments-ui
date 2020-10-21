@@ -9,7 +9,7 @@ export const useBasket = () => {
 
     const fetchResults = useCallback(async (values: BasketFormValues) => {
         setIsFetching(true);
-        console.log('Values to API:', values);
+        // console.log('Values to API:', values);
         try {
             const response = await axios.post(`/api/basket`, {params: values});
             setBasketValues(response.data);
