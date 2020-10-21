@@ -11,10 +11,10 @@ import {
     ErrorMessage,
     FormContainer,
     InputContainer,
-    StyledForm,
-    StyledInputWrapper,
+    StyledBasketForm,
+    StyledHeader,
+    StyledMain,
     StyledMainResult,
-    StyledResults,
     StyledSlider,
 } from './Basket.styled';
 import {BasketFieldElement} from './BasketFieldElement/BasketFieldElement';
@@ -31,8 +31,8 @@ export const BasketComponent: React.FC = () => {
             }}
         >
             {({values, setFieldValue, errors}) => (
-                <StyledForm>
-                    <StyledResults>
+                <StyledBasketForm>
+                    <StyledHeader>
                         <div>
                             <StyledMainResult
                                 value={values.basketValue}
@@ -42,10 +42,6 @@ export const BasketComponent: React.FC = () => {
                             />
                             <h2>Value of the investment</h2>
                         </div>
-                        {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
-                        <PieChartComponent />
-                    </StyledResults>
-                    <div>
                         <InputContainer>
                             <h2>Invest Value</h2>
                             <Field name="basketValue" value={values.basketValue} component={BasketFieldElement} />
@@ -58,9 +54,12 @@ export const BasketComponent: React.FC = () => {
                                 </Field>
                             </CurrencyContainer>
                         </InputContainer>
-                        <FormContainer>
-                            <h2>What is you risk capacity?</h2>
-                            <StyledInputWrapper>
+                    </StyledHeader>
+                    <div>
+                        <StyledMain>
+                            <PieChartComponent />
+                            <FormContainer>
+                                <h2>What is you risk capacity?</h2>
                                 <StyledSlider>
                                     <Slider
                                         name="slider"
@@ -72,13 +71,11 @@ export const BasketComponent: React.FC = () => {
                                         onChange={(event, value) => setFieldValue('riskValue', value)}
                                     />
                                 </StyledSlider>
-                            </StyledInputWrapper>
-                        </FormContainer>
-                        <FormContainer>
-                            <RiskDetails riskValue={values.riskValue} />
-                        </FormContainer>
+                                <RiskDetails riskValue={values.riskValue} />
+                            </FormContainer>
+                        </StyledMain>
                     </div>
-                </StyledForm>
+                </StyledBasketForm>
             )}
         </Formik>
     );
