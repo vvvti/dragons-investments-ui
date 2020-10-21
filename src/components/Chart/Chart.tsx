@@ -7,28 +7,15 @@ import {ChartContainer} from './Chart.styled';
 
 export const Chart: React.FC<ResultsValue> = ({...results}) => {
     const {
-        values,
-        isValid,
         values: {currencyValue},
     } = useFormikContext<FormValues>();
 
-    const createArray = ({savingPeriod}: FormValues, results: ResultsValue, isValid: boolean) => {
-        let data = [];
-        let len = +savingPeriod + 1;
-        if (isValid) {
-            for (let i = 0; i < len; i++) {
-                data.push({
-                    key: `${i}Y`,
-                    deposit: Math.round(results.depositValue! * i),
-                    profit: Math.round(results.estimatedProfit! * i),
-                    investmentValue: Math.round(results.finalValue! * i),
-                });
-            }
-        }
-        return data;
-    };
+    console.log(
+        'results',
+        results.chartData?.map(item => item.deposit),
+    );
 
-    const data = createArray(values, results, isValid);
+    const data = results.chartData;
 
     return (
         <ChartContainer>

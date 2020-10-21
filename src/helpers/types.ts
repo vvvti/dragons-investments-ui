@@ -13,10 +13,17 @@ export interface BasketFormValues {
     currencyBasketValue: string;
 }
 
+interface ArrayResults {
+    key?: number;
+    investmentValue?: number;
+    profit?: number;
+    deposit?: number;
+}
 export interface ResultsValue {
     depositValue?: number;
     estimatedProfit?: number;
     finalValue?: number;
+    chartData?: Array<ArrayResults>;
 }
 
 export interface Currencies {
