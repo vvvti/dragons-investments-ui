@@ -13,6 +13,7 @@ import {
     FormContainer,
     InputContainer,
     StyledBasketForm,
+    StyledContainer,
     StyledHeader,
     StyledMain,
     StyledSlider,
@@ -36,18 +37,26 @@ export const BasketComponent: React.FC = () => {
                     <StyledHeader>
                         <BasketResults />
                         {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
-                        <InputContainer>
-                            <h2>Invest Value</h2>
-                            <Field name="basketValue" value={values.basketValue} component={BasketFieldElement} />
+                        <StyledContainer>
+                            <InputContainer>
+                                <h2>Invest Value</h2>
+                                <Field
+                                    name="basketValue"
+                                    value={values.basketValue}
+                                    component={BasketFieldElement}
+                                    currency={values.currencyBasketValue}
+                                />
+
+                                <CurrencyContainer>
+                                    <Field name="currencyBasketValue" type="select" as={Select}>
+                                        <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
+                                        <MenuItem value={currencyBasket.BRITISH_POUND}>GBP</MenuItem>
+                                        <MenuItem value={currencyBasket.EURO}>EUR</MenuItem>
+                                    </Field>
+                                </CurrencyContainer>
+                            </InputContainer>
                             <ErrorMessage>{errors.basketValue}</ErrorMessage>
-                            <CurrencyContainer>
-                                <Field name="currencyBasketValue" type="select" as={Select}>
-                                    <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
-                                    <MenuItem value={currencyBasket.BRITISH_POUND}>GBP</MenuItem>
-                                    <MenuItem value={currencyBasket.EURO}>EUR</MenuItem>
-                                </Field>
-                            </CurrencyContainer>
-                        </InputContainer>
+                        </StyledContainer>
                     </StyledHeader>
                     <div>
                         <StyledMain>

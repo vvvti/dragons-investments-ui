@@ -8,3 +8,9 @@ export const currencyFormat = (label: string | number | ReactText[], currencyVal
         return `${label.toLocaleString('en-IN')} ${currencyValue}`;
     }
 };
+
+export const numberFormat = (value: number) =>
+    new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'GBP',
+    }).format(value);

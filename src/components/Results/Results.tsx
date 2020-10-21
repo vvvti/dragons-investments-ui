@@ -26,26 +26,43 @@ export const Results: React.FC = () => {
             <ResultWrapper>
                 <div>
                     <MainTitle>Value of the investment</MainTitle>
-                    <StyledMainNumber value={results?.finalValue} displayType={'text'} thousandSeparator={true} prefix={currencyValue} />
+                    {isValid ? (
+                        <StyledMainNumber
+                            value={results?.finalValue}
+                            displayType={'text'}
+                            thousandSeparator={true}
+                            prefix={currencyValue}
+                        />
+                    ) : (
+                        '---'
+                    )}
                 </div>
                 <ValuesWrapper>
                     <div>
                         <StyledTitle>Estimated profit</StyledTitle>
-                        <StyledNumberFormat
-                            value={results?.estimatedProfit}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            prefix={currencyValue}
-                        />
+                        {isValid ? (
+                            <StyledNumberFormat
+                                value={results?.estimatedProfit}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                prefix={currencyValue}
+                            />
+                        ) : (
+                            '---'
+                        )}
                     </div>
                     <div>
                         <StyledTitle>Deposit value</StyledTitle>
-                        <StyledNumberFormat
-                            value={results?.depositValue}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            prefix={currencyValue}
-                        />
+                        {isValid ? (
+                            <StyledNumberFormat
+                                value={results?.depositValue}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                prefix={currencyValue}
+                            />
+                        ) : (
+                            '---'
+                        )}
                     </div>
                 </ValuesWrapper>
             </ResultWrapper>
