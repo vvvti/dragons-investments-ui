@@ -8,7 +8,6 @@ export const BasketResults: React.FC = () => {
     const {
         values,
         values: {currencyBasketValue},
-        isValid,
     } = useFormikContext<BasketFormValues>();
     const {basketValues, fetchResults} = useBasket();
 
