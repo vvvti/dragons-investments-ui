@@ -5,6 +5,7 @@ import React from 'react';
 // variables imports
 import {currencyBasket, INITIAL_FORM_VALUES, MARKSBASKET} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
+import {Assumption} from './Assumptiom/Assumption';
 import {validationSchema} from './Baket.helpers';
 import {
     CurrencyContainer,
@@ -75,6 +76,7 @@ export const BasketComponent: React.FC = () => {
                             </FormContainer>
                         </StyledMain>
                     </div>
+                    <Assumption />
                 </StyledBasketForm>
             )}
         </Formik>
