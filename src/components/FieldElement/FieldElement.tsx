@@ -9,7 +9,7 @@ interface IProps extends FieldProps {
 export const FieldElement: React.FC<IProps> = ({field, unit}) => {
     return (
         <label htmlFor="styledInput">
-            <StyledInput id="styledInput" {...field} />
+            <StyledInput type="text" maxLength={6} id="styledInput" {...field} />
             {unit}
         </label>
     );

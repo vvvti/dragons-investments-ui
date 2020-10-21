@@ -48,6 +48,7 @@ export const Chart: React.FC<ResultsValue> = ({...results}) => {
                 <YAxis />
                 <Legend />
                 <Tooltip formatter={label => currencyFormat(label, currencyValue)} />
+                {/* formatter={currencyFormat} */}
                 <Line type="monotone" dataKey="deposit" stroke="#00e0b4" activeDot={{r: 8}} />
                 <Line type="monotone" dataKey="profit" stroke="#071e4a" />
                 <Line type="monotone" dataKey="investmentValue" stroke="#ff0000" />

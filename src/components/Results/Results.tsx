@@ -6,58 +6,46 @@ import {useResults} from '../../hooks/useResults';
 import {Chart} from '../Chart/Chart';
 import {Disclaimer, MainTitle, ResultWrapper, StyledMainNumber, StyledNumberFormat, StyledTitle, ValuesWrapper} from './Result.styled';
 
-interface IProps {
-    isValid: boolean;
-}
-
-export const Results: React.FC<IProps> = ({isValid}) => {
+export const Results: React.FC = () => {
     const {
         values,
+        isValid,
         values: {currencyValue},
     } = useFormikContext<FormValues>();
 
     const {results, fetchResults} = useResults();
 
     useEffect(() => {
-        fetchResults(values, isValid);
-    }, [fetchResults, values, isValid]);
+        if (isValid) {
+            fetchResults(values);
+        }
+    }, [fetchResults, values]);
 
     return (
         <>
             <ResultWrapper>
                 <div>
                     <MainTitle>Value of the investment</MainTitle>
-                    {isValid && (
-                        <StyledMainNumber
-                            value={results?.finalValue}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            prefix={currencyValue}
-                        />
-                    )}
+                    <StyledMainNumber value={results?.finalValue} displayType={'text'} thousandSeparator={true} prefix={currencyValue} />
                 </div>
                 <ValuesWrapper>
                     <div>
                         <StyledTitle>Estimated profit</StyledTitle>
-                        {isValid && (
-                            <StyledNumberFormat
-                                value={results?.estimatedProfit}
-                                displayType={'text'}
-                                thousandSeparator={true}
-                                prefix={currencyValue}
-                            />
-                        )}
+                        <StyledNumberFormat
+                            value={results?.estimatedProfit}
+                            displayType={'text'}
+                            thousandSeparator={true}
+                            prefix={currencyValue}
+                        />
                     </div>
                     <div>
                         <StyledTitle>Deposit value</StyledTitle>
-                        {isValid && (
-                            <StyledNumberFormat
-                                value={results?.depositValue}
-                                displayType={'text'}
-                                thousandSeparator={true}
-                                prefix={currencyValue}
-                            />
-                        )}
+                        <StyledNumberFormat
+                            value={results?.depositValue}
+                            displayType={'text'}
+                            thousandSeparator={true}
+                            prefix={currencyValue}
+                        />
                     </div>
                 </ValuesWrapper>
             </ResultWrapper>

@@ -7,13 +7,11 @@ export const useResults = () => {
     const [isError, setIsError] = useState<boolean>(false);
     const [results, setResults] = useState<ResultsValue>();
 
-    const fetchResults = useCallback(async (values: FormValues, isValid: boolean) => {
+    const fetchResults = useCallback(async (values: FormValues) => {
         setIsFetching(true);
         try {
-            if (isValid) {
-                const response = await axios.get(`/api/calculator`, {params: values});
-                setResults(response.data);
-            }
+            const response = await axios.get(`/api/calculator`, {params: values});
+            setResults(response.data);
         } catch {
             setIsError(true);
         } finally {
