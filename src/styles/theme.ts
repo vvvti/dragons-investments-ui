@@ -8,8 +8,9 @@ export const colors = {
     link: 'hsl(0, 0%, 100%)',
     backgroundColor: 'hsl(220, 82%, 16%)',
     whiteContainer: 'hsl(0, 0%, 100%)',
-    hltechBlue: '#000044',
-    sliderBlue: '#3f51b5',
+    hltechBlue: 'hsl(240, 100%, 13%)',
+    sliderBlue: 'hsl(231, 48%, 48%)',
+    basketBorder: 'hsl(0, 0%, 50%)',
 };
 
 export const defaultBorderRadius = '5px';

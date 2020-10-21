@@ -5,8 +5,12 @@ export interface FormValues {
     annualProfit: number;
     paymentFrequency: string;
     currencyValue: string;
+}
+
+export interface BasketFormValues {
     basketValue: number;
     riskValue: number;
+    currencyBasketValue: string;
 }
 
 export interface ResultsValue {

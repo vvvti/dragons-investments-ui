@@ -42,6 +42,7 @@ export const FormComponent: React.FC = () => {
             {({values, setFieldValue, errors}) => (
                 <StyledForm>
                     <StyledResults>
+                        {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
                         <Results />
                     </StyledResults>
                     <div>

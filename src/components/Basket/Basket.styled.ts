@@ -1,5 +1,4 @@
 import {Form} from 'formik';
-import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
 import {colors, defaultBorderRadius} from '../../styles/theme';
 
@@ -24,7 +23,7 @@ export const StyledHeader = styled.header`
     width: 100%;
     justify-content: space-between;
     margin-bottom: 20px;
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid ${colors.basketBorder};
 `;
 
 export const StyledMain = styled.main`
@@ -66,10 +65,4 @@ export const CurrencyTitle = styled.h2`
 export const InputContainer = styled.div`
     display: flex;
     align-items: center;
-`;
-
-export const StyledMainResult = styled(NumberFormat)`
-    font-size: 48px;
-    margin: 10px 0;
-    letter-spacing: 2px;
 `;
