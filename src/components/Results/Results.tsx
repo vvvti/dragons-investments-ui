@@ -19,7 +19,7 @@ export const Results: React.FC = () => {
         if (isValid) {
             fetchResults(values);
         }
-    }, [fetchResults, values]);
+    }, [fetchResults, values, isValid]);
 
     return (
         <>
