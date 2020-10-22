@@ -44,7 +44,7 @@ export const BasketComponent: React.FC = () => {
                                     name="basketValue"
                                     value={values.basketValue}
                                     component={BasketFieldElement}
-                                    currency={values.currencyBasketValue}
+                                    onValueChange={val => setFieldValue('basketValue', val.floatValue)}
                                 />
                                 <CurrencyContainer>
                                     <Field name="currencyBasketValue" type="select" as={Select}>
