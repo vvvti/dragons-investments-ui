@@ -1,7 +1,8 @@
-import {MenuItem, Select} from '@material-ui/core';
+import {Button, MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
+import {NumberFormatValues} from 'react-number-format';
 // variables imports
 import {currencyBasket, INITIAL_BASKET_FORM_VALUES, MARKSBASKET} from '../../helpers/constants';
 import {BasketFormValues} from '../../helpers/types';
@@ -15,10 +16,10 @@ import {
     StyledBasketForm,
     StyledContainer,
     StyledHeader,
+    StyledInput,
     StyledMain,
     StyledSlider,
 } from './Basket.styled';
-import {BasketFieldElement} from './BasketFieldElement/BasketFieldElement';
 import {BasketResults} from './BasketResults/BasketResults';
 import {PieChartComponent} from './PieChart/PieChart';
 import {RiskDetails} from './RiskComponent/RiskComponent';
@@ -32,7 +33,7 @@ export const BasketComponent: React.FC = () => {
                 console.log(values);
             }}
         >
-            {({values, errors, setFieldValue}) => (
+            {({values, errors, setFieldValue, isValid, isSubmitting}) => (
                 <StyledBasketForm>
                     <StyledHeader>
                         <BasketResults />
@@ -40,11 +41,11 @@ export const BasketComponent: React.FC = () => {
                         <StyledContainer>
                             <InputContainer>
                                 <h2>Invest Value</h2>
-                                <Field
+                                <StyledInput
                                     name="basketValue"
                                     value={values.basketValue}
-                                    component={BasketFieldElement}
-                                    onValueChange={val => setFieldValue('basketValue', val.floatValue)}
+                                    thousandSeparator={true}
+                                    onValueChange={(val: NumberFormatValues) => setFieldValue('basketValue', val.floatValue)}
                                 />
                                 <CurrencyContainer>
                                     <Field name="currencyBasketValue" type="select" as={Select}>
@@ -54,7 +55,13 @@ export const BasketComponent: React.FC = () => {
                                     </Field>
                                 </CurrencyContainer>
                             </InputContainer>
-                            <ErrorMessage>{errors.basketValue}</ErrorMessage>
+                            {isValid ? (
+                                <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Loading...' : 'Submit'}
+                                </Button>
+                            ) : (
+                                <ErrorMessage>{errors.basketValue}</ErrorMessage>
+                            )}
                         </StyledContainer>
                     </StyledHeader>
                     <div>
