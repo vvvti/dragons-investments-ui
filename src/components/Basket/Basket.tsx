@@ -32,7 +32,7 @@ export const BasketComponent: React.FC = () => {
                 console.log(values);
             }}
         >
-            {({values, setFieldValue, errors}) => (
+            {({values, errors, setFieldValue}) => (
                 <StyledBasketForm>
                     <StyledHeader>
                         <BasketResults />
@@ -46,7 +46,6 @@ export const BasketComponent: React.FC = () => {
                                     component={BasketFieldElement}
                                     currency={values.currencyBasketValue}
                                 />
-
                                 <CurrencyContainer>
                                     <Field name="currencyBasketValue" type="select" as={Select}>
                                         <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
