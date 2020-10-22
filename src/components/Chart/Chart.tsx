@@ -10,11 +10,6 @@ export const Chart: React.FC<ResultsValue> = ({...results}) => {
         values: {currencyValue},
     } = useFormikContext<FormValues>();
 
-    console.log(
-        'results',
-        results.chartData?.map(item => item.deposit),
-    );
-
     const data = results.chartData;
 
     return (
