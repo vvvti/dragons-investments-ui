@@ -1,15 +1,14 @@
 import {FieldProps} from 'formik';
 import React from 'react';
-import {StyledInput} from './BasketFieldElement.styled';
-
-// export interface IBasketProps {
-//     currency: string;
-// }
+import NumberFormat from 'react-number-format';
 
 export const BasketFieldElement: React.FC<FieldProps> = ({field}) => {
     return (
-        <label htmlFor="styledInput">
-            <StyledInput type="text" maxLength={10} id="styledInput" {...field} />
-        </label>
+        <NumberFormat
+            isNumericString={true}
+            thousandSeparator={true}
+            onValueChange={vals => setState({value: vals.formattedValue})}
+            {...field}
+        />
     );
 };
