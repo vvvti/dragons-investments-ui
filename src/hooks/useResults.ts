@@ -29,11 +29,3 @@ export const useResults = () => {
         fetchResults,
     };
 };
-
-export const fetchDataResults = async (values: FormValues) => {
-    try {
-        const response = await axios.get(`/api/calculator`, {params: values});
-    } catch {
-        console.log('test');
-    }
-};
