@@ -3,12 +3,12 @@ import Slider from '@material-ui/core/Slider';
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import {Field, Formik} from 'formik';
 import React from 'react';
+import {NumberFormatValues} from 'react-number-format';
 // variables imports
 import {currencyBasket, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
 import {useResults} from '../../hooks/useResults';
 import {colors} from '../../styles/theme';
-import {FieldElement} from '../FieldElement/FieldElement';
 import {Results} from '../Results/Results';
 import {validationSchema} from './Form.helpers';
 import {
@@ -16,8 +16,10 @@ import {
     CurrencyTitle,
     ErrorMessage,
     FormContainer,
+    PrefixWrapper,
     RadioGroup,
     StyledForm,
+    StyledInput,
     StyledInputWrapper,
     StyledResults,
     StyledSlider,
@@ -66,12 +68,15 @@ export const FormComponent: React.FC = () => {
                                         onChange={(event, value) => setFieldValue('initialValue', value)}
                                     />
                                 </StyledSlider>
-                                <Field
-                                    name="initialValue"
-                                    value={values.initialValue}
-                                    component={FieldElement}
-                                    unit={values.currencyValue}
-                                />
+                                <PrefixWrapper>
+                                    <StyledInput
+                                        name="initialValue"
+                                        value={values.initialValue}
+                                        thousandSeparator={true}
+                                        onValueChange={(val: NumberFormatValues) => setFieldValue('initialValue', val.floatValue)}
+                                    />
+                                    {values.currencyValue}
+                                </PrefixWrapper>
                                 <ErrorMessage>{errors.initialValue}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
@@ -90,12 +95,15 @@ export const FormComponent: React.FC = () => {
                                         onChange={(event, value) => setFieldValue('monthlySaving', value)}
                                     />
                                 </StyledSlider>
-                                <Field
-                                    name="monthlySaving"
-                                    value={values.monthlySaving}
-                                    component={FieldElement}
-                                    unit={values.currencyValue}
-                                />
+                                <PrefixWrapper>
+                                    <StyledInput
+                                        name="monthlySaving"
+                                        value={values.monthlySaving}
+                                        thousandSeparator={true}
+                                        onValueChange={(val: NumberFormatValues) => setFieldValue('monthlySaving', val.floatValue)}
+                                    />
+                                    {values.currencyValue}
+                                </PrefixWrapper>
                                 <ErrorMessage>{errors.monthlySaving}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
@@ -127,7 +135,15 @@ export const FormComponent: React.FC = () => {
                                         onChange={(event, value) => setFieldValue('savingPeriod', value)}
                                     />
                                 </StyledSlider>
-                                <Field name="savingPeriod" value={values.savingPeriod} component={FieldElement} unit="Years" />
+                                <PrefixWrapper>
+                                    <StyledInput
+                                        name="savingPeriod"
+                                        value={values.savingPeriod}
+                                        thousandSeparator={true}
+                                        onValueChange={(val: NumberFormatValues) => setFieldValue('savingPeriod', val.floatValue)}
+                                    />
+                                    Years
+                                </PrefixWrapper>
                                 <ErrorMessage>{errors.savingPeriod}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
@@ -146,7 +162,15 @@ export const FormComponent: React.FC = () => {
                                         onChange={(event, value) => setFieldValue('annualProfit', value)}
                                     />
                                 </StyledSlider>
-                                <Field name="annualProfit" value={values.annualProfit} component={FieldElement} unit="%" />
+                                <PrefixWrapper>
+                                    <StyledInput
+                                        name="annualProfit"
+                                        value={values.annualProfit}
+                                        thousandSeparator={true}
+                                        onValueChange={(val: NumberFormatValues) => setFieldValue('annualProfit', val.floatValue)}
+                                    />
+                                    %
+                                </PrefixWrapper>
                                 <ErrorMessage>{errors.annualProfit}</ErrorMessage>
                             </StyledInputWrapper>
                         </FormContainer>
