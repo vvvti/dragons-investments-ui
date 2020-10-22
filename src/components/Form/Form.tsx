@@ -1,4 +1,4 @@
-import {MenuItem, Select} from '@material-ui/core';
+import {Button, MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import {Field, Formik} from 'formik';
@@ -6,6 +6,7 @@ import React from 'react';
 // variables imports
 import {currencyBasket, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
+import {useResults} from '../../hooks/useResults';
 import {colors} from '../../styles/theme';
 import {FieldElement} from '../FieldElement/FieldElement';
 import {Results} from '../Results/Results';
@@ -31,19 +32,23 @@ const theme = createMuiTheme({
 });
 
 export const FormComponent: React.FC = () => {
+    const {fetchResults, results} = useResults();
     return (
         <Formik
             initialValues={INITIAL_FORM_VALUES}
             validationSchema={validationSchema}
             onSubmit={async (values: FormValues) => {
-                console.log(values);
+                fetchResults(values);
             }}
         >
-            {({values, setFieldValue, errors}) => (
+            {({values, setFieldValue, errors, isSubmitting, isValid}) => (
                 <StyledForm>
                     <StyledResults>
                         {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
-                        <Results />
+                        <Results {...results} />
+                        <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
+                            {isSubmitting ? 'Loading...' : 'Submit'}
+                        </Button>
                     </StyledResults>
                     <div>
                         <FormContainer>

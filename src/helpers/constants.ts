@@ -30,15 +30,15 @@ export const INITIAL_BASKET_FORM_VALUES: BasketFormValues = {
 };
 
 export const DEFAULT_RESULTS: ResultsValue = {
-    depositValue: 1,
-    estimatedProfit: 1,
-    finalValue: 1,
+    depositValue: 0,
+    estimatedProfit: 0,
+    finalValue: 0,
     chartData: [
         {
-            key: 1,
-            investmentValue: 1,
-            profit: 1,
-            deposit: 1,
+            key: 0,
+            investmentValue: 0,
+            profit: 0,
+            deposit: 0,
         },
     ],
 };

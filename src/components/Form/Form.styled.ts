@@ -1,7 +1,6 @@
 import {Form} from 'formik';
 import styled from 'styled-components';
-import {colors} from '../../styles/theme';
-import {defaultBorderRadius} from '../../styles/theme';
+import {colors, defaultBorderRadius} from '../../styles/theme';
 
 export const StyledForm = styled(Form)`
     display: flex;
