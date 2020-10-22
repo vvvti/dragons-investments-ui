@@ -23,7 +23,7 @@ spec:
                   imagePullPolicy: Always
                   env:
                       - name: API_BASE_PATH
-                        value: https://investment-calculator.ersa-team.prod.fintechchallenge.pl
+                        value: https://investment-calculator.ersa-team.fintechchallenge.pl
                   ports:
                       - name: web
                         containerPort: 80
@@ -102,7 +102,7 @@ spec:
         - websecure
     routes:
         - kind: Rule
-          match: Host(`dragons-investments-ui.ersa-team.prod.fintechchallenge.pl`)
+          match: Host(`dragons-investments-ui.ersa-team.fintechchallenge.pl`)
           middlewares:
               - name: fintech-prod-ersa-team-basic-auth-middleware
                 namespace: fintech-prod-ersa-team
@@ -118,4 +118,4 @@ spec:
             namespace: fintech-prod-ersa-team
         certResolver: hltech
         domains:
-            - main: dragons-investments-ui.ersa-team.prod.fintechchallenge.pl
+            - main: dragons-investments-ui.ersa-team.fintechchallenge.pl
