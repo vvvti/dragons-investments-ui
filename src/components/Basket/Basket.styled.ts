@@ -73,7 +73,6 @@ export const InputContainer = styled.div`
 export const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
 `;
 
 export const StyledInput = styled(NumberFormat)`
@@ -90,4 +89,19 @@ export const ChartWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+`;
+
+export const IdInputField = styled.div`
+    margin-top: 10px;
+`;
+
+export const SubmitContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    min-width: 250px;
 `;

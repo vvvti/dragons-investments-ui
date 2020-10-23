@@ -1,4 +1,4 @@
-import {Button, MenuItem, Select} from '@material-ui/core';
+import {Button, MenuItem, Select, TextField} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
@@ -10,20 +10,22 @@ import {useBasket} from '../../hooks/useBasket';
 import {Assumption} from './Assumptiom/Assumption';
 import {validationSchema} from './Baket.helpers';
 import {
+    ButtonWrapper,
+    ChartWrapper,
     CurrencyContainer,
     ErrorMessage,
     FormContainer,
     InputContainer,
-    ChartWrapper,
     StyledBasketForm,
     StyledContainer,
     StyledHeader,
     StyledInput,
     StyledMain,
     StyledSlider,
+    SubmitContainer,
 } from './Basket.styled';
-import {BasketDetails} from './BasketDetails/BasketDetails';
 import {BasketResults} from './BasketResults/BasketResults';
+import {ChartDetails} from './ChartDetails/ChartDetails';
 import {PieChartComponent} from './PieChart/PieChart';
 import {RiskDetails} from './RiskComponent/RiskComponent';
 
@@ -59,20 +61,37 @@ export const BasketComponent: React.FC = () => {
                                     </Field>
                                 </CurrencyContainer>
                             </InputContainer>
-                            {isValid ? (
-                                <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
-                                    {isSubmitting ? 'Loading...' : 'Submit'}
-                                </Button>
-                            ) : (
-                                <ErrorMessage>{errors.basketValue}</ErrorMessage>
-                            )}
+                            <SubmitContainer>
+                                {isValid ? (
+                                    <ButtonWrapper>
+                                        <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
+                                            {isSubmitting ? 'Loading...' : 'Submit'}
+                                        </Button>
+                                        <Button
+                                            variant="contained"
+                                            type="submit"
+                                            color="primary"
+                                            disabled={isSubmitting}
+                                            onClick={() => {
+                                                console.log('onClick');
+                                            }}
+                                        >
+                                            {isSubmitting ? 'Loading...' : 'Get Calculation'}
+                                        </Button>
+                                    </ButtonWrapper>
+                                ) : (
+                                    <ErrorMessage>{errors.basketValue}</ErrorMessage>
+                                )}
+
+                                <Field name="id" type="text" placeholder="Place your calculation ID" as={TextField} />
+                            </SubmitContainer>
                         </StyledContainer>
                     </StyledHeader>
                     <div>
                         <StyledMain>
                             <ChartWrapper>
                                 <PieChartComponent />
-                                <BasketDetails {...basketResults} />
+                                <ChartDetails {...basketResults} />
                             </ChartWrapper>
                             <FormContainer>
                                 <h2>What is you risk capacity?</h2>
