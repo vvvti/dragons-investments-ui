@@ -29,7 +29,8 @@ export const StyledHeader = styled.header`
 
 export const StyledMain = styled.main`
     display: flex;
-    justify-content: space-space-between;
+    justify-content: space-between;
+    margin-top: 50px;
 `;
 
 export const StyledInputWrapper = styled.div`
@@ -43,6 +44,7 @@ export const FormContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     width: 600px;
+    margin: 0 50px;
 `;
 
 export const StyledSlider = styled.div`
@@ -82,4 +84,10 @@ export const StyledInput = styled(NumberFormat)`
     margin: 0px 20px;
     border: 1px solid ${colors.inputBorder};
     width: 250px;
+`;
+
+export const ChartWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;

@@ -31,3 +31,17 @@ export interface Currencies {
     BRITISH_POUND: string;
     DOLLAR: string;
 }
+
+export interface FinalResults {
+    totalAmount?: number;
+    profit?: {
+        stock?: number;
+        bonds?: number;
+        cash?: number;
+    };
+    percentage?: {
+        stock?: number;
+        bonds?: number;
+        cash?: number;
+    };
+}
