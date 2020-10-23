@@ -8,6 +8,7 @@ export interface FormValues {
 }
 
 export interface BasketFormValues {
+    id: string;
     basketValue: number;
     riskValue: number;
     currencyBasketValue: string;
@@ -33,6 +34,9 @@ export interface Currencies {
 }
 
 export interface FinalResults {
+    id?: string;
+    riskType?: string;
+    basketValue?: number;
     totalAmount?: number;
     profit?: {
         stock?: number;
