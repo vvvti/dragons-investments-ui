@@ -8,6 +8,7 @@ export interface FormValues {
 }
 
 export interface BasketFormValues {
+    id: string;
     basketValue: number;
     riskValue: number;
     currencyBasketValue: string;
@@ -30,4 +31,21 @@ export interface Currencies {
     EURO: string;
     BRITISH_POUND: string;
     DOLLAR: string;
+}
+
+export interface FinalResults {
+    id?: string;
+    riskType?: string;
+    basketValue?: number;
+    totalAmount?: number;
+    profit?: {
+        stock?: number;
+        bonds?: number;
+        cash?: number;
+    };
+    percentage?: {
+        stock?: number;
+        bonds?: number;
+        cash?: number;
+    };
 }

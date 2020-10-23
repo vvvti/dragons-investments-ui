@@ -1,22 +1,15 @@
 import {useFormikContext} from 'formik';
-import React, {useEffect} from 'react';
-import {BasketFormValues} from '../../../helpers/types';
-import {useBasket} from '../../../hooks/useBasket';
+import React from 'react';
+import {BasketFormValues, FinalResults} from '../../../helpers/types';
 import {StyledMainResult} from './BasketResults.styled';
 
-export const BasketResults: React.FC = () => {
+export const BasketResults: React.FC<FinalResults> = ({...basketResults}) => {
     const {
         values,
         values: {currencyBasketValue},
     } = useFormikContext<BasketFormValues>();
-    const {basketValues, fetchResults} = useBasket();
 
-    //waiting for backend setup
-    console.log('basket from API:', basketValues);
-
-    useEffect(() => {
-        fetchResults(values);
-    }, [fetchResults, values]);
+    console.log(basketResults);
     return (
         <div>
             <StyledMainResult value={values.basketValue} displayType={'text'} thousandSeparator={true} prefix={currencyBasketValue} />
