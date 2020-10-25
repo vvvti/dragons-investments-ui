@@ -9,6 +9,7 @@ const NavigationItems: React.FC = () => {
                 Home
             </StyledLink>
             <StyledLink to={ROUTES.BASKET}>Basket</StyledLink>
+            <StyledLink to={ROUTES.OFFER}>OFFER</StyledLink>
             <StyledLink to={ROUTES.ABOUT}>About</StyledLink>
             <StyledLink to={ROUTES.FAQ}>FAQ</StyledLink>
             <StyledLink to={ROUTES.CONTACT}>Contact</StyledLink>
