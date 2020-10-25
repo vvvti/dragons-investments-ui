@@ -44,5 +44,5 @@ export const MainTitle = styled.h2`
 
 export const NumberContainer = styled.div`
     display: flex;
-    max-width: 150px;
+    min-width: 120px;
 `;
