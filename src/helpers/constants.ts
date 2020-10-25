@@ -1,9 +1,9 @@
 import {BasketFormValues, basketTypes, Currencies, FinalResults, FormValues, ResultsValue} from './types';
 
 export const currencyBasket: Currencies = {
-    EURO: '€',
-    BRITISH_POUND: '£',
-    DOLLAR: '$',
+    EURO: 'EUR',
+    BRITISH_POUND: 'GBP',
+    DOLLAR: 'USD',
 };
 
 export enum riskBasket {
@@ -104,7 +104,7 @@ export const INITIAL_FORM_VALUES: FormValues = {
 export const INITIAL_BASKET_FORM_VALUES: BasketFormValues = {
     id: '',
     basketValue: 1000,
-    riskValue: 3,
+    riskType: 3,
     currency: currencyBasket.BRITISH_POUND,
 };
 

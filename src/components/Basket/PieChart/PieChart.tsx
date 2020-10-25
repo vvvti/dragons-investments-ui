@@ -17,11 +17,11 @@ import {BasketFormValues} from '../../../helpers/types';
 export const PieChartComponent: React.FC = (): JSX.Element => {
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
     const {
-        values: {riskValue},
+        values: {riskType},
     } = useFormikContext<BasketFormValues>();
 
     let riskData, titleName;
-    switch (riskValue) {
+    switch (riskType) {
         case riskBasket.VERY_CONSERVATIVE:
             riskData = basketDetails.veryConservative;
             titleName = 'Very Conservative';

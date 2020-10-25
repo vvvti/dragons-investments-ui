@@ -72,11 +72,11 @@ export const BasketComponent: React.FC = () => {
                                         max={4}
                                         step={1}
                                         marks={MARKSBASKET}
-                                        value={values.riskValue}
-                                        onChange={(event, value) => setFieldValue('riskValue', value)}
+                                        value={values.riskType}
+                                        onChange={(event, value) => setFieldValue('riskType', value)}
                                     />
                                 </StyledSlider>
-                                <RiskDetails riskValue={values.riskValue} />
+                                <RiskDetails riskValue={values.riskType} />
                                 <SubmitContainer>
                                     <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
                                         {isSubmitting ? 'Loading...' : 'Submit'}
@@ -84,7 +84,7 @@ export const BasketComponent: React.FC = () => {
                                     <Field name="id" type="text" placeholder="Link to your basket" as={TextField} />
                                 </SubmitContainer>
                             </FormContainer>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
+                            <pre>{JSON.stringify(values, null, 2)}</pre>
                         </StyledMain>
                     </div>
                     <Assumption />
