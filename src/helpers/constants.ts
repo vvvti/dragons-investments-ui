@@ -5,6 +5,11 @@ export const currencyBasket: Currencies = {
     BRITISH_POUND: 'GBP',
     DOLLAR: 'USD',
 };
+export const currencyForm: Currencies = {
+    EURO: '€',
+    BRITISH_POUND: '£',
+    DOLLAR: '$',
+};
 
 export enum riskBasket {
     VERY_CONSERVATIVE,
@@ -98,7 +103,7 @@ export const INITIAL_FORM_VALUES: FormValues = {
     savingPeriod: 6,
     annualProfit: 3,
     paymentFrequency: '1',
-    currencyValue: currencyBasket.BRITISH_POUND,
+    currencyValue: currencyForm.BRITISH_POUND,
 };
 
 export const INITIAL_BASKET_FORM_VALUES: BasketFormValues = {
