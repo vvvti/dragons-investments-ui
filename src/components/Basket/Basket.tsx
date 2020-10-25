@@ -36,7 +36,7 @@ export const BasketComponent: React.FC = () => {
             initialValues={INITIAL_BASKET_FORM_VALUES}
             validationSchema={validationSchema}
             onSubmit={async (values: BasketFormValues) => {
-                fetchBasketResults(values);
+                await fetchBasketResults(values);
             }}
         >
             {({values, errors, setFieldValue, isValid, isSubmitting}) => (
