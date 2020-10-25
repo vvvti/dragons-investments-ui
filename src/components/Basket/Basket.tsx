@@ -36,14 +36,14 @@ export const BasketComponent: React.FC = () => {
             initialValues={INITIAL_BASKET_FORM_VALUES}
             validationSchema={validationSchema}
             onSubmit={async (values: BasketFormValues) => {
-                fetchBasketResults(values);
+                await fetchBasketResults(values);
             }}
         >
             {({values, errors, setFieldValue, isValid, isSubmitting}) => (
                 <StyledBasketForm>
                     <StyledHeader>
                         <BasketResults {...basketResults} />
-                        {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
+                        <pre>{JSON.stringify(values, null, 2)}</pre>
                         <StyledContainer>
                             <InputContainer>
                                 <h2>Invest Value</h2>
