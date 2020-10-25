@@ -16,7 +16,7 @@ export const DetailsWrapper = styled.div`
 
 export const StyledResultDetails = styled(NumberFormat)`
     font-size: 15px;
-    margin: 0 20px 0 10px;
+    margin-left: 10px;
     letter-spacing: 1px;
 `;
 
@@ -44,5 +44,5 @@ export const MainTitle = styled.h2`
 
 export const NumberContainer = styled.div`
     display: flex;
-    width: 150px;
+    max-width: 150px;
 `;

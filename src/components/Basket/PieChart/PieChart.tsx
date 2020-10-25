@@ -64,16 +64,15 @@ export const PieChartComponent: React.FC = (): JSX.Element => {
             <DetailsWrapper>
                 <NumberContainer>
                     <StyledStockSquare />
-                    <StyledResultDetails value={riskData?.stocks.value} displayType={'text'} thousandSeparator={true} prefix="STOCKS: %" />
+                    <StyledResultDetails value={riskData?.stocks.value} displayType={'text'} thousandSeparator={true} prefix="STOCKS: " />%
                 </NumberContainer>
                 <NumberContainer>
                     <StyledBondsSquare />
-
-                    <StyledResultDetails value={riskData?.bonds.value} displayType={'text'} thousandSeparator={true} prefix="BONDS: %" />
+                    <StyledResultDetails value={riskData?.bonds.value} displayType={'text'} thousandSeparator={true} prefix="BONDS: " />%
                 </NumberContainer>
                 <NumberContainer>
                     <StyledCashSquare />
-                    <StyledResultDetails value={riskData?.cash.value} displayType={'text'} thousandSeparator={true} prefix="CASH: %" />
+                    <StyledResultDetails value={riskData?.cash.value} displayType={'text'} thousandSeparator={true} prefix="CASH: " />%
                 </NumberContainer>
             </DetailsWrapper>
         </ChartContainer>
