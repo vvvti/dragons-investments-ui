@@ -18,6 +18,7 @@ import {
     StyledInput,
     StyledMain,
     StyledSlider,
+    StyledTitle,
     SubmitContainer,
 } from './Basket.styled';
 import {ChartDetails} from './ChartDetails/ChartDetails';
@@ -45,7 +46,7 @@ export const BasketComponent: React.FC = () => {
                             </ChartWrapper>
                             <FormContainer>
                                 <InputContainer>
-                                    <h2>Invest Value</h2>
+                                    <StyledTitle>Invest Value</StyledTitle>
                                     <StyledInput
                                         name="basketValue"
                                         value={values.basketValue}
