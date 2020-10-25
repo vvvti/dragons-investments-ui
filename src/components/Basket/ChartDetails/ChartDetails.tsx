@@ -1,6 +1,6 @@
 import React from 'react';
 import {BasketFormValues, FinalResults} from '../../../helpers/types';
-import {DetailsWrapper, ResultsWrapper, StyledMainResult, StyledResultDetails} from './ChartDetails.styled';
+import {DetailsWrapper, ResultsWrapper, StyledMainResult, StyledResultDetails, TitleResults} from './ChartDetails.styled';
 import {useFormikContext} from 'formik';
 
 export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
@@ -10,7 +10,7 @@ export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
     } = useFormikContext<BasketFormValues>();
     return (
         <ResultsWrapper>
-            <h4>Total return of investment:</h4>
+            <TitleResults>Total return of investment:</TitleResults>
             <StyledMainResult value={values.basketValue} displayType={'text'} thousandSeparator={true} prefix={currency} />
             <DetailsWrapper>
                 <StyledResultDetails
