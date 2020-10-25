@@ -25,6 +25,7 @@ import {ChartDetails} from './ChartDetails/ChartDetails';
 import {PieChartComponent} from './PieChart/PieChart';
 import {RiskDetails} from './RiskComponent/RiskComponent';
 import {NumberFormatValues} from 'react-number-format';
+import {Products} from './Assumptiom/Products';
 
 export const BasketComponent: React.FC = () => {
     const {basketResults, fetchBasketResults} = useBasket();
@@ -87,6 +88,7 @@ export const BasketComponent: React.FC = () => {
                         </StyledMain>
                     </div>
                     <Assumption />
+                    <Products />
                 </StyledBasketForm>
             )}
         </Formik>
