@@ -15,7 +15,7 @@ export const StyledBasketForm = styled(Form)`
     background-color: ${colors.backgroundContainer};
     color: ${colors.fontColor};
     border-radius: ${defaultBorderRadius};
-    box-shadow: 0px 0px 10px 1px ${colors.boxShadow};
+    box-shadow: 0 0 10px 1px ${colors.boxShadow};
     font-family: 'Lato', sans-serif;
 `;
 
@@ -30,7 +30,8 @@ export const StyledHeader = styled.header`
 export const StyledMain = styled.main`
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin: 30px 0;
+    min-width: 1100px;
 `;
 
 export const StyledInputWrapper = styled.div`
@@ -44,7 +45,7 @@ export const FormContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     width: 600px;
-    margin: 0 50px;
+    margin-left: 100px;
 `;
 
 export const StyledSlider = styled.div`
@@ -71,7 +72,7 @@ export const StyledInput = styled(NumberFormat)`
     font-weight: bold;
     font-size: 18px;
     padding: 5px 8px;
-    margin: 0px 20px;
+    margin: 0 20px;
     border: 1px solid ${colors.inputBorder};
     width: 250px;
 `;
@@ -80,9 +81,15 @@ export const ChartWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 450px;
 `;
 
 export const SubmitContainer = styled.div`
     display: flex;
     justify-content: space-between;
+    min-width: 600px;
+`;
+
+export const StyledTitle = styled.h2`
+    text-transform: uppercase;
 `;
