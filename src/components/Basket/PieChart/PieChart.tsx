@@ -39,27 +39,22 @@ export const PieChartComponent: React.FC = (): JSX.Element => {
             break;
     }
 
-    let riskData, titleName;
+    let riskData;
     switch (namedRiskType) {
         case riskBasket.VERY_CONSERVATIVE:
             riskData = basketDetails.veryConservative;
-            titleName = 'Very Conservative';
             break;
         case riskBasket.CONSERVATIVE:
             riskData = basketDetails.conservative;
-            titleName = 'Conservative';
             break;
         case riskBasket.MODERATE:
             riskData = basketDetails.moderate;
-            titleName = 'Moderate';
             break;
         case riskBasket.AGGRESSIVE:
             riskData = basketDetails.aggressive;
-            titleName = 'Aggressive';
             break;
         case riskBasket.VERY_AGGRESSIVE:
             riskData = basketDetails.veryAggressive;
-            titleName = 'Very Aggressive';
             break;
     }
 
@@ -71,7 +66,6 @@ export const PieChartComponent: React.FC = (): JSX.Element => {
 
     return (
         <ChartContainer>
-            {/*<MainTitle>{titleName}</MainTitle>*/}
             <PieChart width={400} height={350}>
                 <Pie data={data} cx={200} cy={150} innerRadius={40} outerRadius={140} fill="#8884d8" paddingAngle={5} dataKey="value">
                     {data.map((entry, index) => (
