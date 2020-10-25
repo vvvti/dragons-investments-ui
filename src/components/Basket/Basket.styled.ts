@@ -32,7 +32,7 @@ export const StyledMain = styled.main`
     justify-content: space-between;
     margin: 20px 20px 0 20px;
     min-width: 1200px;
-    padding: 0 30px 30px;
+    padding: 0 30px;
     border-bottom: 2px solid ${colors.basketBorder};
 `;
 
