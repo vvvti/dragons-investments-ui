@@ -3,7 +3,7 @@ import {ROUTES} from '../../helpers/routes';
 import {StyledContainer} from './NotFoundPage.styled';
 import {StyledLink} from '../Navbar/NavbarItems/NavbarItems.styled';
 
-const NotFoundPage: React.FC = () => {
+export const NotFoundPage: React.FC = () => {
     return (
         <StyledContainer>
             Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?
@@ -13,5 +13,3 @@ const NotFoundPage: React.FC = () => {
         </StyledContainer>
     );
 };
-
-export default NotFoundPage;

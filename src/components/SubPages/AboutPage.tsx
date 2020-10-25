@@ -2,7 +2,7 @@ import React from 'react';
 import {StyledCalculator, StyledContainer, StyledText, StyledTitle} from './SubPages.styled';
 import calculator from '../../assets/calculator.png';
 
-const AboutPage: React.FC = () => {
+export const AboutPage: React.FC = () => {
     return (
         <StyledContainer>
             <StyledTitle>About</StyledTitle>
@@ -17,5 +17,3 @@ const AboutPage: React.FC = () => {
         </StyledContainer>
     );
 };
-
-export default AboutPage;

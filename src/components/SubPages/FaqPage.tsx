@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyledContainer, StyledTitle, StyledText} from './SubPages.styled';
 
-const FaqPage: React.FC = () => {
+export const FaqPage: React.FC = () => {
     return (
         <StyledContainer>
             <StyledTitle>Faq</StyledTitle>
@@ -36,5 +36,3 @@ const FaqPage: React.FC = () => {
         </StyledContainer>
     );
 };
-
-export default FaqPage;
