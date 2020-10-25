@@ -6,6 +6,9 @@ export const VeryConservative: React.FC = () => {
             <h2>Very Conservative</h2>
             <h4>Typically, a very conservative investor is:</h4>
             <ul>
+                <li>
+                    <b>Stocks: </b>20% <b> Bonds: </b>50% <b> Cash: </b>30%
+                </li>
                 <li>cautious or a first-time investor</li>
                 <li>will need the money from their investments in five years or less</li>
                 <li>has a medium investment time horizon and seeks a growth potential that can compete with inflation concerns</li>
