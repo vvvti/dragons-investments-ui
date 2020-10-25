@@ -4,12 +4,12 @@ import styled from 'styled-components';
 export const DetailsWrapper = styled.div`
     display: flex;
     align-items: center;
-    max-width: 300px;
+    min-width: 300px;
 `;
 
 export const StyledResultDetails = styled(NumberFormat)`
     font-size: 15px;
-    margin: 0px 20px 0px 10px;
+    margin: 0 20px 0 10px;
     letter-spacing: 1px;
 `;
 
