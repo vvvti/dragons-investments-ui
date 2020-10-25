@@ -4,4 +4,5 @@ export enum ROUTES {
     FAQ = '/faq',
     CONTACT = '/contact',
     BASKET = '/basket',
+    OFFER = '/offer',
 }
