@@ -2,7 +2,7 @@ import React from 'react';
 import man from '../../assets/man.png';
 import {ContactItem, ContactWrapper, StyledContainer, StyledMan, StyledTitle} from './SubPages.styled';
 
-const ContactPage: React.FC = () => {
+export const ContactPage: React.FC = () => {
     return (
         <StyledContainer>
             <StyledTitle>Contact Details</StyledTitle>
@@ -18,5 +18,3 @@ const ContactPage: React.FC = () => {
         </StyledContainer>
     );
 };
-
-export default ContactPage;
