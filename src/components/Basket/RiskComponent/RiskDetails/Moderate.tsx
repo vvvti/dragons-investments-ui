@@ -6,9 +6,6 @@ export const Moderate: React.FC = () => {
             <h2>Moderate</h2>
             <h4>Typically, a moderate investor is:</h4>
             <ul>
-                <li>
-                    <b>Stocks: </b>65% <b> Bonds: </b>30% <b> Cash: </b>5%
-                </li>
                 <li>looking for a balance between portfolio stability and portfolio appreciation</li>
                 <li>willing and able to accept a moderate level of risk and return loss and volatility</li>
                 <li>an investor focused on growth but looking for greater diversification</li>

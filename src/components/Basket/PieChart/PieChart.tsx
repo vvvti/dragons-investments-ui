@@ -3,7 +3,6 @@ import {Cell, Pie, PieChart, Tooltip} from 'recharts';
 import {
     ChartContainer,
     DetailsWrapper,
-    MainTitle,
     NumberContainer,
     StyledBondsSquare,
     StyledCashSquare,
@@ -72,7 +71,7 @@ export const PieChartComponent: React.FC = (): JSX.Element => {
 
     return (
         <ChartContainer>
-            <MainTitle>{titleName}</MainTitle>
+            {/*<MainTitle>{titleName}</MainTitle>*/}
             <PieChart width={400} height={350}>
                 <Pie data={data} cx={200} cy={150} innerRadius={40} outerRadius={140} fill="#8884d8" paddingAngle={5} dataKey="value">
                     {data.map((entry, index) => (

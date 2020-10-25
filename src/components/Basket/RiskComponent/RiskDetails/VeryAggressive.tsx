@@ -6,9 +6,6 @@ export const VeryAggressive: React.FC = () => {
             <h2>Very Aggressive</h2>
             <h4>Typically, a very aggressive investor is:</h4>
             <ul>
-                <li>
-                    <b>Stocks: </b>90% <b> Bonds: </b>5% <b> Cash: </b>5%
-                </li>
                 <li>primarily focused on pursuing above-average portfolio appreciation over time</li>
                 <li>someone who can tolerate higher degrees of fluctuation in the value of his investments</li>
                 <li>someone with high return expectations</li>
