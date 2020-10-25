@@ -40,7 +40,7 @@ export const FormComponent: React.FC = () => {
             initialValues={INITIAL_FORM_VALUES}
             validationSchema={validationSchema}
             onSubmit={async (values: FormValues) => {
-                fetchResults(values);
+                await fetchResults(values);
             }}
         >
             {({values, setFieldValue, errors, isSubmitting, isValid}) => (

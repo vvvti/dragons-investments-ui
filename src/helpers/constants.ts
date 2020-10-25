@@ -27,7 +27,7 @@ export const INITIAL_BASKET_FORM_VALUES: BasketFormValues = {
     id: '',
     basketValue: 1000,
     riskValue: 1,
-    currencyBasketValue: currencyBasket.BRITISH_POUND,
+    currency: currencyBasket.BRITISH_POUND,
 };
 
 export const DEFAULT_RESULTS: ResultsValue = {
