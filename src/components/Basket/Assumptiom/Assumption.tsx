@@ -9,7 +9,7 @@ export const Assumption: React.FC = () => {
                 <b>Investment Period:</b> We assume a 30 year investment horizon.
             </p>
             <p>
-                <b>Investment Returns:</b> We use historical results of different major indices to calculate expected returns.
+                <b>Investment Returns:</b> We use historical results and assume an average ROI: Stocks: 7%, Bonds 5%, Cash: 2%.
             </p>
             <p>
                 <b>Expected Returns Calculation:</b> We use a Monte Carlo simulation of 10,000 portfolios to calculate expected returns.The

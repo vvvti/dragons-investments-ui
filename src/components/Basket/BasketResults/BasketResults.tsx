@@ -6,13 +6,13 @@ import {StyledMainResult} from './BasketResults.styled';
 export const BasketResults: React.FC<FinalResults> = ({...basketResults}) => {
     const {
         values,
-        values: {currencyBasketValue},
+        values: {currency},
     } = useFormikContext<BasketFormValues>();
 
     console.log(basketResults);
     return (
         <div>
-            <StyledMainResult value={values.basketValue} displayType={'text'} thousandSeparator={true} prefix={currencyBasketValue} />
+            <StyledMainResult value={values.basketValue} displayType={'text'} thousandSeparator={true} prefix={currency} />
             <h2>Value of the investment</h2>
         </div>
     );
