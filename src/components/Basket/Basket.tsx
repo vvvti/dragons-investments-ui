@@ -1,4 +1,4 @@
-import {Button, MenuItem, Select, TextField} from '@material-ui/core';
+import {Button, MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
@@ -26,6 +26,7 @@ import {PieChartComponent} from './PieChart/PieChart';
 import {RiskDetails} from './RiskComponent/RiskComponent';
 import {NumberFormatValues} from 'react-number-format';
 import {Products} from './Assumptiom/Products';
+import {LinkItem} from './Link';
 
 export const BasketComponent: React.FC = () => {
     const {basketResults, fetchBasketResults} = useBasket();
@@ -81,10 +82,10 @@ export const BasketComponent: React.FC = () => {
                                     <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
                                         {isSubmitting ? 'Loading...' : 'Submit'}
                                     </Button>
-                                    <Field name="id" type="text" placeholder="Link to your basket" as={TextField} />
+                                    <LinkItem />
                                 </SubmitContainer>
                             </FormContainer>
-                            <pre>{JSON.stringify(values, null, 2)}</pre>
+                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledMain>
                     </div>
                     <Assumption />

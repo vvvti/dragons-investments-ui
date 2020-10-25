@@ -5,7 +5,7 @@ import {Field, Formik} from 'formik';
 import React from 'react';
 import {NumberFormatValues} from 'react-number-format';
 // variables imports
-import {currencyBasket, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
+import {currencyForm, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
 import {useResults} from '../../hooks/useResults';
 import {colors} from '../../styles/theme';
@@ -46,7 +46,7 @@ export const FormComponent: React.FC = () => {
             {({values, setFieldValue, errors, isSubmitting, isValid}) => (
                 <StyledForm>
                     <StyledResults>
-                        {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
+                        {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         <Results {...results} />
                         <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
                             {isSubmitting ? 'Loading...' : 'Submit'}
@@ -177,9 +177,9 @@ export const FormComponent: React.FC = () => {
                         <CurrencyContainer>
                             <CurrencyTitle>Currency:</CurrencyTitle>
                             <Field name="currencyValue" type="select" as={Select}>
-                                <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
-                                <MenuItem value={currencyBasket.BRITISH_POUND}>GBP</MenuItem>
-                                <MenuItem value={currencyBasket.EURO}>EUR</MenuItem>
+                                <MenuItem value={currencyForm.DOLLAR}>USD</MenuItem>
+                                <MenuItem value={currencyForm.BRITISH_POUND}>GBP</MenuItem>
+                                <MenuItem value={currencyForm.EURO}>EUR</MenuItem>
                             </Field>
                         </CurrencyContainer>
                     </div>

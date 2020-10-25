@@ -5,4 +5,5 @@ export enum ROUTES {
     CONTACT = '/contact',
     BASKET = '/basket',
     OFFER = '/offer',
+    BASKETID = '/basket/:id',
 }

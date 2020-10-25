@@ -20,8 +20,28 @@ export const PieChartComponent: React.FC = (): JSX.Element => {
         values: {riskType},
     } = useFormikContext<BasketFormValues>();
 
-    let riskData, titleName;
+    let namedRiskType;
+
     switch (riskType) {
+        case 0:
+            namedRiskType = riskBasket.VERY_CONSERVATIVE;
+            break;
+        case 1:
+            namedRiskType = riskBasket.CONSERVATIVE;
+            break;
+        case 2:
+            namedRiskType = riskBasket.MODERATE;
+            break;
+        case 3:
+            namedRiskType = riskBasket.AGGRESSIVE;
+            break;
+        case 4:
+            namedRiskType = riskBasket.VERY_AGGRESSIVE;
+            break;
+    }
+
+    let riskData, titleName;
+    switch (namedRiskType) {
         case riskBasket.VERY_CONSERVATIVE:
             riskData = basketDetails.veryConservative;
             titleName = 'Very Conservative';
