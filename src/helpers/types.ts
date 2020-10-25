@@ -10,7 +10,7 @@ export interface FormValues {
 export interface BasketFormValues {
     id: string;
     basketValue: number;
-    riskValue: number;
+    riskType: number;
     currency: string;
 }
 
@@ -20,12 +20,14 @@ interface ArrayResults {
     profit?: number;
     deposit?: number;
 }
+
 export interface ResultsValue {
     depositValue?: number;
     estimatedProfit?: number;
     finalValue?: number;
     chartData?: Array<ArrayResults>;
 }
+
 interface chartTypes {
     name: string;
     value: number;

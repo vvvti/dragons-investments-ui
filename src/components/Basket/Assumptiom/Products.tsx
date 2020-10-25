@@ -1,9 +1,8 @@
 import React from 'react';
-import {StyledProducts} from './Products.styled';
 
 export const Products: React.FC = () => {
     return (
-        <StyledProducts>
+        <div>
             <p>
                 Our current offer consists of 3 packages of varying degrees of diversification. Each package consists of 3 products:
                 insurance, investments and pensions. Depending on the selected package, our advisors will adapt individual products to your
@@ -55,6 +54,6 @@ export const Products: React.FC = () => {
                 Please be informed that final cost for package depends on you financial possibilities. You are able to select premium amount
                 for each package product.
             </p>
-        </StyledProducts>
+        </div>
     );
 };

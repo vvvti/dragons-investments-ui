@@ -8,28 +8,41 @@ export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
         values,
         values: {currency},
     } = useFormikContext<BasketFormValues>();
+
+    let namedCurrency;
+    switch (currency) {
+        case 'USD':
+            namedCurrency = '$';
+            break;
+        case 'GBP':
+            namedCurrency = '£';
+            break;
+        case 'EUR':
+            namedCurrency = '€';
+            break;
+    }
     return (
         <ResultsWrapper>
             <TitleResults>Total return of investment:</TitleResults>
-            <StyledMainResult value={values.basketValue} displayType={'text'} thousandSeparator={true} prefix={currency} />
+            <StyledMainResult value={values.basketValue} displayType={'text'} thousandSeparator={true} prefix={namedCurrency} />
             <DetailsWrapper>
                 <StyledResultDetails
                     value={basketResults.profit?.stock}
                     displayType={'text'}
                     thousandSeparator={true}
-                    prefix={`Stocks: ${currency}`}
+                    prefix={`Stocks: ${namedCurrency}`}
                 />
                 <StyledResultDetails
                     value={basketResults.profit?.bonds}
                     displayType={'text'}
                     thousandSeparator={true}
-                    prefix={`Bonds: ${currency}`}
+                    prefix={`Bonds: ${namedCurrency}`}
                 />
                 <StyledResultDetails
                     value={basketResults.profit?.cash}
                     displayType={'text'}
                     thousandSeparator={true}
-                    prefix={`Cash: ${currency}`}
+                    prefix={`Cash: ${namedCurrency}`}
                 />
             </DetailsWrapper>
         </ResultsWrapper>

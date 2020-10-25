@@ -11,6 +11,7 @@ export const useBasket = () => {
         console.log('Values to API:', values);
         try {
             const response = await axios.post(`/api/basket`, {params: values});
+            console.log('Values from API:', response.data);
             setBasketResults(response.data);
         } catch {
             setIsError(true);

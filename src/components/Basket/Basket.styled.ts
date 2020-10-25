@@ -6,17 +6,17 @@ import {colors, defaultBorderRadius} from '../../styles/theme';
 export const StyledBasketForm = styled(Form)`
     display: flex;
     flex-direction: column;
-    margin: 20px 50px;
     align-items: center;
     justify-content: space-around;
     flex-shrink: 0;
-    max-width: 85%;
-    min-width: 1000px;
+    max-width: 90%;
+    min-width: 1200px;
     background-color: ${colors.backgroundContainer};
     color: ${colors.fontColor};
     border-radius: ${defaultBorderRadius};
     box-shadow: 0 0 10px 1px ${colors.boxShadow};
     font-family: 'Lato', sans-serif;
+    padding: 0 50px;
 `;
 
 export const StyledHeader = styled.header`
@@ -31,7 +31,9 @@ export const StyledMain = styled.main`
     display: flex;
     justify-content: space-between;
     margin: 20px 0 30px;
-    min-width: 1100px;
+    min-width: 1200px;
+    padding: 0 30px 30px;
+    border-bottom: 2px solid ${colors.basketBorder};
 `;
 
 export const StyledInputWrapper = styled.div`
@@ -45,7 +47,6 @@ export const FormContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     width: 600px;
-    margin-left: 100px;
 `;
 
 export const StyledSlider = styled.div`
