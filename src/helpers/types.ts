@@ -26,6 +26,29 @@ export interface ResultsValue {
     finalValue?: number;
     chartData?: Array<ArrayResults>;
 }
+interface chartTypes {
+    name: string;
+    value: number;
+}
+
+export interface RiskProps {
+    riskValue: number;
+}
+
+interface detailsTypes {
+    name: string;
+    bonds: chartTypes;
+    stocks: chartTypes;
+    cash: chartTypes;
+}
+
+export interface basketTypes {
+    veryConservative: detailsTypes;
+    conservative: detailsTypes;
+    moderate: detailsTypes;
+    aggressive: detailsTypes;
+    veryAggressive: detailsTypes;
+}
 
 export interface Currencies {
     EURO: string;

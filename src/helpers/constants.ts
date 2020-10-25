@@ -1,4 +1,4 @@
-import {BasketFormValues, Currencies, FinalResults, FormValues, ResultsValue} from './types';
+import {BasketFormValues, Currencies, FinalResults, FormValues, ResultsValue, basketTypes} from './types';
 
 export const currencyBasket: Currencies = {
     EURO: '€',
@@ -11,8 +11,85 @@ export enum riskBasket {
     CONSERVATIVE,
     MODERATE,
     AGGRESSIVE,
-    VERY_AGGRESIVE,
+    VERY_AGGRESSIVE,
 }
+export const basketDetails: basketTypes = {
+    veryConservative: {
+        name: 'Very Conservative',
+        stocks: {
+            name: 'stocks',
+            value: 20,
+        },
+        bonds: {
+            name: 'bonds',
+            value: 50,
+        },
+        cash: {
+            name: 'cash',
+            value: 30,
+        },
+    },
+    conservative: {
+        name: 'Conservative',
+        stocks: {
+            name: 'stocks',
+            value: 45,
+        },
+        bonds: {
+            name: 'bonds',
+            value: 40,
+        },
+        cash: {
+            name: 'cash',
+            value: 15,
+        },
+    },
+    moderate: {
+        name: 'Moderate',
+        stocks: {
+            name: 'stocks',
+            value: 65,
+        },
+        bonds: {
+            name: 'bonds',
+            value: 30,
+        },
+        cash: {
+            name: 'cash',
+            value: 5,
+        },
+    },
+    aggressive: {
+        name: 'Aggressive',
+        stocks: {
+            name: 'stocks',
+            value: 80,
+        },
+        bonds: {
+            name: 'bonds',
+            value: 15,
+        },
+        cash: {
+            name: 'cash',
+            value: 5,
+        },
+    },
+    veryAggressive: {
+        name: 'Aggressive',
+        stocks: {
+            name: 'stocks',
+            value: 90,
+        },
+        bonds: {
+            name: 'bonds',
+            value: 5,
+        },
+        cash: {
+            name: 'cash',
+            value: 5,
+        },
+    },
+};
 
 export const INITIAL_FORM_VALUES: FormValues = {
     initialValue: 1000,
@@ -163,10 +240,10 @@ export const MARKSBASKET = [
     },
     {
         value: 3,
-        label: 'Aggresive',
+        label: 'Aggressive',
     },
     {
         value: 4,
-        label: 'Very Aggresive',
+        label: 'Very Aggressive',
     },
 ];
