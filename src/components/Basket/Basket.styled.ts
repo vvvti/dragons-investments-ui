@@ -61,18 +61,9 @@ export const CurrencyContainer = styled.div`
     align-items: center;
 `;
 
-export const CurrencyTitle = styled.h2`
-    margin: 0 10px 0 0;
-`;
-
 export const InputContainer = styled.div`
     display: flex;
     align-items: center;
-`;
-
-export const StyledContainer = styled.div`
-    display: flex;
-    flex-direction: column;
 `;
 
 export const StyledInput = styled(NumberFormat)`
@@ -91,17 +82,7 @@ export const ChartWrapper = styled.div`
     align-items: center;
 `;
 
-export const IdInputField = styled.div`
-    margin-top: 10px;
-`;
-
 export const SubmitContainer = styled.div`
     display: flex;
     justify-content: space-between;
-`;
-
-export const ButtonWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    min-width: 250px;
 `;
