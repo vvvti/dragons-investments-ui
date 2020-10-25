@@ -53,7 +53,7 @@ export const BasketComponent: React.FC = () => {
                                         thousandSeparator={true}
                                         onValueChange={(val: NumberFormatValues) => setFieldValue('basketValue', val.floatValue)}
                                     />
-                                    <ErrorMessage>{errors.basketValue}</ErrorMessage>
+
                                     <CurrencyContainer>
                                         <Field name="currency" type="select" as={Select}>
                                             <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
@@ -62,6 +62,7 @@ export const BasketComponent: React.FC = () => {
                                         </Field>
                                     </CurrencyContainer>
                                 </InputContainer>
+                                <ErrorMessage>{errors.basketValue}</ErrorMessage>
                                 <h2>What is you risk capacity?</h2>
                                 <StyledSlider>
                                     <Slider
@@ -79,7 +80,7 @@ export const BasketComponent: React.FC = () => {
                                     <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
                                         {isSubmitting ? 'Loading...' : 'Submit'}
                                     </Button>
-                                    <Field name="id" type="text" placeholder="Place your calculation ID" as={TextField} />
+                                    <Field name="id" type="text" placeholder="Link to your basket" as={TextField} />
                                 </SubmitContainer>
                             </FormContainer>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}

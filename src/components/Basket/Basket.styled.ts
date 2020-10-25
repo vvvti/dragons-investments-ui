@@ -30,7 +30,7 @@ export const StyledHeader = styled.header`
 export const StyledMain = styled.main`
     display: flex;
     justify-content: space-between;
-    margin: 30px 0;
+    margin: 20px 0 30px;
     min-width: 1100px;
 `;
 
@@ -54,6 +54,7 @@ export const StyledSlider = styled.div`
 `;
 
 export const ErrorMessage = styled.div`
+    height: 12px;
     color: red;
 `;
 
