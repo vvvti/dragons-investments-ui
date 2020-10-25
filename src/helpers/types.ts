@@ -11,7 +11,7 @@ export interface BasketFormValues {
     id: string;
     basketValue: number;
     riskValue: number;
-    currencyBasketValue: string;
+    currency: string;
 }
 
 interface ArrayResults {

@@ -43,7 +43,7 @@ export const BasketComponent: React.FC = () => {
                 <StyledBasketForm>
                     <StyledHeader>
                         <BasketResults {...basketResults} />
-                        {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
+                        <pre>{JSON.stringify(values, null, 2)}</pre>
                         <StyledContainer>
                             <InputContainer>
                                 <h2>Invest Value</h2>
