@@ -14,8 +14,10 @@ import {
     ErrorMessage,
     FormContainer,
     InputContainer,
+    LinkWrapper,
     StyledBasketForm,
     StyledInput,
+    StyledLink,
     StyledMain,
     StyledSlider,
     StyledTitle,
@@ -25,10 +27,13 @@ import {ChartDetails} from './ChartDetails/ChartDetails';
 import {PieChartComponent} from './PieChart/PieChart';
 import {RiskDetails} from './RiskComponent/RiskComponent';
 import {NumberFormatValues} from 'react-number-format';
-import {LinkItem} from './Link';
+import {useParams} from 'react-router';
+import {API} from '../../helpers/routes';
 
 export const BasketComponent: React.FC = () => {
     const {basketResults, fetchBasketResults} = useBasket();
+    const {id} = useParams();
+
     return (
         <Formik
             initialValues={INITIAL_BASKET_FORM_VALUES}
@@ -79,14 +84,18 @@ export const BasketComponent: React.FC = () => {
                                 <RiskDetails riskValue={values.riskType} />
                                 <SubmitContainer>
                                     <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
-                                        {isSubmitting ? 'Loading...' : 'Submit'}
+                                        {id ? 'Save Calculation' : 'Submit Calculation'}
                                     </Button>
-                                    <LinkItem {...basketResults} />
                                 </SubmitContainer>
                             </FormContainer>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledMain>
+                        <LinkWrapper>
+                            <b>Link to your basket</b>
+                            <StyledLink>{basketResults.id && `${API}${basketResults.id}`}</StyledLink>
+                        </LinkWrapper>
                     </div>
+
                     <Assumption />
                 </StyledBasketForm>
             )}

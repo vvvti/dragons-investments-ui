@@ -33,7 +33,6 @@ export const StyledMain = styled.main`
     margin: 20px 20px 0 20px;
     min-width: 1200px;
     padding: 0 30px;
-    border-bottom: 2px solid ${colors.basketBorder};
 `;
 
 export const StyledInputWrapper = styled.div`
@@ -94,4 +93,12 @@ export const SubmitContainer = styled.div`
 
 export const StyledTitle = styled.h2`
     text-transform: uppercase;
+`;
+
+export const StyledLink = styled.div`
+    margin: 10px 0;
+`;
+export const LinkWrapper = styled.div`
+    margin: 10px 50px 0 0;
+    text-align: center;
 `;
