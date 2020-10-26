@@ -7,19 +7,21 @@ import {
     ReturnResults,
     StyledResultDetails,
     StyledReturnDetails,
+    StyledText,
     SummaryResults,
     TitleResults,
 } from './ChartDetails.styled';
 import {useFormikContext} from 'formik';
+import {riskBasket} from '../../../helpers/constants';
 
 export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
     const {
-        values: {currency},
+        values: {riskType},
     } = useFormikContext<BasketFormValues>();
 
     let namedCurrency;
-    switch (currency) {
-        case 'USD':
+    switch (basketResults.currency) {
+        case 'riskBasket.VERY_CONSERVATIVE':
             namedCurrency = '$';
             break;
         case 'GBP':
@@ -31,7 +33,17 @@ export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
     }
     return (
         <ResultsWrapper>
-            <SummaryResults>Calculation summary</SummaryResults>
+            <SummaryResults>
+                Summary for
+                <StyledText>
+                    {riskType === riskBasket.VERY_AGGRESSIVE && 'VERY AGGRESSIVE'}
+                    {riskType === riskBasket.AGGRESSIVE && 'AGGRESSIVE'}
+                    {riskType === riskBasket.MODERATE && 'MODERATE'}
+                    {riskType === riskBasket.CONSERVATIVE && 'CONSERVATIVE'}
+                    {riskType === riskBasket.VERY_CONSERVATIVE && 'VERY CONSERVATIVE'}
+                </StyledText>
+                risk
+            </SummaryResults>
             <DetailsWrapper>
                 <TitleResults>Invested Value:</TitleResults>
                 <StyledResultDetails

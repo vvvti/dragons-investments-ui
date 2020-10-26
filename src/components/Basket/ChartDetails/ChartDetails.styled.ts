@@ -51,3 +51,6 @@ export const StyledReturnDetails = styled(NumberFormat)`
     letter-spacing: 1px;
     margin: 0 10px;
 `;
+export const StyledText = styled.span`
+    margin: 0 5px;
+`;
