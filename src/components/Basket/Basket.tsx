@@ -37,7 +37,7 @@ export const BasketComponent: React.FC = () => {
                 await fetchBasketResults(values);
             }}
         >
-            {({values, errors, setFieldValue, isSubmitting}) => (
+            {({values, errors, setFieldValue, isSubmitting, isValid}) => (
                 <StyledBasketForm>
                     <div>
                         <StyledMain>
@@ -78,7 +78,7 @@ export const BasketComponent: React.FC = () => {
                                 </StyledSlider>
                                 <RiskDetails riskValue={values.riskType} />
                                 <SubmitContainer>
-                                    <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
+                                    <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
                                         {isSubmitting ? 'Loading...' : 'Submit'}
                                     </Button>
                                     <LinkItem />

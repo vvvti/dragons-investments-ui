@@ -18,9 +18,9 @@ export const ChartDetails: React.FC = () => {
         values: {currency, basketValue},
     } = useFormikContext<BasketFormValues>();
 
-    const calculatedStocks = Math.round((basketValue * 0.15 + basketValue) * 1.07);
-    const calculatedBonds = Math.round((basketValue * 0.15 + basketValue) * 1.05);
-    const calculatedCash = Math.round((basketValue * 0.15 + basketValue) * 1.02);
+    const calculatedStocks = Math.round(basketValue * 0.15 * 1.07);
+    const calculatedBonds = Math.round(basketValue * 0.15 * 1.05);
+    const calculatedCash = Math.round(basketValue * 0.15 * 1.02);
 
     const calculatedTotal = calculatedStocks + calculatedBonds + calculatedCash + basketValue;
     let namedCurrency;
@@ -45,24 +45,12 @@ export const ChartDetails: React.FC = () => {
             <DetailsColumnWrapper>
                 <TitleResults>Assets Allocation: </TitleResults>
                 <div>
-                    <StyledResultDetails
-                        value={calculatedStocks}
-                        displayType={'text'}
-                        thousandSeparator={true}
-                        prefix={`Stocks: ${namedCurrency}`}
-                    />
-                    <StyledResultDetails
-                        value={calculatedBonds}
-                        displayType={'text'}
-                        thousandSeparator={true}
-                        prefix={`Bonds: ${namedCurrency}`}
-                    />
-                    <StyledResultDetails
-                        value={calculatedCash}
-                        displayType={'text'}
-                        thousandSeparator={true}
-                        prefix={`Cash: ${namedCurrency}`}
-                    />
+                    Stocks:
+                    <StyledResultDetails value={calculatedStocks} displayType={'text'} thousandSeparator={true} prefix={namedCurrency} />
+                    Bonds:
+                    <StyledResultDetails value={calculatedBonds} displayType={'text'} thousandSeparator={true} prefix={namedCurrency} />
+                    Cash:
+                    <StyledResultDetails value={calculatedCash} displayType={'text'} thousandSeparator={true} prefix={namedCurrency} />
                 </div>
             </DetailsColumnWrapper>
             <DetailsWrapper>
