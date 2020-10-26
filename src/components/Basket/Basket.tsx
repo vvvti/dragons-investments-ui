@@ -43,7 +43,7 @@ export const BasketComponent: React.FC = () => {
                         <StyledMain>
                             <ChartWrapper>
                                 <PieChartComponent />
-                                <ChartDetails {...basketResults} />
+                                <ChartDetails />
                             </ChartWrapper>
                             <FormContainer>
                                 <InputContainer>

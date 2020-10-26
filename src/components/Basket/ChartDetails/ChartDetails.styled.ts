@@ -20,14 +20,12 @@ export const ResultsWrapper = styled.div`
 `;
 
 export const StyledMainResult = styled(NumberFormat)`
-    font-size: 48px;
     letter-spacing: 2px;
     margin: 10px;
 `;
 
 export const TitleResults = styled.div`
     text-transform: uppercase;
-    font-weight: 900;
     font-size: 20px;
     margin-right: 10px;
 `;
@@ -40,6 +38,19 @@ export const DetailsColumnWrapper = styled.div`
 export const SummaryResults = styled.div`
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 30px;
-    margin-top: 20px;
+    font-size: 36px;
+    //margin-top: 20px;
+`;
+
+export const ReturnResults = styled.div`
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 28px;
+    margin-right: 10px;
+`;
+
+export const StyledReturnDetails = styled(NumberFormat)`
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-right: 10px;
 `;
