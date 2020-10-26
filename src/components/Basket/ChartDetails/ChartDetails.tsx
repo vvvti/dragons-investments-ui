@@ -1,21 +1,28 @@
 import React from 'react';
-import {BasketFormValues, FinalResults} from '../../../helpers/types';
+import {BasketFormValues} from '../../../helpers/types';
 import {
     DetailsColumnWrapper,
     DetailsWrapper,
     ResultsWrapper,
+    ReturnResults,
     StyledResultDetails,
+    StyledReturnDetails,
     SummaryResults,
     TitleResults,
 } from './ChartDetails.styled';
 import {useFormikContext} from 'formik';
 
-export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
+export const ChartDetails: React.FC = () => {
     const {
         values,
-        values: {currency},
+        values: {currency, basketValue},
     } = useFormikContext<BasketFormValues>();
 
+    const calculatedStocks = Math.round((basketValue * 0.15 + basketValue) * 1.07);
+    const calculatedBonds = Math.round((basketValue * 0.15 + basketValue) * 1.05);
+    const calculatedCash = Math.round((basketValue * 0.15 + basketValue) * 1.02);
+
+    const calculatedTotal = calculatedStocks + calculatedBonds + calculatedCash + basketValue;
     let namedCurrency;
     switch (currency) {
         case 'USD':
@@ -30,7 +37,7 @@ export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
     }
     return (
         <ResultsWrapper>
-            <SummaryResults>Summary for moderate risk</SummaryResults>
+            <SummaryResults>Calculation summary</SummaryResults>
             <DetailsWrapper>
                 <TitleResults>Invested Value:</TitleResults>
                 <StyledResultDetails value={values.basketValue} displayType={'text'} thousandSeparator={true} prefix={namedCurrency} />
@@ -39,33 +46,28 @@ export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
                 <TitleResults>Assets Allocation: </TitleResults>
                 <div>
                     <StyledResultDetails
-                        value={basketResults.profit?.stock}
+                        value={calculatedStocks}
                         displayType={'text'}
                         thousandSeparator={true}
-                        prefix={`Stocks ${namedCurrency}`}
+                        prefix={`Stocks: ${namedCurrency}`}
                     />
                     <StyledResultDetails
-                        value={basketResults.profit?.bonds}
+                        value={calculatedBonds}
                         displayType={'text'}
                         thousandSeparator={true}
-                        prefix={`Bonds ${namedCurrency}`}
+                        prefix={`Bonds: ${namedCurrency}`}
                     />
                     <StyledResultDetails
-                        value={basketResults.profit?.cash}
+                        value={calculatedCash}
                         displayType={'text'}
                         thousandSeparator={true}
-                        prefix={`Cash ${namedCurrency}`}
+                        prefix={`Cash: ${namedCurrency}`}
                     />
                 </div>
             </DetailsColumnWrapper>
             <DetailsWrapper>
-                <TitleResults> Total return: </TitleResults>
-                <StyledResultDetails
-                    value={basketResults.profit?.cash}
-                    displayType={'text'}
-                    thousandSeparator={true}
-                    prefix={namedCurrency}
-                />
+                <ReturnResults> Total return: </ReturnResults>
+                <StyledReturnDetails value={calculatedTotal} displayType={'text'} thousandSeparator={true} prefix={namedCurrency} />
             </DetailsWrapper>
         </ResultsWrapper>
     );

@@ -67,7 +67,7 @@ export const PieChartComponent: React.FC = (): JSX.Element => {
     return (
         <ChartContainer>
             <PieChart width={400} height={350}>
-                <Pie data={data} cx={200} cy={150} innerRadius={40} outerRadius={140} fill="#8884d8" paddingAngle={5} dataKey="value">
+                <Pie data={data} cx={180} cy={150} innerRadius={40} outerRadius={140} fill="#8884d8" paddingAngle={5} dataKey="value">
                     {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}

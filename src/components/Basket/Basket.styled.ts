@@ -83,7 +83,7 @@ export const ChartWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 450px;
+    min-width: 600px;
 `;
 
 export const SubmitContainer = styled.div`
