@@ -128,11 +128,13 @@ export const DEFAULT_RESULTS: ResultsValue = {
 };
 
 export const DEFAULT_BASKET_RESULTS: FinalResults = {
-    totalAmount: 1000,
+    riskType: 'AGGRESSIVE',
+    basketValue: 0,
+    totalAmount: 0,
     profit: {
-        stock: 230,
-        bonds: 330,
-        cash: 420,
+        stock: 0,
+        bonds: 0,
+        cash: 0,
     },
     percentage: {
         stock: 30,

@@ -28,7 +28,8 @@ export const useBasket = () => {
         }
         console.log('Values to API:', newValues);
         try {
-            const response = await axios.post(`/api/basket`, {params: newValues});
+            console.log('Now to API:', newValues);
+            const response = await axios.post(`/api/basket`, newValues);
             console.log('Values from API:', response.data);
             setBasketResults(response.data);
         } catch {
