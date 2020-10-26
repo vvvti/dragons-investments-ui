@@ -81,7 +81,7 @@ export const BasketComponent: React.FC = () => {
                                     <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
                                         {isSubmitting ? 'Loading...' : 'Submit'}
                                     </Button>
-                                    <LinkItem />
+                                    <LinkItem {...basketResults} />
                                 </SubmitContainer>
                             </FormContainer>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
