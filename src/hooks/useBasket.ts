@@ -2,10 +2,12 @@ import axios from 'axios';
 import {useCallback, useState} from 'react';
 import {DEFAULT_BASKET_RESULTS, riskBasket} from '../helpers/constants';
 import {BasketFormValues, FinalResults} from '../helpers/types';
+import {useParams} from 'react-router';
 
 export const useBasket = () => {
     const [isError, setIsError] = useState<boolean>(false);
     const [basketResults, setBasketResults] = useState<FinalResults>(DEFAULT_BASKET_RESULTS);
+    const {id} = useParams();
 
     const fetchBasketResults = useCallback(async (values: BasketFormValues) => {
         let newValues: any = {...values};
@@ -26,12 +28,17 @@ export const useBasket = () => {
                 newValues.riskType = 'VERY_CONSERVATIVE';
                 break;
         }
-        console.log('Values to API:', newValues);
+
         try {
-            console.log('Now to API:', newValues);
-            const response = await axios.post(`/api/basket`, newValues);
-            console.log('Values from API:', response.data);
-            setBasketResults(response.data);
+            if (id) {
+                const response = await axios.get(`/api/basket/${id}`, newValues);
+                console.log('GET', newValues, response.data);
+                setBasketResults(response.data);
+            } else {
+                const response = await axios.post(`/api/basket`, newValues);
+                console.log('POST', newValues, response.data);
+                setBasketResults(response.data);
+            }
         } catch {
             setIsError(true);
         }

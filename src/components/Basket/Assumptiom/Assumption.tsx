@@ -1,8 +1,9 @@
 import React from 'react';
+import {StyledAssumption} from './Assumption.styled';
 
 export const Assumption: React.FC = () => {
     return (
-        <div>
+        <StyledAssumption>
             <h2>Our Assumptions</h2>
             <p>
                 <b>Investment Period:</b> We assume a 30 year investment horizon.
@@ -19,6 +20,6 @@ export const Assumption: React.FC = () => {
                 intended to provide investment advice. All examples are hypothetical and are for illustrative purposes. We encourage you to
                 seek personalized advice form qualified professionals regarding all personal finance issue
             </p>
-        </div>
+        </StyledAssumption>
     );
 };

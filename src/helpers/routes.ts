@@ -7,3 +7,5 @@ export enum ROUTES {
     OFFER = '/offer',
     BASKETID = '/basket/:id',
 }
+
+export const API = 'https://dragons-investments-ui.ersa-team.uat.fintechchallenge.pl/basket/';

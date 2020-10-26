@@ -12,7 +12,6 @@ import {
     TitleResults,
 } from './ChartDetails.styled';
 import {useFormikContext} from 'formik';
-import {riskBasket} from '../../../helpers/constants';
 
 export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
     const {
@@ -36,11 +35,11 @@ export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
             <SummaryResults>
                 Summary for
                 <StyledText>
-                    {riskType === riskBasket.VERY_AGGRESSIVE && 'VERY AGGRESSIVE'}
-                    {riskType === riskBasket.AGGRESSIVE && 'AGGRESSIVE'}
-                    {riskType === riskBasket.MODERATE && 'MODERATE'}
-                    {riskType === riskBasket.CONSERVATIVE && 'CONSERVATIVE'}
-                    {riskType === riskBasket.VERY_CONSERVATIVE && 'VERY CONSERVATIVE'}
+                    {basketResults.riskType === 'VERY_AGGRESSIVE' && 'VERY AGGRESSIVE'}
+                    {basketResults.riskType === 'AGGRESSIVE' && 'AGGRESSIVE'}
+                    {basketResults.riskType === 'MODERATE' && 'MODERATE'}
+                    {basketResults.riskType === 'CONSERVATIVE' && 'CONSERVATIVE'}
+                    {basketResults.riskType === 'VERY_CONSERVATIVE' && 'VERY CONSERVATIVE'}
                 </StyledText>
                 risk
             </SummaryResults>

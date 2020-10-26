@@ -37,7 +37,7 @@ export const DetailsColumnWrapper = styled.div`
 export const SummaryResults = styled.div`
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 30px;
+    font-size: 26px;
 `;
 
 export const ReturnResults = styled.div`
