@@ -24,7 +24,6 @@ export const App = () => {
                 <Route exact path={ROUTES.CONTACT} component={ContactPage} />
                 <Route exact path={ROUTES.BASKET} component={BasketPage} />
                 <Route exact path={ROUTES.BASKETID} component={BasketPage} />
-
                 <Route>
                     <NotFoundPage />
                 </Route>
