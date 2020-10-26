@@ -28,7 +28,7 @@ import {NumberFormatValues} from 'react-number-format';
 import {LinkItem} from './Link';
 
 export const BasketComponent: React.FC = () => {
-    const {fetchBasketResults} = useBasket();
+    const {basketResults, fetchBasketResults} = useBasket();
     return (
         <Formik
             initialValues={INITIAL_BASKET_FORM_VALUES}
@@ -43,7 +43,7 @@ export const BasketComponent: React.FC = () => {
                         <StyledMain>
                             <ChartWrapper>
                                 <PieChartComponent />
-                                <ChartDetails />
+                                <ChartDetails {...basketResults} />
                             </ChartWrapper>
                             <FormContainer>
                                 <InputContainer>
@@ -81,7 +81,7 @@ export const BasketComponent: React.FC = () => {
                                     <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
                                         {isSubmitting ? 'Loading...' : 'Submit'}
                                     </Button>
-                                    <LinkItem />
+                                    <LinkItem {...basketResults} />
                                 </SubmitContainer>
                             </FormContainer>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
