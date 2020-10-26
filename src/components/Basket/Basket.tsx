@@ -28,7 +28,7 @@ import {NumberFormatValues} from 'react-number-format';
 import {LinkItem} from './Link';
 
 export const BasketComponent: React.FC = () => {
-    const {basketResults, fetchBasketResults} = useBasket();
+    const {fetchBasketResults} = useBasket();
     return (
         <Formik
             initialValues={INITIAL_BASKET_FORM_VALUES}
