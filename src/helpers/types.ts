@@ -60,6 +60,7 @@ export interface Currencies {
 
 export interface FinalResults {
     id?: string;
+    currency?: string;
     riskType?: string;
     basketValue?: number;
     totalAmount?: number;
