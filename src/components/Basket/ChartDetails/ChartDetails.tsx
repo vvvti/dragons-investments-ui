@@ -1,5 +1,5 @@
 import React from 'react';
-import {BasketFormValues, FinalResults} from '../../../helpers/types';
+import {FinalResults} from '../../../helpers/types';
 import {
     DetailsColumnWrapper,
     DetailsWrapper,
@@ -11,13 +11,8 @@ import {
     SummaryResults,
     TitleResults,
 } from './ChartDetails.styled';
-import {useFormikContext} from 'formik';
 
 export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
-    const {
-        values: {riskType},
-    } = useFormikContext<BasketFormValues>();
-
     let namedCurrency;
     switch (basketResults.currency) {
         case 'riskBasket.VERY_CONSERVATIVE':

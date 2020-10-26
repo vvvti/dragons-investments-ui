@@ -84,7 +84,7 @@ export const BasketComponent: React.FC = () => {
                                 <RiskDetails riskValue={values.riskType} />
                                 <SubmitContainer>
                                     <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
-                                        {id ? 'Save Calculation' : 'Submit Calculation'}
+                                        {id ? 'Get Calculation' : 'Save Calculation'}
                                     </Button>
                                 </SubmitContainer>
                             </FormContainer>
