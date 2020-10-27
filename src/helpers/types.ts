@@ -8,7 +8,7 @@ export interface FormValues {
 }
 
 export interface BasketFormValues {
-    id: string;
+    id?: string | undefined;
     basketValue: number;
     riskType: number;
     currency: string;
