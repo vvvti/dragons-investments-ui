@@ -2,6 +2,7 @@ import {Form} from 'formik';
 import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
 import {colors, defaultBorderRadius} from '../../styles/theme';
+import {Link} from 'react-router-dom';
 
 export const StyledBasketForm = styled(Form)`
     display: flex;
@@ -87,10 +88,15 @@ export const ChartWrapper = styled.div`
 
 export const SubmitContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     min-width: 600px;
 `;
 
 export const StyledTitle = styled.h2`
     text-transform: uppercase;
+`;
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    margin-left: 20px;
 `;

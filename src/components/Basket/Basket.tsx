@@ -16,6 +16,7 @@ import {
     InputContainer,
     StyledBasketForm,
     StyledInput,
+    StyledLink,
     StyledMain,
     StyledSlider,
     StyledTitle,
@@ -25,12 +26,22 @@ import {ChartDetails} from './ChartDetails/ChartDetails';
 import {PieChartComponent} from './PieChart/PieChart';
 import {RiskDetails} from './RiskComponent/RiskComponent';
 import {NumberFormatValues} from 'react-number-format';
-import {useParams} from 'react-router';
+import {useHistory, useParams} from 'react-router';
 import {CopyButton} from './CopyButton/CopyButton';
 
 export const BasketComponent: React.FC = () => {
     const {basketResults, fetchBasketResults} = useBasket();
     const {id} = useParams();
+    const history = useHistory();
+
+    const refreshPage = () => {
+        const location = {
+            pathname: '/basket',
+        };
+
+        history.push(location);
+        window.location.reload();
+    };
 
     return (
         <Formik
@@ -55,6 +66,7 @@ export const BasketComponent: React.FC = () => {
                                         name="basketValue"
                                         value={values.basketValue}
                                         thousandSeparator={true}
+                                        allowNegative={false}
                                         onValueChange={(val: NumberFormatValues) => setFieldValue('basketValue', val.floatValue)}
                                     />
 
@@ -84,6 +96,11 @@ export const BasketComponent: React.FC = () => {
                                     <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
                                         {id ? 'Get Calculation' : 'Save Calculation'}
                                     </Button>
+                                    <StyledLink to="/basket/" onClick={refreshPage}>
+                                        <Button variant="contained" type="submit" color="primary">
+                                            Reset
+                                        </Button>
+                                    </StyledLink>
                                 </SubmitContainer>
                             </FormContainer>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
