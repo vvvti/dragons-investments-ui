@@ -14,7 +14,15 @@ export const CopyButton: React.FC<FinalResults> = ({...basketResults}) => {
             <b>Link to your basket</b>
             <ButtonWrapper>
                 {basketResults.id && (
-                    <Button variant="contained" type="submit" color="primary" onClick={() => copy(`${API}${basketResults.id}`)}>
+                    <Button
+                        variant="contained"
+                        type="submit"
+                        color="primary"
+                        onClick={event => {
+                            event.preventDefault();
+                            copy(`${API}${basketResults.id}`);
+                        }}
+                    >
                         Copy link
                     </Button>
                 )}
