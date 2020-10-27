@@ -73,6 +73,7 @@ export const FormComponent: React.FC = () => {
                                         name="initialValue"
                                         value={values.initialValue}
                                         thousandSeparator={true}
+                                        allowNegative={false}
                                         onValueChange={(val: NumberFormatValues) => setFieldValue('initialValue', val.floatValue)}
                                     />
                                     {values.currencyValue}
@@ -100,6 +101,7 @@ export const FormComponent: React.FC = () => {
                                         name="monthlySaving"
                                         value={values.monthlySaving}
                                         thousandSeparator={true}
+                                        allowNegative={false}
                                         onValueChange={(val: NumberFormatValues) => setFieldValue('monthlySaving', val.floatValue)}
                                     />
                                     {values.currencyValue}
@@ -140,6 +142,7 @@ export const FormComponent: React.FC = () => {
                                         name="savingPeriod"
                                         value={values.savingPeriod}
                                         thousandSeparator={true}
+                                        allowNegative={false}
                                         onValueChange={(val: NumberFormatValues) => setFieldValue('savingPeriod', val.floatValue)}
                                     />
                                     Years
@@ -167,6 +170,7 @@ export const FormComponent: React.FC = () => {
                                         name="annualProfit"
                                         value={values.annualProfit}
                                         thousandSeparator={true}
+                                        allowNegative={false}
                                         onValueChange={(val: NumberFormatValues) => setFieldValue('annualProfit', val.floatValue)}
                                     />
                                     %

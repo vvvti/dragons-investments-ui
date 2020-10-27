@@ -14,8 +14,9 @@ import {
 
 export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
     let namedCurrency;
+
     switch (basketResults.currency) {
-        case 'riskBasket.VERY_CONSERVATIVE':
+        case 'USD':
             namedCurrency = '$';
             break;
         case 'GBP':
