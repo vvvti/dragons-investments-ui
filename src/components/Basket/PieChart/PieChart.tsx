@@ -13,7 +13,7 @@ import {basketDetails, riskBasket} from '../../../helpers/constants';
 import {useFormikContext} from 'formik';
 import {BasketFormValues} from '../../../helpers/types';
 
-export const PieChartComponent: React.FC = (): JSX.Element => {
+export const PieChartComponent: React.FC = () => {
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
     const {
         values: {riskType},

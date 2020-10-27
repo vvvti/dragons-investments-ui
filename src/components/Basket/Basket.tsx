@@ -14,10 +14,8 @@ import {
     ErrorMessage,
     FormContainer,
     InputContainer,
-    LinkWrapper,
     StyledBasketForm,
     StyledInput,
-    StyledLink,
     StyledMain,
     StyledSlider,
     StyledTitle,
@@ -28,7 +26,7 @@ import {PieChartComponent} from './PieChart/PieChart';
 import {RiskDetails} from './RiskComponent/RiskComponent';
 import {NumberFormatValues} from 'react-number-format';
 import {useParams} from 'react-router';
-import {API} from '../../helpers/routes';
+import {CopyButton} from './CopyButton/CopyButton';
 
 export const BasketComponent: React.FC = () => {
     const {basketResults, fetchBasketResults} = useBasket();
@@ -90,12 +88,8 @@ export const BasketComponent: React.FC = () => {
                             </FormContainer>
                             {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledMain>
-                        <LinkWrapper>
-                            <b>Link to your basket</b>
-                            <StyledLink>{basketResults.id && `${API}${basketResults.id}`}</StyledLink>
-                        </LinkWrapper>
+                        <CopyButton {...basketResults} />
                     </div>
-
                     <Assumption />
                 </StyledBasketForm>
             )}
