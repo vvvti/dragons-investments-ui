@@ -10,7 +10,7 @@ export const Navbar = () => {
                 Dragons Investments
             </StyledTitleLink>
             <NavbarItems />
-            <Logo src={dragonImage} alt="Logo" />
+            <Logo src={dragonImage} alt="" />
         </StyledNavbar>
     );
 };

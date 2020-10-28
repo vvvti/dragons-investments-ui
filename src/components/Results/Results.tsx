@@ -12,7 +12,7 @@ export const Results: React.FC<ResultsValue> = ({...results}) => {
 
     return (
         <>
-            <ResultWrapper>
+            <ResultWrapper data-testid={'investments-results'}>
                 <div>
                     <MainTitle>Value of the investment</MainTitle>
                     <StyledMainNumber value={results?.finalValue} displayType={'text'} thousandSeparator={true} prefix={currencyValue} />
