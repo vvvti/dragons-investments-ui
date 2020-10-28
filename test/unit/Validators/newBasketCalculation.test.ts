@@ -1,5 +1,6 @@
 import {BasketFormValues} from '../../../src/helpers/types';
 import {basketFormValidator} from '../../../src/components/Basket/Baket.helpers';
+import {basketFactory} from '../../fixtures/basketCalculation.fixture';
 
 describe('BasketFormValues', () => {
     test('should not set any error if all fields are correct', () => {
@@ -12,32 +13,24 @@ describe('BasketFormValues', () => {
         expect(basketFormValidator(entryValues)).toEqual({});
     });
 
-    // test('should set error for first name if first name is empty', () => {
-    //     const entryEmployee = employeeFactory.build({firstName: ''});
-    //
-    //     const errors = newEmployeeFormValidator(entryEmployee);
-    //     expect(errors.firstName).toBe('First name is required');
-    // });
-    //
-    // test('should set error for last name if last name is empty', () => {
-    //     const entryEmployee = employeeFactory.build({lastName: ''});
-    //
-    //     const errors = newEmployeeFormValidator(entryEmployee);
-    //     expect(errors.lastName).toBe('Last name is required');
-    // });
-    //
-    // test('should set error for job title if job title is empty', () => {
-    //     const entryEmployee = employeeFactory.build({jobTitle: ''});
-    //
-    //     const errors = newEmployeeFormValidator(entryEmployee);
-    //     expect(errors.jobTitle).toBe('Job title is required');
-    // });
-    //
-    // test('should set error for email if entry email is not correct', () => {
-    //     const entryEmployee = employeeFactory.build({email: 'wrong@email'});
-    //
-    //     const errors = newEmployeeFormValidator(entryEmployee);
-    //     expect(errors.email).toBe('Invalid email');
-    // });
-    //
+    test('should set error if basketValue is 0', () => {
+        const entryValues = basketFactory.build({basketValue: 0});
+
+        const errors = basketFormValidator(entryValues);
+        expect(errors.basketValue).toBe('Basket Value name is required');
+    });
+
+    test('should set error if riskType > 5', () => {
+        const entryValues = basketFactory.build({riskType: 6});
+
+        const errors = basketFormValidator(entryValues);
+        expect(errors.riskType).toBe('Select another Risk Type');
+    });
+
+    test('should set error if selected currency is not included in currency basket', () => {
+        const entryValues = basketFactory.build({currency: 'PLN'});
+
+        const errors = basketFormValidator(entryValues);
+        expect(errors.currency).toBe('Select another currency');
+    });
 });
