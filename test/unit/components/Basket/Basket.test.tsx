@@ -1,14 +1,14 @@
 import {fireEvent, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {BasketComponent} from '../../../../src/components/Basket/Basket';
 import React from 'react';
+import {axios} from '../../../../src/api/rest/axios';
 
 describe('BasketForm', () => {
     test('should be possible to fill out the entire form', async () => {
-        render(<BasketComponent />);
+        render(<Form />);
+        jest.spyOn(axios, 'post');
 
-        //        screen.getByRole('textbox')
-        const basketValue = screen.getByLabelText(/Basket Value/);
+        const basketValue = screen.getByRole('textbox');
         await userEvent.type(basketValue, '1000');
 
         const riskTypeSlider = screen.getByRole('slider');
@@ -16,5 +16,8 @@ describe('BasketForm', () => {
 
         const submitButton = screen.getByRole('button', {name: 'Submit'});
         userEvent.click(submitButton);
+
+        // await waitFor(() => expect(employeeApi.addNewEmployee).toHaveBeenCalled());
+        // expect(employeeApi.addNewEmployee).toHaveBeenCalledWith({firstName: 'Filip'});
     }, 10000);
 });
