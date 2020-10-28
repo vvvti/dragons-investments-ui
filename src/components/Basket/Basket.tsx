@@ -63,6 +63,7 @@ export const BasketComponent: React.FC = () => {
                                 <InputContainer>
                                     <StyledTitle>Invest Value</StyledTitle>
                                     <StyledInput
+                                        label={'Basket Value'}
                                         name="basketValue"
                                         value={values.basketValue}
                                         thousandSeparator={true}
