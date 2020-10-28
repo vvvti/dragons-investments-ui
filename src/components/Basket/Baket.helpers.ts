@@ -1,4 +1,23 @@
 import * as yup from 'yup';
+import {BasketFormValues} from '../../helpers/types';
+import {FormikErrors} from 'formik';
+
+export const basketFormValidator = (values: BasketFormValues) => {
+    const errors: FormikErrors<BasketFormValues> = {};
+
+    if (!values.basketValue) {
+        errors.basketValue = 'Basket Value name is required';
+    }
+
+    if (!values.riskType) {
+        errors.riskType = 'Risk Type is required';
+    }
+
+    if (!values.currency) {
+        errors.currency = 'Currency is required';
+    }
+    return errors;
+};
 
 export const validationSchema = yup.object({
     basketValue: yup
