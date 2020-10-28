@@ -1,9 +1,9 @@
 import {render, screen, within} from '@testing-library/react';
+import {FormComponent} from '../../src/components/Form/Home';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import axios from 'axios';
-import {FormComponent} from '../../../../src/components/Form/Home';
-import {currencyForm} from '../../../../src/helpers/constants';
+import {currencyForm} from '../../src/helpers/constants';
 
 describe('<Form/>', () => {
     test('Should call api with data as initial form values', async () => {
