@@ -1,5 +1,3 @@
-import {CurrencyBasket} from './constants';
-
 export interface FormValues {
     initialValue: number;
     monthlySaving: number;
@@ -13,7 +11,7 @@ export interface BasketFormValues {
     id?: string;
     basketValue: number;
     riskType: number;
-    currency: CurrencyBasket;
+    currency: string;
 }
 
 interface ArrayResults {
