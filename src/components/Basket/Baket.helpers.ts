@@ -1,6 +1,7 @@
 import * as yup from 'yup';
 import {BasketFormValues} from '../../helpers/types';
 import {FormikErrors} from 'formik';
+import {currencyBasket} from '../../helpers/constants';
 
 export const basketFormValidator = (values: BasketFormValues) => {
     const errors: FormikErrors<BasketFormValues> = {};
@@ -9,12 +10,12 @@ export const basketFormValidator = (values: BasketFormValues) => {
         errors.basketValue = 'Basket Value name is required';
     }
 
-    if (!values.riskType) {
-        errors.riskType = 'Risk Type is required';
+    if (values.riskType > 4) {
+        errors.riskType = 'Select another Risk Type';
     }
 
-    if (!values.currency) {
-        errors.currency = 'Currency is required';
+    if (values.currency !== currencyBasket.BRITISH_POUND && currencyBasket.EURO && currencyBasket.DOLLAR) {
+        errors.currency = 'Select another currency';
     }
     return errors;
 };
