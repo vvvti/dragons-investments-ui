@@ -14,7 +14,7 @@ describe('BasketFormValues', () => {
     });
 
     test('should set error if basketValue is 0', () => {
-        const entryValues = basketFactory.build({basketValue: 0});
+        const entryValues = basketFactory.build({basketValue: ''});
 
         const errors = basketFormValidator(entryValues);
         expect(errors.basketValue).toBe('Basket Value name is required');

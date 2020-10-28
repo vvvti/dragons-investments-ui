@@ -1,8 +1,8 @@
-import axios from 'axios';
 import {useCallback, useState} from 'react';
 import {DEFAULT_BASKET_RESULTS, riskBasket} from '../helpers/constants';
 import {BasketFormValues, FinalResults} from '../helpers/types';
 import {useParams} from 'react-router';
+import {getBasketResults, postBasketResults} from '../api/basketApi';
 
 export const useBasket = () => {
     const [isError, setIsError] = useState<boolean>(false);
@@ -32,10 +32,10 @@ export const useBasket = () => {
 
             try {
                 if (id) {
-                    const response = await axios.get(`/api/basket/${id}`, newValues);
+                    const response = await getBasketResults(id, newValues);
                     setBasketResults(response.data);
                 } else {
-                    const response = await axios.post(`/api/basket`, newValues);
+                    const response = await postBasketResults(newValues);
                     setBasketResults(response.data);
                 }
             } catch {
