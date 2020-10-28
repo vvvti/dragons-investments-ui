@@ -1,7 +1,7 @@
-import axios from 'axios';
 import {useCallback, useState} from 'react';
 import {DEFAULT_RESULTS} from '../helpers/constants';
 import {FormValues, ResultsValue} from '../helpers/types';
+import {getFormResult} from '../api/formApi';
 
 export const useResults = () => {
     const [isFetching, setIsFetching] = useState<boolean>(false);
@@ -11,7 +11,7 @@ export const useResults = () => {
     const fetchResults = useCallback(async (values: FormValues) => {
         setIsFetching(true);
         try {
-            const response = await axios.get(`/api/calculator`, {params: values});
+            const response = await getFormResult(values);
             if (response.data) {
                 setResults(response.data);
             }
