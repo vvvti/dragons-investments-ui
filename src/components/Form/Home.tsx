@@ -10,7 +10,7 @@ import {FormValues} from '../../helpers/types';
 import {useResults} from '../../hooks/useResults';
 import {colors} from '../../styles/theme';
 import {Results} from '../Results/Results';
-import {validationSchema} from './Form.helpers';
+import {validationSchema} from './Home.helpers';
 import {
     CurrencyContainer,
     CurrencyTitle,
@@ -23,7 +23,7 @@ import {
     StyledInputWrapper,
     StyledResults,
     StyledSlider,
-} from './Form.styled';
+} from './Home.styled';
 import {FrequencyRadio} from './Radio/FrequencyRadio';
 
 const theme = createMuiTheme({

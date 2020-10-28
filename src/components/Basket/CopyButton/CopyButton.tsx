@@ -2,7 +2,6 @@ import React from 'react';
 import {Button} from '@material-ui/core';
 import copy from 'copy-to-clipboard';
 import {FinalResults} from '../../../helpers/types';
-import {API} from '../../../helpers/routes';
 import {ButtonWrapper, LinkWrapper, StyledLink} from './CopyButton.styled';
 
 export const CopyButton: React.FC<FinalResults> = ({...basketResults}) => {
@@ -20,13 +19,13 @@ export const CopyButton: React.FC<FinalResults> = ({...basketResults}) => {
                         color="primary"
                         onClick={event => {
                             event.preventDefault();
-                            copy(`${API}${basketResults.id}`);
+                            copy(`${document.documentURI}${basketResults.id}`);
                         }}
                     >
                         Copy link
                     </Button>
                 )}
-                <StyledLink>{basketResults.id && `${API}${basketResults.id}`}</StyledLink>
+                <StyledLink>{basketResults.id && `${document.documentURI}${basketResults.id}`}</StyledLink>
             </ButtonWrapper>
         </LinkWrapper>
     );

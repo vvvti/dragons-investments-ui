@@ -3,7 +3,7 @@ import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React from 'react';
 // variables imports
-import {currencyBasket, INITIAL_BASKET_FORM_VALUES, MARKSBASKET} from '../../helpers/constants';
+import {CurrencyBasket, INITIAL_BASKET_FORM_VALUES, MARKSBASKET} from '../../helpers/constants';
 import {BasketFormValues} from '../../helpers/types';
 import {useBasket} from '../../hooks/useBasket';
 import {Assumption} from './Assumptiom/Assumption';
@@ -33,6 +33,8 @@ export const BasketComponent: React.FC = () => {
     const {basketResults, fetchBasketResults} = useBasket();
     const {id} = useParams();
     const history = useHistory();
+
+    console.log(document.documentURI);
 
     const refreshPage = () => {
         const location = {
@@ -73,9 +75,9 @@ export const BasketComponent: React.FC = () => {
 
                                     <CurrencyContainer>
                                         <Field name="currency" type="select" as={Select}>
-                                            <MenuItem value={currencyBasket.DOLLAR}>USD</MenuItem>
-                                            <MenuItem value={currencyBasket.BRITISH_POUND}>GBP</MenuItem>
-                                            <MenuItem value={currencyBasket.EURO}>EUR</MenuItem>
+                                            <MenuItem value={CurrencyBasket.DOLLAR}>USD</MenuItem>
+                                            <MenuItem value={CurrencyBasket.BRITISH_POUND}>GBP</MenuItem>
+                                            <MenuItem value={CurrencyBasket.EURO}>EUR</MenuItem>
                                         </Field>
                                     </CurrencyContainer>
                                 </InputContainer>
