@@ -1,8 +1,8 @@
 import {axios} from './rest/axios';
 import {BasketFormValues} from '../helpers/types';
 
-export const getBasketResults = (id: string, newValues: any) => {
-    return axios.get(`/api/basket/${id}`, newValues);
+export const getBasketResults = (id: string) => {
+    return axios.get(`/api/basket/${id}`);
 };
 
 export const postBasketResults = (newValues: BasketFormValues) => {

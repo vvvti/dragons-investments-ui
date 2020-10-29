@@ -14,6 +14,15 @@ export const useBasket = () => {
         setBasketResults(DEFAULT_BASKET_RESULTS);
     };
 
+    const fetchSavedResults = useCallback(async id => {
+        try {
+            const response = await getBasketResults(id);
+            setBasketResults(response.data);
+        } catch {
+            setIsError(true);
+        }
+    }, []);
+
     const fetchBasketResults = useCallback(
         async (values: BasketFormValues) => {
             let newValues: any = {...values};
@@ -37,7 +46,7 @@ export const useBasket = () => {
 
             try {
                 if (id) {
-                    const response = await getBasketResults(id, newValues);
+                    const response = await getBasketResults(id);
                     setBasketResults(response.data);
                 } else {
                     const response = await postBasketResults(newValues);
@@ -59,5 +68,6 @@ export const useBasket = () => {
         basketResults,
         fetchBasketResults,
         resetResults,
+        fetchSavedResults,
     };
 };
