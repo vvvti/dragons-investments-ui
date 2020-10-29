@@ -4,6 +4,7 @@
     "private": true,
     "proxy": "https://investment-calculator.ersa-team.uat.fintechchallenge.pl",
     "dependencies": {
+        "@babel/helper-validator-option": "^7.12.1",
         "@material-ui/core": "^4.11.0",
         "@testing-library/jest-dom": "^5.11.0",
         "@testing-library/react": "^10.4.3",
