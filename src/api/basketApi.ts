@@ -10,5 +10,5 @@ export const postBasketResults = (newValues: BasketFormValues) => {
 };
 
 export const putBasketResults = (id: string, newValues: any) => {
-    return axios.put(`/api/basket`, id, newValues);
+    return axios.put(`/api/basket/${id}`, newValues);
 };
