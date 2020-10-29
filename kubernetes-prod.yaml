@@ -23,7 +23,7 @@ spec:
                   imagePullPolicy: Always
                   env:
                       - name: API_BASE_PATH
-                        value: https://dragons-investments-ui.ersa-team.prod.fintechchallenge.pl
+                        value: https://investment-calculator.ersa-team.fintechchallenge.pl
                   ports:
                       - name: web
                         containerPort: 80
