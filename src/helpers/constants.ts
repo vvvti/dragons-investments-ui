@@ -52,7 +52,7 @@ export const DEFAULT_RESULTS: ResultsValue = {
 
 export const DEFAULT_BASKET_RESULTS: FinalResults = {
     currency: 'GBP',
-    riskType: 'AGGRESSIVE',
+    riskType: 'MODERATE',
     basketValue: 0,
     totalAmount: 0,
     profit: {

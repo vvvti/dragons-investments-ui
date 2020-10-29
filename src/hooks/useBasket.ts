@@ -1,13 +1,18 @@
 import {useCallback, useState} from 'react';
 import {DEFAULT_BASKET_RESULTS, riskBasket} from '../helpers/constants';
 import {BasketFormValues, FinalResults} from '../helpers/types';
-import {useParams} from 'react-router';
+import {useHistory, useParams} from 'react-router';
 import {getBasketResults, postBasketResults} from '../api/basketApi';
 
 export const useBasket = () => {
     const [isError, setIsError] = useState<boolean>(false);
     const [basketResults, setBasketResults] = useState<FinalResults>(DEFAULT_BASKET_RESULTS);
     const {id} = useParams();
+    const history = useHistory();
+
+    const resetResults = () => {
+        setBasketResults(DEFAULT_BASKET_RESULTS);
+    };
 
     const fetchBasketResults = useCallback(
         async (values: BasketFormValues) => {
@@ -37,17 +42,22 @@ export const useBasket = () => {
                 } else {
                     const response = await postBasketResults(newValues);
                     setBasketResults(response.data);
+                    const location = {
+                        pathname: `/basket/${response.data.id}`,
+                    };
+                    history.push(location);
                 }
             } catch {
                 setIsError(true);
             }
         },
-        [id],
+        [history, id],
     );
 
     return {
         isError,
         basketResults,
         fetchBasketResults,
+        resetResults,
     };
 };

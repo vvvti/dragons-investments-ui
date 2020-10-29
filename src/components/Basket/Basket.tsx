@@ -30,11 +30,9 @@ import {useHistory, useParams} from 'react-router';
 import {CopyButton} from './CopyButton/CopyButton';
 
 export const BasketComponent: React.FC = () => {
-    const {basketResults, fetchBasketResults} = useBasket();
+    const {basketResults, fetchBasketResults, resetResults} = useBasket();
     const {id} = useParams();
     const history = useHistory();
-
-    console.log(document.documentURI);
 
     const refreshPage = () => {
         const location = {
@@ -42,7 +40,7 @@ export const BasketComponent: React.FC = () => {
         };
 
         history.push(location);
-        window.location.reload();
+        resetResults();
     };
 
     return (
@@ -53,7 +51,7 @@ export const BasketComponent: React.FC = () => {
                 await fetchBasketResults(values);
             }}
         >
-            {({values, errors, setFieldValue, isSubmitting, isValid}) => (
+            {({values, errors, resetForm, setFieldValue, isSubmitting, isValid}) => (
                 <StyledBasketForm>
                     <div>
                         <StyledMain>
@@ -99,7 +97,13 @@ export const BasketComponent: React.FC = () => {
                                     <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
                                         {id ? 'Get Calculation' : 'Save Calculation'}
                                     </Button>
-                                    <StyledLink to="/basket/" onClick={refreshPage}>
+                                    <StyledLink
+                                        to="/basket/"
+                                        onClick={() => {
+                                            refreshPage();
+                                            resetForm();
+                                        }}
+                                    >
                                         <Button variant="contained" type="submit" color="primary">
                                             Reset
                                         </Button>
