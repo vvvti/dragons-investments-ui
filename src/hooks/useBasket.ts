@@ -40,9 +40,12 @@ export const useBasket = () => {
                     break;
             }
             if (id) {
+                newValues.id = id;
+
+                console.log('PUT', newValues);
+                console.log('ID', id);
                 const response = await putBasketResults(id, newValues);
                 setBasketResults(response.data);
-                console.log('PUT', response.data);
             } else {
                 const response = await postBasketResults(newValues);
                 setBasketResults(response.data);
