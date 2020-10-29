@@ -14,9 +14,10 @@ export const useBasket = () => {
     };
 
     const fetchSavedResults = useCallback(async id => {
-        const response = await getBasketResults(id);
-        setBasketResults(response.data);
-        console.log('GET', response.data);
+        if (id) {
+            const response = await getBasketResults(id);
+            setBasketResults(response.data);
+        }
     }, []);
 
     const fetchBasketResults = useCallback(
@@ -40,16 +41,15 @@ export const useBasket = () => {
                     break;
             }
 
-            console.log('ID', id);
             if (id) {
-                newValues.id = id;
-
+                console.log(newValues);
                 const response = await putBasketResults(id, newValues);
                 setBasketResults(response.data);
+                console.log('fina', response.data);
             } else {
                 const response = await postBasketResults(newValues);
                 setBasketResults(response.data);
-                console.log('POST', response.data);
+
                 const location = {
                     pathname: `/basket/${response.data.id}`,
                 };

@@ -12,7 +12,7 @@ export const CopyButton: React.FC<FinalResults> = ({...basketResults}) => {
     }
 
     return (
-        <LinkWrapper>
+        <LinkWrapper data-testid={'copy-button'}>
             {id && (
                 <>
                     <b>Link to your basket</b>
