@@ -43,6 +43,21 @@ describe('<Basket/>', () => {
         expect(history.entries).toHaveLength(2);
         expect(history.location.pathname).toEqual('/basket/3fa85f64-5717-4562-b3fc-2c963f66afa6');
     });
+
+    test('values and url after form reset', async () => {
+        jest.spyOn(axios, 'post').mockResolvedValue({data: getCalculationMock()});
+
+        const {history} = renderWithRouter(<BasketComponent />);
+
+        userEvent.click(screen.getByRole('button', {name: /reset/i}));
+
+        const withinBasketsResults = within(screen.getByTestId('basket-results'));
+
+        await withinBasketsResults.findAllByText('£0');
+
+        expect(history.entries).toHaveLength(3);
+        expect(history.location.pathname).toEqual('/basket/');
+    });
 });
 
 const getCalculationMock = () => {
