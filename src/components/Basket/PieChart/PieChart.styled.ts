@@ -23,7 +23,7 @@ export const StyledResultDetails = styled(NumberFormat)`
 export const StyledStockSquare = styled.div`
     height: 15px;
     width: 15px;
-    background-color: hsl(41, 100%, 58%);
+    background-color: hsl(208, 100%, 50%);
 `;
 export const StyledBondsSquare = styled.div`
     height: 15px;
@@ -33,7 +33,7 @@ export const StyledBondsSquare = styled.div`
 export const StyledCashSquare = styled.div`
     height: 15px;
     width: 15px;
-    background-color: hsl(208, 100%, 50%);
+    background-color: hsl(41, 100%, 58%);
 `;
 
 export const MainTitle = styled.h2`
