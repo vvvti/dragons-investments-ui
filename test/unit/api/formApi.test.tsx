@@ -8,12 +8,12 @@ import {currencyForm} from '../../../src/helpers/constants';
 
 jest.mock('../../../src/api/rest/axios');
 
-describe('dogApi', () => {
+describe('formApi', () => {
     beforeEach(() => {
         mocked(axios.get).mockResolvedValue('getMock');
     });
 
-    it('calls request for dogs list and passes response', async () => {
+    it('calls request for calculator and passes response', async () => {
         mocked(axios.get).mockResolvedValue({data: 'getDataMock'});
         const data = {
             initialValue: 1000,
