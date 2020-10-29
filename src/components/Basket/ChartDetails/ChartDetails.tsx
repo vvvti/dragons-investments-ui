@@ -27,7 +27,7 @@ export const ChartDetails: React.FC<FinalResults> = ({...basketResults}) => {
             break;
     }
     return (
-        <ResultsWrapper>
+        <ResultsWrapper data-testid={'basket-results'}>
             <SummaryResults>
                 Summary for
                 <StyledText>

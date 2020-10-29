@@ -2,7 +2,7 @@ import React from 'react';
 import {StyledFormComponent} from './App.styles';
 import {GlobalStyle} from './styles/GlobalStyles';
 import Navbar from './components/Navbar/Navbar';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Route, Router, Switch} from 'react-router-dom';
 import {AboutPage} from './components/SubPages/AboutPage';
 import {FaqPage} from './components/SubPages/FaqPage';
 import {BasketPage} from './components/SubPages/BasketPage';
@@ -10,10 +10,12 @@ import {ContactPage} from './components/SubPages/ContactPage';
 import {NotFoundPage} from './components/SubPages/NotFoundPage';
 import {OfferPage} from './components/SubPages/OfferPage/OfferPage';
 import {ROUTES} from './helpers/routes';
+import {createBrowserHistory} from 'history';
 
 export const App = () => {
+    const history = createBrowserHistory();
     return (
-        <Router>
+        <Router history={history}>
             <Navbar />
             <GlobalStyle />
             <Switch>
