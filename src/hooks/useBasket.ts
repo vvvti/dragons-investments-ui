@@ -2,10 +2,9 @@ import {useCallback, useState} from 'react';
 import {DEFAULT_BASKET_RESULTS, riskBasket} from '../helpers/constants';
 import {BasketFormValues, FinalResults} from '../helpers/types';
 import {useHistory, useParams} from 'react-router';
-import {getBasketResults, postBasketResults} from '../api/basketApi';
+import {getBasketResults, postBasketResults, putBasketResults} from '../api/basketApi';
 
 export const useBasket = () => {
-    const [isError, setIsError] = useState<boolean>(false);
     const [basketResults, setBasketResults] = useState<FinalResults>(DEFAULT_BASKET_RESULTS);
     const {id} = useParams();
     const history = useHistory();
@@ -15,12 +14,9 @@ export const useBasket = () => {
     };
 
     const fetchSavedResults = useCallback(async id => {
-        try {
-            const response = await getBasketResults(id);
-            setBasketResults(response.data);
-        } catch {
-            setIsError(true);
-        }
+        const response = await getBasketResults(id);
+        setBasketResults(response.data);
+        console.log('GET', response.data);
     }, []);
 
     const fetchBasketResults = useCallback(
@@ -43,28 +39,24 @@ export const useBasket = () => {
                     newValues.riskType = 'VERY_CONSERVATIVE';
                     break;
             }
-
-            try {
-                if (id) {
-                    const response = await getBasketResults(id);
-                    setBasketResults(response.data);
-                } else {
-                    const response = await postBasketResults(newValues);
-                    setBasketResults(response.data);
-                    const location = {
-                        pathname: `/basket/${response.data.id}`,
-                    };
-                    history.push(location);
-                }
-            } catch {
-                setIsError(true);
+            if (id) {
+                const response = await putBasketResults(id, newValues);
+                setBasketResults(response.data);
+                console.log('PUT', response.data);
+            } else {
+                const response = await postBasketResults(newValues);
+                setBasketResults(response.data);
+                console.log('POST', response.data);
+                const location = {
+                    pathname: `/basket/${response.data.id}`,
+                };
+                history.push(location);
             }
         },
         [history, id],
     );
 
     return {
-        isError,
         basketResults,
         fetchBasketResults,
         resetResults,

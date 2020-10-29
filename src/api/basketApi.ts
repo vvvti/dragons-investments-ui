@@ -8,3 +8,7 @@ export const getBasketResults = (id: string) => {
 export const postBasketResults = (newValues: BasketFormValues) => {
     return axios.post(`/api/basket`, newValues);
 };
+
+export const putBasketResults = (id: string, newValues: BasketFormValues) => {
+    return axios.put(`/api/basket`, newValues);
+};
