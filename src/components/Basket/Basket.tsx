@@ -100,7 +100,7 @@ export const BasketComponent: React.FC = () => {
                                 <SubmitContainer>
                                     {/*{!id && (*/}
                                     <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
-                                        {id ? 'Get Calculation' : 'Save Calculation'}
+                                        {id ? 'Update Calculation' : 'Save Calculation'}
                                     </Button>
                                     {/*)}*/}
                                     <StyledLink
