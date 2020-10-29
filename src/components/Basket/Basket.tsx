@@ -1,7 +1,7 @@
 import {Button, MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
-import React from 'react';
+import React, {useEffect} from 'react';
 // variables imports
 import {CurrencyBasket, INITIAL_BASKET_FORM_VALUES, MARKSBASKET} from '../../helpers/constants';
 import {BasketFormValues} from '../../helpers/types';
@@ -30,9 +30,13 @@ import {useHistory, useParams} from 'react-router';
 import {CopyButton} from './CopyButton/CopyButton';
 
 export const BasketComponent: React.FC = () => {
-    const {basketResults, fetchBasketResults, resetResults} = useBasket();
+    const {basketResults, fetchBasketResults, resetResults, fetchSavedResults} = useBasket();
     const {id} = useParams();
     const history = useHistory();
+
+    useEffect(() => {
+        fetchSavedResults(id);
+    }, [fetchSavedResults, id]);
 
     const refreshPage = () => {
         const location = {
