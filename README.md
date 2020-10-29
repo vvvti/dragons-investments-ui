@@ -2,7 +2,7 @@
 
 -   SIT - https://dragons-investments-ui.ersa-team.sit.fintechchallenge.pl/
 -   UAT - https://dragons-investments-ui.ersa-team.uat.fintechchallenge.pl/
--   PROD - https://dragons-investments-ui.ersa-team.prod.fintechchallenge.pl/
+-   PROD - https://dragons-investments-ui.ersa-team.fintechchallenge.pl/
 
 ## DESCRIPTION
 
