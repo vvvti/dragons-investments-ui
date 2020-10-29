@@ -39,11 +39,11 @@ export const useBasket = () => {
                     newValues.riskType = 'VERY_CONSERVATIVE';
                     break;
             }
+
+            console.log('ID', id);
             if (id) {
                 newValues.id = id;
 
-                console.log('PUT', newValues);
-                console.log('ID', id);
                 const response = await putBasketResults(id, newValues);
                 setBasketResults(response.data);
             } else {
