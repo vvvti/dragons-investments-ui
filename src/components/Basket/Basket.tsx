@@ -98,11 +98,11 @@ export const BasketComponent: React.FC = () => {
                                 </StyledSlider>
                                 <RiskDetails riskValue={values.riskType} />
                                 <SubmitContainer>
-                                    {!id && (
-                                        <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
-                                            {id ? 'Get Calculation' : 'Save Calculation'}
-                                        </Button>
-                                    )}
+                                    {/*{!id && (*/}
+                                    <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
+                                        {id ? 'Get Calculation' : 'Save Calculation'}
+                                    </Button>
+                                    {/*)}*/}
                                     <StyledLink
                                         to="/basket/"
                                         onClick={() => {
