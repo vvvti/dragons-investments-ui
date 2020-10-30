@@ -17,7 +17,7 @@ describe('<Home/>', () => {
 
         await withinInvestmentsResults.findByText('£1,025.54');
 
-        // we are sure we can check that axios.get has been called after we found '£1,025.54' on the screen :)
+        // we are sure we can check that axios.get has been called after we found '£1,025.54' on the screen
         expect(axios.get).toHaveBeenCalledWith('/calculator', {
             params: {
                 initialValue: 1000,
