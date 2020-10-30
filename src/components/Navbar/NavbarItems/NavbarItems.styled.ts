@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {colors} from '../../../styles/theme';
 const activeClassName = 'active';
 
-export const StyledNavigationItems = styled.ul`
+export const StyledNavbarItems = styled.ul`
     display: flex;
     align-items: center;
     text-transform: uppercase;

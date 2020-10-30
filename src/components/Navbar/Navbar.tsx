@@ -1,7 +1,7 @@
 import React from 'react';
 import dragonImage from '../../assets/dragon-eye.png';
 import {Logo, StyledNavbar, StyledTitleLink} from './Navbar.styled';
-import NavbarItems from './NavbarItems/NavbarItems';
+import {NavbarItems} from './NavbarItems/NavbarItems';
 
 export const Navbar = () => {
     return (
