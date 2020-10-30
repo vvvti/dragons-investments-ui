@@ -17,6 +17,9 @@ you to choose the optimal product.
 -   React
 -   Creat-react-app
 -   React Router
+-   Typescript
+-   Jest
+-   Testing-library
 -   HTML
 -   CSS
 -   JavaScript ES6+
@@ -25,9 +28,15 @@ you to choose the optimal product.
 
 ### DEMO
 
-![usage gif](https://github.com/oskarwoj/FinTech/blob/main/usage.gif?raw=true)
+#### Calculator
 
-## Available Scripts
+![usage gif](https://github.com/oskarwoj/readme-calculator/blob/main/loading-form.gif?raw=true)
+
+#### Basket
+
+![usage gif](https://github.com/oskarwoj/readme-calculator/blob/main/loading-basket.gif?raw=true)
+
+## Available Scripts!
 
 In the project directory, you can run:
 
