@@ -1,10 +1,10 @@
 import React from 'react';
 import {ROUTES} from '../../../helpers/routes';
-import {StyledLink, StyledNavigationItems} from './NavbarItems.styled';
+import {StyledLink, StyledNavbarItems} from './NavbarItems.styled';
 
-const NavigationItems: React.FC = () => {
+export const NavbarItems: React.FC = () => {
     return (
-        <StyledNavigationItems>
+        <StyledNavbarItems>
             <StyledLink exact to="/">
                 Home
             </StyledLink>
@@ -13,8 +13,6 @@ const NavigationItems: React.FC = () => {
             <StyledLink to={ROUTES.ABOUT}>About</StyledLink>
             <StyledLink to={ROUTES.FAQ}>FAQ</StyledLink>
             <StyledLink to={ROUTES.CONTACT}>Contact</StyledLink>
-        </StyledNavigationItems>
+        </StyledNavbarItems>
     );
 };
-
-export default NavigationItems;
