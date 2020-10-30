@@ -2,7 +2,6 @@ import {Button, MenuItem, Select} from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
 import {Field, Formik} from 'formik';
 import React, {useEffect} from 'react';
-// variables imports
 import {CurrencyBasket, INITIAL_BASKET_FORM_VALUES, MARKSBASKET} from '../../helpers/constants';
 import {BasketFormValues} from '../../helpers/types';
 import {useBasket} from '../../hooks/useBasket';
@@ -98,7 +97,6 @@ export const BasketComponent: React.FC = () => {
                                 </StyledSlider>
                                 <RiskDetails riskValue={values.riskType} />
                                 <SubmitContainer>
-                                    {/*{!id && (*/}
                                     <Button
                                         data-testid={'reset-results'}
                                         variant="contained"
@@ -108,7 +106,6 @@ export const BasketComponent: React.FC = () => {
                                     >
                                         {id ? 'Update Calculation' : 'Save Calculation'}
                                     </Button>
-                                    {/*)}*/}
                                     <StyledLink
                                         to="/basket/"
                                         onClick={() => {
@@ -122,7 +119,6 @@ export const BasketComponent: React.FC = () => {
                                     </StyledLink>
                                 </SubmitContainer>
                             </FormContainer>
-                            {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         </StyledMain>
                         <CopyButton {...basketResults} />
                     </div>

@@ -17,7 +17,7 @@ describe('<Basket/>', () => {
 
         await withinBasketsResults.findByText('£4,226.83');
 
-        // we are sure we can check that axios.post has been called after we found '$4,226.83' on the screen :)
+        // we are sure we can check that axios.post has been called after we found '$4,226.83' on the screen
         expect(axios.post).toHaveBeenCalledWith('/basket', {
             id: '',
             basketValue: 1000,

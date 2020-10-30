@@ -42,10 +42,8 @@ export const useBasket = () => {
             }
 
             if (id) {
-                console.log(newValues);
                 const response = await putBasketResults(id, newValues);
                 setBasketResults(response.data);
-                console.log('fina', response.data);
             } else {
                 const response = await postBasketResults(newValues);
                 setBasketResults(response.data);

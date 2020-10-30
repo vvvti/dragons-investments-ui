@@ -4,7 +4,6 @@ import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import {Field, Formik} from 'formik';
 import React from 'react';
 import {NumberFormatValues} from 'react-number-format';
-// variables imports
 import {currencyForm, INITIAL_FORM_VALUES, MARKSDURATION, MARKSINITIAL, MARKSMONTHLY, MARKSPROFIT} from '../../helpers/constants';
 import {FormValues} from '../../helpers/types';
 import {useResults} from '../../hooks/useResults';
@@ -46,7 +45,6 @@ export const FormComponent: React.FC = () => {
             {({values, setFieldValue, errors, isSubmitting, isValid}) => (
                 <StyledForm>
                     <StyledResults>
-                        {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
                         <Results {...results} />
                         <Button variant="contained" type="submit" color="primary" disabled={!isValid || isSubmitting}>
                             {isSubmitting ? 'Loading...' : 'Submit'}
