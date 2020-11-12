@@ -257,3 +257,5 @@ export const basketDetails: basketTypes = {
         },
     },
 };
+
+export const LENDINGPAGE = 'https://dragons-lending.ersa-team.sit.fintechchallenge.pl/';
