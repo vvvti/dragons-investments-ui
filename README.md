@@ -33,6 +33,7 @@ you to choose the optimal product.
 ![usage gif](https://github.com/oskarwoj/readme-calculator/blob/main/loading-basket.gif?raw=true)
 
 <br>
+
 ## Available Scripts
 
 In the project directory, you can run:
